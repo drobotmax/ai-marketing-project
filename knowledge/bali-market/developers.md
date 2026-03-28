@@ -11,11 +11,13 @@ Profiles of developers active in the Bali market as of Q1 2026, sourced from "Б
 **Leasehold range:** 28 years to 90 years (Sunny Samudra)
 **Availability spreadsheet:** [SDG Sales Sheet](https://docs.google.com/spreadsheets/d/12BLaCyooz__PqXLXL8oj07WS4r3RtKnj1-Kkz8EbfTg/edit)
 **Key feature:** Large inventory, various price points, long leasehold options
+**Mityuhin assessment:** Mid-tier in 53-developer ranking. No major scandals but no standout quality either.
 
 ---
 
 ## Fund Bridge (Surfside)
 
+**Mityuhin assessment:** Not in top tier. Single-project developer, unproven long-term track record.
 **Type:** Premium developer, single project
 **Parent company:** bridge.ru (Russian-backed)
 **Legal entity:** PT Fund Bridge Indonesia
@@ -44,6 +46,7 @@ Profiles of developers active in the Bali market as of Q1 2026, sourced from "Б
 
 ## BIOM Development Group
 
+**Mityuhin assessment:** RELIABLE. Part of Nuanu ecosystem, quality control via Jejak group. Connected to Potato Head. On Mityuhin's trusted list.
 **Type:** Lifestyle/community developer
 **Founders:** Sergey Solonin (Nuanu co-founder), Rustam Kerimov (architect), Andrey Sutormin (CEO)
 **Location:** Nyanyi, Bali (part of Nuanu Creative City, 44 ha)
@@ -71,6 +74,7 @@ Profiles of developers active in the Bali market as of Q1 2026, sourced from "Б
 
 ## Teus Group (Wyndham Projects)
 
+**Mityuhin assessment:** RELIABLE. On trusted list. 15 years with Wyndham. Family business gone international. Scores: reliability 7/10, profitability 5.5/10 (Omani Melasti).
 **Type:** International developer (Ukraine-founded)
 **Founded:** 1943 (Kharkiv), 100,000 m2/year in Ukraine
 **Commission:** 20%
@@ -114,6 +118,7 @@ Profiles of developers active in the Bali market as of Q1 2026, sourced from "Б
 
 ## OceaniQ (PT OCEANIQ VIEW VILLAS)
 
+**Mityuhin assessment:** CAUTION. Premium positioning justified, but ROI claims of 15-20% questioned by subscribers and Mityuhin. Award-winning design does not equal proven returns.
 **Type:** Premium villa developer
 **Location:** Nusa Dua (first line, 80m from beach)
 **Projects:** Nusa Dua I, Nusa Dua II, Nusa Penida (new)
@@ -134,6 +139,7 @@ Profiles of developers active in the Bali market as of Q1 2026, sourced from "Б
 
 ## Sansara Development (formerly Ecolit)
 
+**Mityuhin assessment:** Mid-tier. Rebranded from Ecolit. 8% guaranteed yield is reasonable claim. Short leasehold (24 yrs) is a weakness. In-house management (no international operator).
 **Type:** Community developer (rebranded from Ecolit)
 **Project:** Pandawa Residence - premium complex in Bali
 - 64 villas + 91 apartments
@@ -186,6 +192,7 @@ Profiles of developers active in the Bali market as of Q1 2026, sourced from "Б
 
 ## OXO Living
 
+**Mityuhin assessment:** TOP TIER. Best management company reputation on Bali. Premium quality benchmark. The Bank - freehold $830K, 8-11% ROI. On Mityuhin's trusted list.
 **Type:** Property management + development
 **Agent portal:** [Notion](https://oxoliving.notion.site/AGENTS-2262fa4a3dd98042a3a1ce48af5755bc)
 **Note:** Portal requires browser access (Notion JS-rendered). Contains property listings for agents.
@@ -210,6 +217,7 @@ Profiles of developers active in the Bali market as of Q1 2026, sourced from "Б
 
 ## Predmet
 
+**Mityuhin assessment:** TOP TIER. Mityuhin personally bought a villa here. Own prefab factory, full leasehold warranty, longest term on market (47 yrs). On trusted list.
 **Type:** Small focused developer with own construction factory
 **Project:** Kaba Village (Kaba-Kaba area)
 **Products:** 2BR villas from $250,000
@@ -225,6 +233,7 @@ Profiles of developers active in the Bali market as of Q1 2026, sourced from "Б
 
 ## Bali Baza
 
+**Mityuhin assessment:** CAUTION. Largest Russian developer but Sunset Village = scandal. Overextended with too many simultaneous projects. Origins Nuanu slow sales. Company restructured after scandal.
 **Type:** Largest Russian developer on Bali
 **Scale:** 500+ units across projects
 **Projects:**
@@ -239,6 +248,7 @@ Profiles of developers active in the Bali market as of Q1 2026, sourced from "Б
 
 ## Alex Villas
 
+**Mityuhin assessment:** MIXED. Scores: reliability 8.5/10, profitability 5.5/10 (Complex 7); reliability 7.5/10, profitability 6/10 (Complex 8 Melasti). 10 years track record but Complex 6 delayed, Complex 7 prices -20%, Complex 8 no PBG after 1.5 years.
 **Type:** Volume developer, vertically integrated
 **Experience:** 10 years on Bali, 9 complexes
 **Infrastructure:** Own concrete factory + furniture factory
@@ -260,6 +270,7 @@ Profiles of developers active in the Bali market as of Q1 2026, sourced from "Б
 
 ## Loyo & Bondar
 
+**Mityuhin assessment:** Mid-to-positive. 12 projects, 4 delivered on time, own factories. Aggressive growth (1000+ units target). Stay-tested. Some black PR from competitors. Marriott certification is a plus.
 **Type:** Volume developer, vertically integrated
 **Scale:** 12 projects total, 4 delivered on time
 **Infrastructure:** Own construction company + 2 factories
@@ -280,6 +291,7 @@ Profiles of developers active in the Bali market as of Q1 2026, sourced from "Б
 
 ## HQC (High Quality Construction)
 
+**Mityuhin assessment:** Mid-tier, growing fast. Accor partnership NOT signed yet (franchise model). Rapid growth raises questions. Returns 100% to dissatisfied investors (positive signal).
 **Type:** Mid-tier developer
 **Founded:** 2+ years ago
 **Founder:** Dmitry (19 years construction experience in Russia)
@@ -310,6 +322,7 @@ Profiles of developers active in the Bali market as of Q1 2026, sourced from "Б
 
 ## White Development (NAI)
 
+**Mityuhin assessment:** Innovative. FIRST escrow accounts on Bali (Mandiri bank) - major trust signal. Medical infra is complex and risky. Accepts crypto via Indodax.
 **Type:** Developer with medical wellness focus
 **Founded:** 2023
 **First project:** Cassandra 1 (Sanur)
@@ -327,6 +340,7 @@ Profiles of developers active in the Bali market as of Q1 2026, sourced from "Б
 
 ## Arhastet / White Palm
 
+**Mityuhin assessment:** TOP TIER. Best finish quality on entire Bali market. German windows, water purification. Higher quality than OXO and Leaven by finish standards. On trusted list.
 **Type:** Premium boutique developer
 **Location:** Canggu
 **Projects:** White Palm, Merkestead Villas
@@ -338,6 +352,7 @@ Profiles of developers active in the Bali market as of Q1 2026, sourced from "Б
 
 ## Leaven / Liven
 
+**Mityuhin assessment:** TOP TIER. Stay-test 9-10/10 - best on Bali. Exceptional management: welcome drinks, aroma robes, anti-monkey locks, "every detail chosen consciously." On trusted list.
 **Type:** Premium segment developer
 **Location:** Uluwatu
 **Stay-test rating:** 9-10/10
@@ -348,6 +363,7 @@ Profiles of developers active in the Bali market as of Q1 2026, sourced from "Б
 
 ## Tomora Access
 
+**Mityuhin assessment:** RELIABLE. Scores: reliability 8/10, profitability 6.5/10. Most experienced Indonesian developer. Weakness: marketing. On trusted list.
 **Type:** Most experienced Indonesian developer on Bali
 **Location:** Uluwatu
 **Reliability:** 8/10 (Mityuhin rating)

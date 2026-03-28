@@ -133,11 +133,31 @@ When creating marketing content, reference these data points:
 
 ## Competitive Landscape
 
-See [developers.md](developers.md) for detailed profiles. Key players:
-- **SDG (Sunny Development Group)** - 10+ projects, volume player
-- **Fund Bridge (Surfside)** - premium Uluwatu, Russian-backed
-- **BIOM / Nuanu ecosystem** - lifestyle/creative city concept
-- **Sansara Development** - Pandawa Residence, upcoming Solvyn City
-- **OceaniQ** - Nusa Dua premium, award-winning
+See [developers.md](developers.md) for detailed profiles with Mityuhin reliability assessments.
+
+### Mityuhin's Trusted Developers (from 53-company ranking)
+- **OXO** - TOP TIER, best management reputation, premium benchmark
+- **Leaven/Liven** - TOP TIER, stay-test 9-10/10, best management details
+- **Arhastet/White Palm** - TOP TIER, best finish quality (German windows)
+- **Predmet** - TOP TIER, own factory, Mityuhin bought a villa here
+- **Teus Group/Wyndham** - RELIABLE, 15 years with Wyndham, reliability 7/10
+- **BIOM** - RELIABLE, Nuanu ecosystem, quality control via Jejak
+- **Tomora Access** - RELIABLE, most experienced Indonesian developer, reliability 8/10
+
+### Caution / Red Flags
+- **PARQ/Domogatsky** - WORST (53/53), green zone, no permits, criminal charges
+- **SWOI** - FROZEN project, $2.5M stuck from 20 investors
+- **Bali Capital Group** - 50/53, expensive with quality questions
+- **Kup** - 51/53, construction stopped
+- **Bali Baza** - Sunset Village scandal, overextended
+
+### Other Key Players
+- **SDG** - 10+ projects, volume player, mid-tier
+- **Fund Bridge (Surfside)** - premium Uluwatu, single project, unproven long-term
+- **Sansara Development** - mid-tier, 8% yield reasonable, short leasehold
+- **OceaniQ** - Nusa Dua premium, ROI claims of 15-20% QUESTIONED
+- **Alex Villas** - MIXED, reliability 8.5/10 but profitability 5.5/10, price drops
 - **Blackpoint** - agency/marketplace, not developer (see [blackpoint-listings.md](blackpoint-listings.md))
-- **Wyndham** - hotel operator on Amani Melasti and Ramada projects
+
+### Key Pattern (from 32 Mityuhin videos)
+"Good property + terrible management company = bad investment." Management quality is the #1 differentiator for actual ROI. See stay-test results in [market-insights-mityuhin.md](market-insights-mityuhin.md).

@@ -93,6 +93,15 @@ Data sourced from YouTube reviews and independent analyses (not developer market
 
 **Key takeaway:** Developer claims of 15-20% ROI are typically inflated. Real passive returns with management company are 8-10%. The gap between claimed and real ROI is 5-10 percentage points.
 
+### Management impact on ROI (from Mityuhin stay-tests)
+- **"Good property + terrible management = bad investment"** - management matters MORE than build quality
+- Management companies take 20-25% of rental income (some up to 30%)
+- Self-management yields 30-50% more but requires physical presence on Bali
+- **Leaven/Liven** set benchmark: stay-test 9-10/10 - welcome experience, aromas, anti-monkey locks, every detail matters
+- Most projects have poor soundproofing - key differentiator for guest reviews
+- Sliding door quality varies hugely across projects - impacts guest satisfaction
+- **Villas yield 2-3% more than apartments** but require more management effort
+
 ### Additional project pricing (transcript-verified, March 2026)
 | Project | Price/Details | Source |
 |---------|--------------|--------|
@@ -116,16 +125,19 @@ Data sourced from YouTube reviews and independent analyses (not developer market
 
 ---
 
-## ROI Benchmarks (Developer Projections)
+## ROI Benchmarks: Developer Claims vs Mityuhin Reality Check
 
-| Project | Claimed ROI | Notes |
-|---------|------------|-------|
-| OceaniQ | 15-20% | Premium Nusa Dua |
-| BIOM | 12-14% | + 40% capital appreciation |
-| Ecoverse | 11.3-15.2% | Nuanu ecosystem |
-| Surfside | 9.5-14.5% | Uluwatu, 250m from beach |
+| Project | Developer Claim | Mityuhin Assessment | Mityuhin Tier |
+|---------|----------------|-------------------|---------------|
+| OceaniQ | 15-20% | QUESTIONED - 15%+ practically impossible | CAUTION |
+| BIOM | 12-14% + 40% cap. appreciation | Part of Nuanu ecosystem, quality control | RELIABLE |
+| Ecoverse | 11.3-15.2% | Within Nuanu, reasonable range | - |
+| Surfside | 9.5-14.5% | Single-project developer, unproven | Not in top tier |
+| Pandawa Residence | 8% guaranteed 2 yrs | Reasonable, verified | Mid-tier |
+| NAI Medical | 8% during + 10% guaranteed 2 yrs | Innovative (first escrow), but medical complexity is risky | - |
+| Alex Villas | 10-14%, up to 20% | Profitability only 5.5/10. Complex 7 prices dropped 20% | MIXED |
 
-**Important:** These are developer projections, not guaranteed returns. Actual ROI depends on occupancy, management quality, and market conditions. See "Real ROI Benchmarks" section above for transcript-verified reality check.
+**Reality check (Mityuhin):** Developer claims of 15-20% ROI are consistently overstated. Real passive returns with management company are 8-10%. 15%+ is a RED FLAG. Actual ROI depends on occupancy, management quality, and market conditions.
 
 ## Payment Terms (Common Patterns)
 

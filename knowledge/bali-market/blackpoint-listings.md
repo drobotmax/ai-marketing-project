@@ -3,7 +3,7 @@
 Source: Telegram channel "Blackpoint | Marketplace" (@Blackpoint_group)
 Updated: March 2026
 
-Blackpoint is a **real estate agency** (not developer) curating properties from various developers and resellers.
+Blackpoint is a **real estate agency** (not developer) curating properties from various developers and resellers. Founded by Alexandr Mityuhin - also runs YouTube channel with 32 video reviews and 53-developer ranking. Cross-reference developer ratings from [market-insights-mityuhin.md](market-insights-mityuhin.md) and [developers.md](developers.md) when evaluating listings below.
 
 ## Ready Properties (Available Now)
 
@@ -16,21 +16,21 @@ Blackpoint is a **real estate agency** (not developer) curating properties from 
 | 3 | Canggu, Berawa | 3 | 156 | 100 | $299,000 | **Freehold** | Furnished, balcony views, 1 min to market |
 | 4 | Ubud | 3 | 200 | 600 | $435,000 | 25 yrs | Jungle + rice field views, gated, extension at fixed 3M IDR/yr |
 | 5 | Seseh | 2 | 123.5 | 186.4 | $245,000 | 28 yrs | 3 min from beach, pool 14m2, furnished |
-| 6 | Nuanu | 2 | 160 | 300 | $460,000 | 33+ yrs | OXO managed, rice field views, near main entrance |
+| 6 | Nuanu | 2 | 160 | 300 | $460,000 | 33+ yrs | OXO managed (TOP TIER management per Mityuhin), rice field views, near main entrance |
 | 7 | Kaba-Kaba | 4 | 291 | 780 | $695,000 | 29+30 yrs | Rice field views, pool 19m2, 8 min to Kedungu beach |
 
 ### Apartments
 
 | # | Location | BR | m2 | Price | Leasehold | Highlights |
 |---|----------|-----|-----|-------|-----------|------------|
-| 1 | Canggu, Berawa | 1 | 80 | $140,000 | 23+ yrs | Alex Villas Complex N5, pool, spa, gym, 5 min to beach |
+| 1 | Canggu, Berawa | 1 | 80 | $140,000 | 23+ yrs | Alex Villas Complex N5, pool, spa, gym, 5 min to beach. **Developer: reliability 8.5/10, profitability 5.5/10 (Mityuhin)** |
 
 ### Townhouses
 
 | # | Location | BR | m2 | Price | Leasehold | Highlights |
 |---|----------|-----|-----|-------|-----------|------------|
 | 1 | Umalas | 2 | 142 | $250,000 | 23+ yrs | Rice field views, rooftop, pool 2x4m, 10 min to beach |
-| 2 | Umalas (Nexa) | 3 | 127 | $209,000 | 21+15 yrs | $81K below developer price (promo until end March 2026), tennis, spa |
+| 2 | Umalas (Nexa) | 3 | 127 | $209,000 | 21+15 yrs | $81K below developer price (was $290K = -28% drop), tennis, spa. **Nexa price drop signals market correction.** |
 
 ### Loft Villas
 
@@ -71,6 +71,19 @@ Blackpoint is a **real estate agency** (not developer) curating properties from 
 | Ubud (Sayan) | 1,100 | 8M IDR | 29 yrs | Pink (Tourism) | - |
 | Ubud | 2,700 | 7M IDR | 27+ yrs | Yellow | Full infrastructure ready, PBG filed, project for 10 villas |
 | Canggu (Buduk) | 700 | 11M IDR | 24+ yrs | Yellow | Rice field views, private road |
+
+## Developer Reliability Quick Reference (Mityuhin ratings)
+
+For listings above, cross-reference these ratings from [developers.md](developers.md):
+
+| Developer | Mityuhin Tier | Key Note |
+|-----------|--------------|----------|
+| Alex Villas | MIXED | Reliability 8.5/10, profitability 5.5/10. Complex 7 prices -20% |
+| OXO | TOP TIER | Best management reputation, premium quality benchmark |
+| Sansara | Mid-tier | 8% guaranteed reasonable, short leasehold |
+| Nexa | - | Price dropped 28% - market correction signal |
+
+For full 53-developer ranking see [market-insights-mityuhin.md](market-insights-mityuhin.md).
 
 ## Events
 
