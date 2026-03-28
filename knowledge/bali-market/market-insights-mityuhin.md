@@ -1,5 +1,7 @@
 # Market Insights - Alexandr Mityuhin Channel
 
+**Updated with transcript analysis (9 videos deep-analyzed, March 2026)**
+
 Source: YouTube [@alexandrmityuhin](https://www.youtube.com/@alexandrmityuhin) - Bali real estate broker/analyst, founder of Blackpoint agency
 30 videos analyzed (Jun 2025 - Mar 2026), 550-19,600 views each
 
@@ -21,37 +23,63 @@ Source: YouTube [@alexandrmityuhin](https://www.youtube.com/@alexandrmityuhin) -
 - Multiple projects missed delivery deadlines (Alex Villas Complex 6, Origins Nuanu)
 - Growing skepticism about ROI claims vs actual performance
 - "Is 15% ROI real or just marketing?" - recurring question
+- **Rental yields dropped 18% year-over-year** (QOKqoXKaCeQ)
+- **Listings on platforms grew +27%** - supply outpacing demand
+- Tourist arrivals +9% but spending per tourist declining
+- Buyer psychology shift: from "buy anything in Bali = profit" to careful selection
+- Market cooling: fewer impulse buyers, more due diligence
+- Key quote from Mityuhin: "Рынок становится более зрелым, дилетанты уходят"
 
 ### 2. Airbnb & Rental Regulation
 - New licensing rules: deadline March 31, 2026
-- Properties without NIB/OSS removed from platforms
+- Properties without NIB removed from platforms, but enforcement patchy (QOKqoXKaCeQ)
 - Self-managed rentals vs management companies: ongoing debate
 - Licensed operators gain competitive advantage
 - Risk: investors who rented informally face disruption
+- **Management companies take 20-25% commission**, some up to 30%
+- **Self-management yields 30-50% more** than management company but requires presence
+- **Construction cost benchmark: $1,500/m2** for quality build
 
 ### 3. Developer Reliability Varies Hugely
 **Reviewed developers (with insights):**
 
 | Developer | Key Insight from Channel |
 |-----------|------------------------|
-| Alex Villas | Most viewed video (5.3K). Complex 6 delays, ROI penalties. Complex 7 prices dropped 20%. Expanding to Melasti (Complex 9). Leasehold issues. |
+| Alex Villas | Most viewed video (5.3K). Complex 6 delays confirmed, penalty ROI paid. Complex 7 prices dropped 20% post-launch. Expanding to Melasti (Complex 9). Leasehold issues. |
 | PARQ/Domogatsky | SCANDAL: lawsuit, Guzeeva case, 19.6K views (biggest video). Ubud project conflict with locals, AMDAL violations. Reputation damage to entire Bali market. |
 | SWOI | Project FROZEN. Investors stuck. Garden project halted, money not returned. Attempting restart. 3.2K views. |
-| Bali Baza | Sunset Village = problematic. Origins Nuanu slow sales. Kedungu potential unclear. |
-| Sansara (Pandawa) | Rebranding concerns. Marketing questioned. No big track record but building. |
-| Predmet | Kaba-Kaba Village: good presale. Own factory. Warranty for full leasehold. Concrete aesthetic. |
+| Bali Baza | Largest Russian developer on Bali. 500+ units across projects. Sunset Village = SCANDAL (delays, investor complaints, quality issues). Origins Nuanu: $4,500-5,000/m2, Dusit as hotel operator. Kedungu potential unclear. Problem: too many projects simultaneously, management stretched thin. Company restructuring after Sunset Village. |
+| Sansara (Pandawa) | Rebranded from Ecolit. Pandawa Residence: 64 villas + 91 apartments, 70% sold. 8% guaranteed yield first 2 years. 24-year leasehold extendable to 49. Location: Pandawa beach (Bukit). Concerns: short track record, marketing-heavy. Positives: good location, reasonable pricing, clear financial model. In-house management, not international operator. |
+| Predmet | Kaba-Kaba Village: 47-year leasehold (longest on market for new projects). $250K for 2BR villa. 17% management fee. Own construction factory (prefab elements). Warranty covers full leasehold term. Concrete/industrial aesthetic. Small focused developer (unlike Baza with too many projects). |
 | Vibe Development (NAI) | First escrow in Bali. Medical resort Nusa Dua. Risk: medical infra complexity. |
-| Loyo & Bondar | 1000 units in construction. Co-development model. 3 projects simultaneously - capacity concern. Black PR from competitors. Plans for SEA expansion. |
+| Loya/Bondar | 1000+ units in construction. Co-development model. 3 projects simultaneously - capacity concern raised by subscribers. Black PR from competitors. Plans for SEA expansion. |
 | HQC | Ardhana, Bloom, Satori projects. Partnership with Accor (not yet signed). 8% guaranteed yield on Bloom. Rapid growth raises questions. |
-| Teus Group | Amani Melasti + Ramada Nusa Dua. 15 years with Wyndham. Expanding to Maldives. Family business gone international. |
+| Teos Group | Amani Melasti + Ramada Nusa Dua. 15 years with Wyndham. Expanding to Maldives. Family business gone international. Considered reliable by Mityuhin. |
 | Anta Group | Medispa project near BVLGARI Resort. Freehold at $7K/m2 (premium). Ramada Encore in Canggu. |
 | OXO | The Bank - freehold $830K. Premium quality benchmark. Good management company reputation. |
 | BIOM | Nuanu ecosystem. Connected to Potato Head. $500K for top villas. Quality control via Jejak group. |
 | Nexa | Umalas townhouse dropped to $209K (was $290K) - 28% discount. |
 | Lyvin | Melasti reviewed in stay-test |
 | Almal | Dubai developer entering Bali. Short leasehold. Nusa Dua location "unlucky for developers." |
-| Breig | Edem 2 villas at $100K in Nusa Dua - but quality concerns: fake rooftop, "bath" instead of pool. |
+| BREIG | Edem 2 at $100K in Nusa Dua - quality concerns: "fake rooftop", "bath" instead of pool. Raised by channel subscribers as concern. |
 | Nuanu (Solonin) | Second most viewed (10.5K). PARQ Ubud rescue. Plans to build only 1/3 of land. New airport impact. |
+
+### Mityuhin's Reliable Projects List (from live Q&A, rTSUVF4FE7E)
+Projects explicitly named as reliable by Mityuhin:
+- **OXO** - premium quality benchmark, good management company reputation
+- **Teos Group** (Wyndham projects) - 15 years with Wyndham, family business
+- **BIOM** - Nuanu ecosystem, quality control via Jejak group
+- **Predmet** - own factory, focused approach, longest leasehold
+
+Key advice from Mityuhin: "Не вкладывайте больше чем готовы потерять" (don't invest more than you can afford to lose)
+
+### Key Red Flags Checklist (from tZkRtiuqETI)
+- No PBG (building permit)
+- Payment not tied to construction milestones
+- No refund clause for delays
+- Confiscation clause (developer keeping deposits)
+- No resale rights during construction
+- Apartments vs villas economics: villas yield 2-3% more but need more management
 
 ### 4. Leasehold Risks
 - Minimum acceptable leasehold: ~25 years
@@ -86,14 +114,24 @@ From "Разбор договоров" episode - critical contract points:
 - **Nuanu:** innovative but slow sales in some projects (Origins)
 
 ### 8. Legal Deep Dive: Ownership Forms
-From legal consultant Vasily Pronin episode + Solonin interview:
-- **Hak Sewa (Leasehold):** Most common for foreigners. Risk: landowner controls extension.
-- **HGB (Hak Guna Bangunan):** Right to build. Up to 30+20+30=80 years. Requires PT PMA. Cheaper on resale than Hak Pakai.
-- **Hak Pakai:** Right to use. For individuals, not just companies. 25+20+25=70 years.
+From legal consultant Vasily Pronin episode (slrOfnl5MPA) + Solonin interview:
+
+**Ownership types:**
+- **Hak Sewa (Leasehold):** Most common for foreigners. Simple lease, landowner controls extension.
+- **HGB (Hak Guna Bangunan):** Right to build. 30+20+30=80 years max. Via PT PMA. Cheaper on resale than Hak Pakai.
+- **Hak Pakai:** Right to use. For individuals. 25+20+25=70 years max.
 - **Freehold (via HGB):** Premium 30-50% over leasehold. OXO The Bank at $830K is benchmark.
-- **Key insight:** 90-year "freehold" from developers = HGB split into 30+30+30, legally not guaranteed beyond first term
-- **Inheritance:** HGB and Hak Pakai can be inherited if company structure maintained
+- **Key insight:** 90-year "freehold" from developers = actually HGB split 30+30+30, NOT guaranteed beyond first term
+- **Inheritance:** Both HGB and Hak Pakai inheritable if company structure maintained
 - **Remote processing:** Both HGB and Hak Pakai can be formalized remotely
+
+**Tax rates (from Pronin):**
+- Rental income tax: **10% for tax residents**, **20% for non-residents**
+- Freehold sale: **2.5% seller + 5% buyer (BPHTB)**
+
+**Costs:**
+- Hak Pakai registration: **13-15M IDR per sotka** (100m2)
+- PMA company setup: **$2,000 initial + $1,700-3,000/year** maintenance
 
 ### 9. Nuanu Creative City - Deep Insights
 From Solonin interview (10.5K views) + BIOM episode + Nuanu tour:
@@ -125,17 +163,53 @@ Critical risk intelligence:
 ### 12. Market Risks for 2026
 - Pyramid scheme risk - some projects may be unsustainable
 - Major developer failures possible (unnamed but hinted)
-- Iran/Middle East geopolitical impact on tourism
-- Oversupply in popular segments
+- Iran/Middle East conflict: tourism disrupted for Middle Eastern tourists, Russians unaffected (QOKqoXKaCeQ)
+- **Oversupply:** listings +27%, rental yields -18% YoY
 - "Too good to be true" pricing = due diligence required
 - Some developers building without full permits (PBG)
+- OceaniQ: premium positioning justified, but ROI claims of 15-20% questioned by subscribers
+- Black Sand Oasis: new project, insufficient track record
 
 ### 9. Investment Strategy Insights
 - **Budget $200K:** best options in Nusa Dua apartments or Balangan area
 - **Resale:** small % of investors actually resell at profit
 - **Presale vs ready:** presale cheaper but delivery risk
-- **Villas vs apartments:** villas higher yield but more management hassle
-- **Bali vs Thailand:** actively compared by investors
+- **Villas vs apartments:** villas yield 2-3% more but need more management
+- **Bali vs Thailand:** Thailand easier for foreigners legally, Bali better ROI
+- **Iran conflict impact:** tourism flow disrupted for Middle Eastern tourists, Russians unaffected
+
+### Real ROI vs Developer Claims (transcript-sourced benchmarks)
+
+| Scenario | Real ROI | Notes |
+|----------|----------|-------|
+| Developer marketing claims | 15-20% | Consistently overstated |
+| Ready villas with management company | **8-10%** | After 20-25% management commission |
+| Freehold + self-management | **10-12%** | Requires presence on Bali |
+| Self-development (buy land + build) | **14-16%** | Only for experienced investors |
+| Construction cost benchmark | $1,500/m2 | For quality build |
+
+**Key dynamics:**
+- Rental yields dropped 18% YoY while listings grew 27%
+- Self-management yields 30-50% more than management company
+- Management companies take 20-25% (some up to 30%)
+- Tourist arrivals +9% but per-tourist spending declining
+- Market maturing: amateur developers exiting
+
+### Blackpoint Ecosystem (from aAHHDexswWg, qF2cmJcwph0)
+
+**Blackpoint Marketplace:**
+- Telegram bot-based marketplace for Bali real estate
+- Aggregates listings from multiple developers
+- Free for buyers, commission from developers
+- Partnership program for agents (Blackpoint Partners)
+- Unique model: independent reviews + marketplace = trust
+
+**Investment Tours:**
+- $1,000 per person, 10 investors per group
+- 8 developers visited in one tour
+- Format: bus tour, meetings with developer reps, Q&A
+- Mityuhin acts as guide and critical evaluator
+- Goal: help investors compare projects side-by-side
 
 ## Developer Ratings (TWO comprehensive videos)
 

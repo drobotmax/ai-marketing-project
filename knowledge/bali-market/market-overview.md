@@ -9,6 +9,16 @@
 
 ## Market Dynamics
 
+### 2026 Market Dynamics (transcript-sourced: QOKqoXKaCeQ)
+- Rental yields dropped 18% YoY
+- Property listings on platforms grew +27%
+- Tourist arrivals +9% but spending per tourist declining
+- Market maturing: "дилетанты уходят" (amateurs leaving)
+- Fewer impulse buyers, more due diligence from investors
+- Investor sentiment shifted from "buy anything = profit" to careful selection
+- Iran conflict impact: Middle Eastern tourist flow disrupted, Russians unaffected
+- Construction cost benchmark: $1,500/m2 for quality builds
+
 ### Demand Drivers
 - Russian-speaking investors (primary audience for most developers)
 - European buyers (growing, especially for premium/wellness concepts)
@@ -20,6 +30,9 @@
 - **Shift toward managed properties:** hotel operators (Wyndham, etc.) increasingly attached to projects
 - **Nuanu Creative City:** major new development hub (~44 ha), attracting multiple developers
 - **Popular development areas:** Canggu (saturating), Uluwatu/Bukit (growing), Nusa Dua (established), Ubud (niche)
+- **Oversaturation signals:** listings growing faster than demand (+27% vs +9% tourists)
+- **Developer overextension:** multiple developers stretched thin (Bali Baza: 500+ units, Loyo & Bondar: 1000+ units)
+- **Price drops observed:** Alex Villas Complex 7 dropped 20%, Nexa Umalas dropped 28% ($290K to $209K)
 
 ### Risks & Concerns
 - **Oversupply risk** in popular areas (Canggu, Seminyak)
@@ -28,6 +41,10 @@
 - **Construction quality variance** - ranges from ISO-certified to informal
 - **Geopolitical factors** - Middle East tensions affecting tourism flows
 - **Currency risk** - IDR fluctuations vs USD pricing
+- **Trust crisis** - Domogatsky/PARQ scandal, SWOI frozen project, Sunset Village issues eroding investor confidence
+- **Investor caution** - "Не вкладывайте больше чем готовы потерять" (don't invest more than you can afford to lose) (src: rTSUVF4FE7E, tZkRtiuqETI)
+- **Thailand as alternative** - increasingly compared by investors (easier legal framework)
+- **Rental yield compression** - 18% YoY drop in yields across popular areas
 
 ## Market Segments
 
@@ -57,11 +74,15 @@
 
 When creating marketing content, reference these data points:
 - "5.47 million tourists visited Bali in 2025"
-- "ROI 9.5-20% annually on managed properties"
+- "ROI 9.5-20% annually on managed properties" (note: developer projections, actual yields declining)
 - "Entry from $112,000 for hotel-managed apartments"
 - "Leasehold 25-35 years with extension options"
 - "Bali GDP growing at ~10%"
 - "250m from beach" (for Surfside), "80m from beach" (OceaniQ) - proximity matters
+- "Rental yields -18% YoY" - use cautiously, validates honest positioning
+- "Listings +27% vs tourists +9%" - supply outpacing demand signal
+- "Construction cost $1,500/m2" - quality benchmark for investor education
+- "Price corrections happening" - Alex Villas -20%, Nexa -28% - validates market cooling narrative
 
 ## Competitive Landscape
 

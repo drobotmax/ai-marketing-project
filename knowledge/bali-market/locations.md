@@ -11,8 +11,8 @@ Bali real estate concentrates in several distinct zones, each with its own chara
 - **Target buyers:** Young investors, digital nomads, short-term rental
 - **Price level:** Mid-to-high ($250K-$400K for 3BR villas)
 - **Leasehold land:** 11M IDR/are/year (Buduk area)
-- **Risk:** Oversaturation of short-term rentals, traffic congestion
-- **Projects here:** Alex Villas Complex (Berawa), Freehold villas (Berawa)
+- **Risk:** Oversaturation of short-term rentals, traffic congestion. Market saturating - rental yields dropping, competition intense (transcript-sourced)
+- **Projects here:** Alex Villas Complex (Berawa) - Complex 7 dropped 20% in price, Freehold villas (Berawa)
 - **Key distances:** Beach 5-10 min, airport 40 min
 
 ### Pererenan
@@ -32,8 +32,16 @@ Bali real estate concentrates in several distinct zones, each with its own chara
 ### Kaba-Kaba
 - **Profile:** Rural area, rice field views, larger plots
 - **Target buyers:** Buyers seeking space and nature
-- **Price level:** Higher per unit ($695K for 4BR/780m2 plot) but lower per m2
+- **Price level:** Higher per unit ($695K for 4BR/780m2 plot) but lower per m2; Predmet Kaba Village - $250K 2BR villas, 47-year leasehold
+- **Projects here:** Predmet Kaba Village - Mityuhin calls it potential "new Canggu" but location unproven, needs time
 - **Key distances:** Kedungu beach 8 min, Canggu 20-25 min
+
+### Kedungu
+- **Profile:** Emerging coastal area west of Canggu, beach proximity, early-stage development
+- **Target buyers:** Adventurous investors betting on location growth
+- **Price level:** TBD - early market
+- **Projects here:** Bali Baza has a project here - potential but unproven area
+- **Key distances:** Kedungu beach, Canggu 20-25 min
 
 ## Umalas
 - **Profile:** Residential area between Canggu and Seminyak, rice field views
@@ -54,7 +62,7 @@ Bali real estate concentrates in several distinct zones, each with its own chara
 - **Profile:** Cliffside, premium views, surf spots, developing rapidly
 - **Target buyers:** Premium investors, surf community
 - **Price level:** $138K-$649K (Amani Melasti apts to Surfside villas)
-- **Projects here:** Amani Melasti (Wyndham), Surfside (Fund Bridge), Desa Harmonis
+- **Projects here:** Amani Melasti (Wyndham), Surfside (Fund Bridge), Desa Harmonis, Pandawa Residence (Sansara) - 64 villas + 91 apartments in Pandawa beach area
 - **Key distances:** Suluban beach 250m (Surfside), Melasti beach (Amani)
 
 ### Balangan (Bukit)
@@ -64,10 +72,10 @@ Bali real estate concentrates in several distinct zones, each with its own chara
 - **Key distances:** Balangan beach 2-3 min
 
 ## Nusa Dua
-- **Profile:** Premium resort zone, family-friendly, established tourism infrastructure
+- **Profile:** Premium resort zone, family-friendly, established tourism infrastructure. Considered lower-risk, institutional area (transcript-sourced)
 - **Target buyers:** Conservative investors wanting brand-name management
 - **Price level:** $112K-$225K (Ramada), OceaniQ pricing by request
-- **Projects here:** Ramada Nusa Dua (Wyndham), OceaniQ Villas (award-winning), Oceaniq Phase 2
+- **Projects here:** Ramada Nusa Dua (Wyndham), OceaniQ Villas (award-winning) - ROI claims of 15-20% questioned in transcripts, Oceaniq Phase 2, BREIG Edem 2 (from $100K but quality concerns noted)
 - **Key distances:** Beach 80m (OceaniQ), airport 20 min
 
 ## Ubud
@@ -82,7 +90,7 @@ Bali real estate concentrates in several distinct zones, each with its own chara
 - **Profile:** Master-planned creative city (44 ha), Nyanyi/Tabanan
 - **Target buyers:** Innovation-minded investors, community-seekers
 - **Price level:** $147K-$740K (BIOM), from $186K (Ecoverse)
-- **Developers present:** BIOM, Ecoverse, OXO (management)
+- **Developers present:** BIOM, Ecoverse, OXO (management), Bali Baza - Origins at $4,500-5,000/m2 with Dusit operator (slow sales noted in transcripts)
 - **Infrastructure:** Beach club, media park, cinema, school (Cambridge), hotel, 20+ restaurants
 - **Unique:** Integrated community model, not standalone villas
 - **Key distances:** Beach 7 min

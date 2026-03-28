@@ -124,11 +124,17 @@ Profiles of developers active in the Bali market as of Q1 2026, sourced from "Б
 
 ---
 
-## Sansara Development
+## Sansara Development (formerly Ecolit)
 
-**Type:** Community developer
+**Type:** Community developer (rebranded from Ecolit)
 **Project:** Pandawa Residence - premium complex in Bali
+- 64 villas + 91 apartments
+- 70% sold
+- 8% guaranteed yield first 2 years
+- 24-year leasehold extendable to 49
+- In-house management (not international operator)
 **Upcoming:** Solvyn City (new, pre-launch March 28, 2026 at Hubble restaurant, Canggu)
+**Transcript source:** MbJfrvt5FoM
 **Materials:**
 - [Presentations](https://drive.google.com/drive/folders/1o1L12iNjBbNp4r75fGhC8YYhTgnX65Dp)
 - [Prices](https://drive.google.com/drive/folders/1OyZhYrCqtoCO2S8TpxJ_i_noM6wyllfX)
@@ -191,6 +197,47 @@ Profiles of developers active in the Bali market as of Q1 2026, sourced from "Б
 **Type:** Developer
 **Portal:** [Notion](https://www.notion.so/Eco-Invest-Group-2ae07a467aa1807388c3cdc049e5ac8a)
 **Note:** Requires browser access. No public web presence found.
+
+---
+
+## Predmet
+
+**Type:** Small focused developer with own construction factory
+**Project:** Kaba Village (Kaba-Kaba area)
+**Products:** 2BR villas from $250,000
+**Leasehold:** 47 years (longest on market)
+**Management fee:** 17%
+**Construction:** Own prefab factory
+**Warranty:** Covers full leasehold term
+**Style:** Concrete/industrial aesthetic
+**Key feature:** Longest leasehold term available, vertically integrated construction
+**Transcript source:** TeisBc6Yo6k
+
+---
+
+## Bali Baza
+
+**Type:** Largest Russian developer on Bali
+**Scale:** 500+ units across projects
+**Projects:**
+- Sunset Village - problematic (delays, quality issues, investor complaints, scandal)
+- Origins Nuanu - $4,500-5,000/m2, Dusit operator
+- Kedungu
+**Problem:** Too many simultaneous projects stretched resources
+**Issues:** Sunset Village scandal led to company restructuring
+**Transcript source:** XevUbLAY8WM
+
+---
+
+## Mityuhin's Reliable Developers List
+
+Source: rTSUVF4FE7E (Mityuhin's review)
+
+Developers Mityuhin considers reliable for investment:
+- **OXO** - property management + development
+- **Teos Group** (Wyndham operator projects)
+- **BIOM** - Nuanu lifestyle developer
+- **Predmet** - small focused developer, own factory
 
 ---
 

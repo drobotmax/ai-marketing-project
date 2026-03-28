@@ -67,6 +67,34 @@
 |------|----------|-------|
 | Coworking chain (Setter) | Canggu + Ubud | $2,000,000 |
 
+## Real ROI Benchmarks (Transcript-verified)
+
+Data sourced from YouTube reviews and independent analyses (not developer marketing).
+
+### Actual ROI by ownership model (source: QOKqoXKaCeQ)
+| Model | Real ROI | Notes |
+|-------|----------|-------|
+| Ready villa + management company | 8-10% | Passive, but high management fees |
+| Freehold + self-management | 10-12% | Requires local knowledge |
+| Self-development (buy land + build) | 14-16% | Highest return, highest effort |
+
+- **Construction cost benchmark:** $1,500/m2 for quality build
+- **Rental yields dropped 18%** year-over-year (2025 vs 2026)
+- **Listings on platforms grew +27%** - increasing competition
+- **Management company commission:** 20-25% (some up to 30%)
+- **Self-management yields 30-50% more** but requires physical presence on Bali
+
+### Specific project data (transcript-verified)
+| Project | Yield/ROI | Source |
+|---------|-----------|--------|
+| Pandawa Residence (Sansara) | 8% guaranteed first 2 years | MbJfrvt5FoM |
+| Bali Baza Origins Nuanu | $4,500-5,000/m2 price point | XevUbLAY8WM |
+| Predmet Kaba Village | $250K for 2BR, 17% mgmt fee | TeisBc6Yo6k |
+
+**Key takeaway:** Developer claims of 15-20% ROI are typically inflated. Real passive returns with management company are 8-10%. The gap between claimed and real ROI is 5-10 percentage points.
+
+---
+
 ## ROI Benchmarks (Developer Projections)
 
 | Project | Claimed ROI | Notes |
@@ -76,7 +104,7 @@
 | Ecoverse | 11.3-15.2% | Nuanu ecosystem |
 | Surfside | 9.5-14.5% | Uluwatu, 250m from beach |
 
-**Important:** These are developer projections, not guaranteed returns. Actual ROI depends on occupancy, management quality, and market conditions.
+**Important:** These are developer projections, not guaranteed returns. Actual ROI depends on occupancy, management quality, and market conditions. See "Real ROI Benchmarks" section above for transcript-verified reality check.
 
 ## Payment Terms (Common Patterns)
 
