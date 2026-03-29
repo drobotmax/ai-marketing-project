@@ -1,0 +1,15 @@
+# СОЗДАНИЕ РЕКЛАМЫ В META ADS MANAGER
+
+- [Создание кампаний, групп объявлений и объявлений](sozdanie-kampanij-grupp-obyavlenij-i-obyavlenij.md)
+- [Редактирование кампаний](redaktirovanie-kampanij.md)
+- [Реклама мероприятий](reklama-meropriyatij.md)
+- [Реклама для лидов](reklama-dlya-lidov.md)
+- [Реклама с номером телефона](reklama-s-nomerom-telefona.md)
+- [Динамические креативы](dinamicheskie-kreativy.md)
+- [Советы по креативам](sovety-po-kreativam.md)
+- [Реклама мобильного приложения](reklama-mobilnogo-prilozheniya.md)
+- [Facebook Ads Manager для Excel](facebook-ads-manager-dlya-excel.md)
+- [Стратегии ставок](strategii-stavok.md)
+- [Бюджеты](byudzhety.md)
+- [Показ](pokaz.md)
+- [Реклама с переходом к переписке](reklama-s-perehodom-k-perepiske.md)
