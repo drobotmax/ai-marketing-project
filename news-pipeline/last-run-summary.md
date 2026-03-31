@@ -2,22 +2,25 @@
 
 Articles: 0 | KB Updates: 0 | Skipped: 0
 
-## Status: ERROR - Network access blocked
+## Status: ERROR - All feeds blocked (HTTP 403)
 
-All RSS feed fetches failed with HTTP 403. WebFetch tool also blocked by sandbox network policy.
+All outbound HTTP requests are blocked in the current sandbox environment.
+This is a persistent environment issue - multiple runs attempted today, all failed identically.
 
-**Feeds attempted (via WebFetch):**
-- Google Ads Blog: `https://blog.google/products/ads-commerce/rss/` -> 403
-- Yandex Ads News: `https://yandex.ru/adv/news/rss` -> 403
-- Google Ads Developer blog: `https://developers.google.com/google-ads/api/docs/release-notes` -> 403
-- Search Engine Land: `https://searchengineland.com/feed` -> 403
-- SE Roundtable: `https://www.seroundtable.com/category/google-ads` -> 403
-- PPC World: `https://ppc.world/news/` -> 403
-- WordStream Blog: `https://wordstream.com/blog` -> 403
-- PPC Hero Feed: `https://www.ppchero.com/feed/` -> 403
-- Hacker News: `https://news.ycombinator.com/` -> 403
+**Feeds attempted:**
+- Google Ads Blog RSS: https://blog.google/products/ads-commerce/rss/ -> 403
+- Yandex Ads News RSS: https://yandex.ru/adv/news/rss -> 403
 
-**Root cause:** Sandbox environment blocks all outbound HTTP requests regardless of tool used (curl, wget, WebFetch).
+**Fallback URLs also blocked:**
+- https://blog.google/products/ads-commerce/ -> 403
+- https://yandex.ru/adv/news -> 403
+- https://developers.google.com/google-ads/api/docs/release-notes -> 403
+- https://ppc.world/news/ -> 403
+- https://searchengineland.com/google-ads -> 403
+- https://www.seroundtable.com/google-ads-news.html -> 403
+- https://httpbin.org/get -> 403
+
+**Root cause:** Sandbox environment blocks all outbound HTTP requests regardless of tool used.
 
 ## KB Updates
 
