@@ -48,3 +48,25 @@
 [2026-03-31 14:20:48]   Fetching: Google’s Commerce Media Suite: Where retailer insights meet the power of YouTube
 [2026-03-31 14:20:51]   -> saved (17830 bytes)
 [2026-03-31 14:20:51] Full texts fetched: 5
+[2026-03-31 14:20:54] Pushed to repo
+[2026-03-31 14:20:54] === KUBRIK News Fetch Complete ===
+[2026-03-31 14:23:09] === KUBRIK News Fetch Starting ===
+[2026-03-31 14:23:10] Period: 7 days (since 2026-03-24)
+[2026-03-31 14:23:10] Fetching: Google Ads Blog (google)...
+[2026-03-31 14:23:12]   -> 4 articles total so far
+[2026-03-31 14:23:12] Fetching: Yandex Ads News (yandex)...
+[2026-03-31 14:23:15]   -> 5 articles total so far
+[2026-03-31 14:23:15] Total articles fetched: 5
+[2026-03-31 14:23:15] Digest written: /home/maxos/kubrik/news-pipeline/data/digests/digest_2026-03-31.md
+[2026-03-31 14:23:15] Fetching full article texts...
+[2026-03-31 14:23:15]   Fetching: YCP: как получать продажи из ответов в чате с Алисой AI и из поиска Яндекса
+[2026-03-31 14:23:19]   -> saved (19809 bytes)
+[2026-03-31 14:23:19]   Fetching: Upgrade your creative performance with March’s Demand Gen Drop.
+[2026-03-31 14:23:21]   -> saved (1710 bytes)
+[2026-03-31 14:23:21]   Fetching: 5 ways to collaborate with our agentic advisors
+[2026-03-31 14:23:24]   -> saved (7330 bytes)
+[2026-03-31 14:23:24]   Fetching: Ads Decoded episode 5 navigates the challenges and impact of effective lead gen advertising.
+[2026-03-31 14:23:26]   -> saved (1146 bytes)
+[2026-03-31 14:23:26]   Fetching: Google’s Commerce Media Suite: Where retailer insights meet the power of YouTube
+[2026-03-31 14:23:29]   -> saved (5556 bytes)
+[2026-03-31 14:23:29] Full texts fetched: 5
