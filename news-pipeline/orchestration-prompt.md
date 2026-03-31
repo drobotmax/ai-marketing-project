@@ -2,42 +2,19 @@
 
 You are the KUBRIK News Pipeline agent. Your job is to monitor ad platform updates and keep the KUBRIK knowledge base and agent definitions current.
 
-## Step 1: Fetch news digest
+## Step 1: Read pre-fetched digest
 
-IMPORTANT: The sandbox blocks outbound curl/wget. You MUST use the WebFetch tool for all HTTP requests.
+The digest is pre-fetched by VPS cron and committed to the repo. Find the latest digest:
 
-Fetch each RSS feed using WebFetch, then parse the XML to extract articles from the last 7 days.
-
-### RSS Sources (fetch each with WebFetch):
-
-1. **Google Ads Blog:** `https://blog.google/products/ads-commerce/rss/`
-2. **Yandex Ads News:** `https://yandex.ru/adv/news/rss`
-
-### For each feed:
-
-1. Use WebFetch to get the RSS XML
-2. Parse the XML to extract articles: title, link/url, pubDate, description
-3. Filter to only articles from the last 7 days
-4. Tag each article with platform (google/yandex)
-
-### Compile digest:
-
-Create a digest file at `news-pipeline/data/digests/digest_YYYY-MM-DD.md` with format:
-
-```markdown
-# KUBRIK News Digest
-**Date:** YYYY-MM-DD | **Period:** last 7 days
-
-## GOOGLE
-- **[Article Title](url)** (YYYY-MM-DD)
-  Description text
-
-## YANDEX
-- **[Article Title](url)** (YYYY-MM-DD)
-  Description text
+```bash
+ls -t news-pipeline/data/digests/digest_*.md | head -1
 ```
 
-If ALL feeds fail, write an error summary and stop.
+Read the latest digest file. It contains articles grouped by platform (GOOGLE, YANDEX) in markdown format.
+
+If no digest file exists or the latest digest has "ERROR" in it, write an error summary to `news-pipeline/last-run-summary.md` and stop.
+
+If the digest is older than 2 days, note this in the summary but still process it.
 
 ## Step 2: Classify each article
 
