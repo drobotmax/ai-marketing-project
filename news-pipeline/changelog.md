@@ -21,14 +21,15 @@ Append-only log of all knowledge base changes made by the automated news pipelin
 **Urgency:** important
 **Changes:**
 - `knowledge/yandex-direct-course/yandex-commerce-protocol-ycp.md` - создан файл: Yandex Commerce Protocol (YCP) - новый стандарт интеграции интернет-магазинов с ИИ, кнопка "Купить в 1 клик" в Алисе AI и Яндекс Поиске
-**Agents updated:** none (YCP не применим для недвижимости, агенты не обновлены)
+**Agents updated:** none (YCP не является рекламным форматом Директа, агенты не обновлены)
 **Commit:** ffb5ab4
 
 ## 2026-03-31 | google new_feature
 **Source:** https://blog.google/products/ads-commerce/demand-gen-drop-march-2026/
-**Classification:** new_feature (confidence: 85%)
-**Urgency:** important
+**Classification:** new_feature (confidence: 88%)
+**Urgency:** informational
 **Changes:**
-- `knowledge/google-ads/campaigns/demand-gen-campaigns.md` - создан файл: Demand Gen кампании - новые функции марта 2026: Veo (генерация видео из изображений), YouTube Creator Partnerships boost (+30% конверсий на Shorts), оптимизация под follow-on views
-**Agents updated:** none (best practices KB update, spec данные уже присутствуют в contextologist/skill.md)
-**Commit:** ffb5ab4
+- `knowledge/google-ads/campaigns/demand-gen-campaigns.md` - создан KB-файл: Demand Gen кампании - новые функции марта 2026: Veo (генерация видео из изображений), YouTube Creator Partnerships boost (+30% конверсий на Shorts), оптимизация под follow-on views
+- `agents/contextologist/skill.md` - добавлена ссылка на `demand-gen-campaigns.md` в раздел источников знаний
+**Agents updated:** contextologist
+**Commit:** TBD

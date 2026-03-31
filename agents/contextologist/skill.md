@@ -91,6 +91,7 @@
 - `knowledge/google-ads/campaigns/search-campaigns.md`
 - `knowledge/google-ads/campaigns/display-campaigns.md`
 - `knowledge/google-ads/campaigns/ai-max-for-search-campaigns.md`
+- `knowledge/google-ads/campaigns/demand-gen-campaigns.md`
 - `knowledge/google-ads/explore-features/keywords.md`
 - `knowledge/google-ads/explore-features/bidding.md`
 - `knowledge/google-ads/explore-features/targeting.md`

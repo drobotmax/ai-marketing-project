@@ -20,14 +20,16 @@ Demand Gen - тип кампаний Google Ads, который помогает
 - **Зачем:** позволяет масштабировать ассортимент креативов и достигать Ad Strength "Excellent"
 - **Результат:** Ad Strength "Excellent" дает в среднем +12% конверсий vs "Poor"
 - **Доступно:** в интерфейсе Google Ads при создании Demand Gen кампаний
+- Для недвижимости: превращать фото объектов в видео-ролики без отдельного видеопроизводства
 
 ### YouTube Creator Partnerships
 
 - **Инструмент:** YouTube Creator Partnerships with Google Ads
 - **Функция:** поиск и подключение релевантных YouTube-блогеров напрямую из Google Ads
 - **Creator partnerships boost:** превращает аутентичный контент блогеров в рекламные объявления для Demand Gen
-- **Результат:** в среднем +30% lift по конверсиям на YouTube Shorts при сохранении эффективности CPA
+- **Результат:** в среднем **+30% lift по конверсиям** на YouTube Shorts при сохранении эффективности CPA
 - **Источник данных:** Google Data, Global, Jan 2025 - Jan 2026
+- Для недвижимости: партнерства с блогерами о переезде, инвестициях, образе жизни в целевом гео (Бали, ОАЭ)
 
 ### Follow-on Views оптимизация
 
@@ -42,6 +44,12 @@ Demand Gen показывается на:
 - Gmail
 - Google Discover feed
 
+Форматы ассетов:
+- Видео (собственные или сгенерированные через Veo)
+- Статичные изображения
+- Карусели
+- Нативные форматы под каждый плейсмент
+
 ## Связь с другими кампаниями
 
 - **Performance Max** - более широкая автоматизация по всем каналам, включая Search
@@ -54,3 +62,10 @@ Demand Gen показывается на:
 - Видео-форматы (в т.ч. сгенерированные через Veo) эффективны для показа объектов
 - Creator partnerships - потенциально для локальных lifestyle-блогеров (Бали, ОАЭ)
 - Ad Strength "Excellent" критичен - использовать Veo для создания видео-вариаций из фото объектов
+- Запускать Demand Gen параллельно с Search: Search ловит горячий интент, Demand Gen разогревает верх воронки
+- Цель оптимизации: начинать с "Maximize conversions" при наличии пикселя, тестировать "Follow-on views" для awareness
+
+## Ссылки
+
+- [Demand Gen Drop: March 2026](https://blog.google/products/ads-commerce/demand-gen-drop-march-2026/)
+- [Accelerate with Google](https://acceleratewithgoogle.com)
