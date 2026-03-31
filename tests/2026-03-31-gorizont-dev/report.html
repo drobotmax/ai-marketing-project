@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KUBRIK Pipeline - Тестовый прогон</title>
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: #fff;
+  color: #1a1a1a;
+  line-height: 1.6;
+  font-size: 14px;
+}
+h1 { font-size: 28px; border-bottom: 3px solid #1a1a1a; padding-bottom: 12px; margin-top: 40px; }
+h2 { font-size: 22px; border-bottom: 2px solid #ccc; padding-bottom: 8px; margin-top: 36px; color: #2c3e50; }
+h3 { font-size: 18px; margin-top: 28px; color: #34495e; }
+h4 { font-size: 15px; margin-top: 20px; color: #555; }
+table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+th, td { border: 1px solid #ccc; padding: 8px 10px; text-align: left; vertical-align: top; font-size: 13px; }
+th { background: #f5f5f5; font-weight: bold; }
+tr:nth-child(even) { background: #fafafa; }
+.badge-pass { display: inline-block; background: #27ae60; color: #fff; padding: 2px 8px; border-radius: 3px; font-size: 12px; font-weight: bold; }
+.badge-fail { display: inline-block; background: #e74c3c; color: #fff; padding: 2px 8px; border-radius: 3px; font-size: 12px; font-weight: bold; }
+.badge-warn { display: inline-block; background: #f39c12; color: #fff; padding: 2px 8px; border-radius: 3px; font-size: 12px; font-weight: bold; }
+.badge-p0 { display: inline-block; background: #e74c3c; color: #fff; padding: 2px 8px; border-radius: 3px; font-size: 12px; font-weight: bold; }
+.badge-p1 { display: inline-block; background: #f39c12; color: #fff; padding: 2px 8px; border-radius: 3px; font-size: 12px; font-weight: bold; }
+.title-page { text-align: center; padding: 60px 0 40px 0; }
+.title-page h1 { border: none; font-size: 32px; }
+.title-page p { font-size: 16px; color: #555; margin: 6px 0; }
+.toc { background: #f9f9f9; border: 1px solid #e0e0e0; padding: 20px 30px; margin: 30px 0; }
+.toc ul { list-style: none; padding: 0; margin: 0; }
+.toc li { padding: 4px 0; }
+.toc a { text-decoration: none; color: #2980b9; }
+.toc a:hover { text-decoration: underline; }
+.qa-box { background: #f0f7f0; border-left: 4px solid #27ae60; padding: 16px 20px; margin: 20px 0; }
+.qa-box-minus { background: #fdf0f0; border-left: 4px solid #e74c3c; padding: 16px 20px; margin: 20px 0; }
+.qa-box h4, .qa-box-minus h4 { margin-top: 0; }
+.section-content { background: #fcfcfc; border: 1px solid #eee; padding: 20px; margin: 16px 0; }
+.score-box { text-align: center; font-size: 48px; font-weight: bold; color: #f39c12; padding: 20px; margin: 20px 0; }
+.score-label { font-size: 16px; color: #777; }
+blockquote { border-left: 3px solid #ccc; padding-left: 16px; margin-left: 0; color: #555; font-style: italic; }
+pre { background: #f5f5f5; padding: 12px; border-radius: 4px; overflow-x: auto; font-size: 12px; }
+strong { color: #1a1a1a; }
+.page-break { page-break-before: always; }
+@media print {
+  body { padding: 20px; }
+  .toc { page-break-after: always; }
+  h2 { page-break-before: always; }
+}
+</style>
+</head>
+<body>
+
+<!-- TITLE PAGE -->
+<div class="title-page">
+<h1>KUBRIK Pipeline - Тестовый прогон</h1>
+<p><strong>Дата:</strong> 2026-03-31</p>
+<p><strong>Тестовый кейс:</strong> ЖК "Парковый" - Горизонт Девелопмент (вымышленный)</p>
+<p><strong>Цель:</strong> Проверка работы pipeline на условном агентстве недвижимости</p>
+<p style="margin-top: 30px; color: #999; font-size: 13px;">KUBRIK Marketing Pipeline v0.1 - End-to-End Test Report</p>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+<h3 style="margin-top: 0;">Содержание</h3>
+<ul>
+<li><a href="#section-0">0. Статистика прогона</a></li>
+<li><a href="#section-1">1. Бриф клиента</a></li>
+<li><a href="#section-2">2. Стратег</a></li>
+<li><a href="#section-3">3. Таргетолог (VK/Meta)</a></li>
+<li><a href="#section-4">4. Контекстолог (Яндекс/Google)</a></li>
+<li><a href="#section-5">5. Медиабайер</a></li>
+<li><a href="#section-6">6. Копирайтер</a></li>
+<li><a href="#section-7">7. Валидатор</a></li>
+<li><a href="#section-8">8. Итоговый отчёт тестирования</a></li>
+</ul>
+</div>
+
+<!-- SECTION 0: STATS -->
+<h2 id="section-0">0. Статистика прогона</h2>
+
+<table>
+<tr><th>Агент</th><th>Токены</th><th>Время</th><th>Tool calls</th></tr>
+<tr><td>Стратег</td><td>22,103</td><td>1 мин 35 сек</td><td>3</td></tr>
+<tr><td>Таргетолог (VK/Meta)</td><td>29,793</td><td>2 мин 19 сек</td><td>4</td></tr>
+<tr><td>Контекстолог (Яндекс/Google)</td><td>44,333</td><td>4 мин 22 сек</td><td>4</td></tr>
+<tr><td>Медиабайер</td><td>53,883</td><td>3 мин 54 сек</td><td>11</td></tr>
+<tr><td>Копирайтер</td><td>47,224</td><td>3 мин 51 сек</td><td>10</td></tr>
+<tr><td>Валидатор</td><td>57,534</td><td>5 мин 27 сек</td><td>17</td></tr>
+<tr style="background: #eef; font-weight: bold;"><td>Итого</td><td>254,870</td><td>21 мин 28 сек</td><td>49</td></tr>
+</table>
+
+<p><strong>Дополнительный контекст:</strong> ~150K токенов (чтение файлов, QA-анализ). Общий расход: ~400-450K токенов.</p>
+<p><strong>Wall-clock time:</strong> Таргетолог и Контекстолог работали параллельно, реальное время ~17 мин.</p>
+
+<!-- SECTION 1: BRIEF -->
+<h2 id="section-1">1. Бриф клиента</h2>
+
+<div class="section-content">
+<h3>Объект</h3>
+<table>
+<tr><th>Параметр</th><th>Значение</th></tr>
+<tr><td>Название</td><td>ЖК "Парковый"</td></tr>
+<tr><td>Застройщик</td><td>Горизонт Девелопмент (вымышленный)</td></tr>
+<tr><td>Локация</td><td>Краснодар, Центральный район</td></tr>
+<tr><td>Класс</td><td>Комфорт+</td></tr>
+<tr><td>Этажность</td><td>12-16 этажей, 3 корпуса, 280 квартир</td></tr>
+<tr><td>Сдача</td><td>Q4 2027</td></tr>
+</table>
+
+<h3>Квартирография</h3>
+<table>
+<tr><th>Тип</th><th>Площадь</th><th>Цена от</th></tr>
+<tr><td>Студия</td><td>25-30 м2</td><td>4.2 млн руб</td></tr>
+<tr><td>1-комн</td><td>38-45 м2</td><td>5.5 млн руб</td></tr>
+<tr><td>2-комн</td><td>55-68 м2</td><td>7.8 млн руб</td></tr>
+<tr><td>3-комн</td><td>78-90 м2</td><td>11.5 млн руб</td></tr>
+</table>
+
+<h3>УТП</h3>
+<ul>
+<li>Парк 3 га во дворе (ключевое)</li>
+<li>5 мин до центра города</li>
+<li>Ипотека от 0.1% (субсидированная от застройщика)</li>
+<li>Закрытая территория с видеонаблюдением</li>
+<li>Подземный паркинг</li>
+</ul>
+
+<h3>Целевая аудитория</h3>
+<ul>
+<li>Молодые семьи с детьми (Краснодар и край)</li>
+<li>Инвесторы (покупка для перепродажи/сдачи)</li>
+<li>Релоканты из Москвы/СПб</li>
+</ul>
+
+<h3>Бюджет и цели</h3>
+<table>
+<tr><th>Параметр</th><th>Значение</th></tr>
+<tr><td>Бюджет</td><td>500К руб/мес (~$5,500/мес)</td></tr>
+<tr><td>Гео</td><td>Краснодар + край, Москва, СПб (релоканты)</td></tr>
+<tr><td>Лидов/мес</td><td>80-120</td></tr>
+<tr><td>CPL</td><td>до 5000 руб</td></tr>
+<tr><td>Конверсия в просмотр</td><td>20-30%</td></tr>
+<tr><td>Первые продажи</td><td>через 2-3 месяца</td></tr>
+</table>
+
+<h3>Конкуренты</h3>
+<ul>
+<li>ЮгСтройИнвест</li>
+<li>AVA Group</li>
+<li>ССК (Строительная сберегательная компания)</li>
+</ul>
+</div>
+
+<!-- SECTION 2: STRATEGIST -->
+<h2 id="section-2">2. Стратег</h2>
+
+<div class="section-content">
+
+<h3>1. Анализ рынка</h3>
+<ul>
+<li><strong>Ценовой сегмент:</strong> Комфорт+ (4.2-11.5 млн руб) - верхняя граница комфорта, нижняя граница бизнеса</li>
+<li><strong>Спрос:</strong> Высокий. Краснодар - один из лидеров по внутренней миграции в РФ. Рынок перегрет в эконом-сегменте, но комфорт+ с уникальной инфраструктурой остаётся дефицитным</li>
+</ul>
+
+<p><strong>Конкуренты:</strong></p>
+<table>
+<tr><th>Конкурент</th><th>Характеристика</th></tr>
+<tr><td>ЮгСтройИнвест</td><td>Массовый застройщик, большие объёмы, эконом/комфорт, слабая дифференциация</td></tr>
+<tr><td>AVA Group</td><td>Комфорт/бизнес, сильный маркетинг, акцент на дизайн МОПов</td></tr>
+<tr><td>ССК</td><td>Комфорт, консервативная аудитория, акцент на надёжность и сроки</td></tr>
+</table>
+
+<h3>2. Целевая аудитория (JTBD)</h3>
+
+<table>
+<tr><th>Сегмент</th><th>Кто</th><th>JTBD</th><th>Доля внимания</th></tr>
+<tr><td>Молодые семьи</td><td>Пары 28-40, 1-2 ребёнка, доход 120-250К</td><td>"Мне нужно место, где дети могут гулять без тревоги, а до работы и школы - рукой подать"</td><td>50%</td></tr>
+<tr><td>Инвесторы</td><td>30-55 лет, опытные покупатели</td><td>"Мне нужен актив, который будет расти в цене и приносить стабильный арендный доход"</td><td>25%</td></tr>
+<tr><td>Релоканты</td><td>28-45 лет, IT, фрилансеры</td><td>"Хочу московское качество жизни без московских цен, с тёплым климатом и зеленью"</td><td>25%</td></tr>
+</table>
+
+<h3>3. Позиционирование</h3>
+<p><strong>Главный месседж:</strong> "Парк у дома - не обещание, а 3 гектара вашего двора."</p>
+<p><strong>Отстройка:</strong></p>
+<ul>
+<li>Против ЮгСтройИнвест: не массовая застройка, а камерный проект с парковой средой (280 квартир vs тысячи)</li>
+<li>Против AVA Group: не просто красивые МОПы, а полноценная экосистема для жизни с парком 3 га</li>
+<li>Против ССК: современный подход к среде, а не просто "надёжные стены"</li>
+</ul>
+<p><strong>Cialdini-триггеры:</strong> Scarcity (ограниченный срок ипотеки), Social proof (конкретные цифры парка), Authority (центральный район)</p>
+
+<h3>4. Каналы и бюджет</h3>
+<table>
+<tr><th>Канал</th><th>Бюджет %</th><th>Бюджет руб/мес</th><th>Задача</th><th>Целевой CPL</th><th>Лидов/мес</th></tr>
+<tr><td>Яндекс Директ (поиск + РСЯ)</td><td>35%</td><td>175 000</td><td>Лидогенерация по горячим запросам</td><td>3500-5000</td><td>35-50</td></tr>
+<tr><td>VK Ads (таргет)</td><td>20%</td><td>100 000</td><td>Охват молодых семей, ретаргетинг</td><td>4000-5500</td><td>18-25</td></tr>
+<tr><td>Авито Недвижимость</td><td>15%</td><td>75 000</td><td>Инвесторы и активные покупатели</td><td>3000-4500</td><td>15-25</td></tr>
+<tr><td>Telegram Ads + посевы</td><td>15%</td><td>75 000</td><td>Релоканты, IT, инвесторы</td><td>5000-7000</td><td>10-15</td></tr>
+<tr><td>Контент и SMM</td><td>10%</td><td>50 000</td><td>Прогрев, social proof, доверие</td><td>-</td><td>ER 3%+</td></tr>
+<tr><td>Резерв на тесты</td><td>5%</td><td>25 000</td><td>A/B тесты, новые каналы</td><td>-</td><td>-</td></tr>
+</table>
+
+<h3>5. Воронка прогноз</h3>
+<table>
+<tr><th>Этап</th><th>Конверсия</th><th>Результат</th></tr>
+<tr><td>Лиды</td><td>-</td><td>100/мес</td></tr>
+<tr><td>Просмотры</td><td>25%</td><td>25</td></tr>
+<tr><td>Брони</td><td>12%</td><td>3</td></tr>
+<tr><td>Сделки</td><td>65%</td><td>2/мес</td></tr>
+<tr><td>Выручка</td><td>ср. чек ~7 млн</td><td>~14 млн руб/мес</td></tr>
+</table>
+
+</div>
+
+<!-- QA REVIEW: STRATEGIST -->
+<div class="qa-box">
+<h4>QA Review - Плюсы</h4>
+<ol>
+<li>JTBD-формулировки для всех 3 сегментов - реалистичны</li>
+<li>Отстройка от конкурентов конкретная, не абстрактная</li>
+<li>Cialdini применён осмысленно (scarcity, social proof, commitment)</li>
+<li>Каналы адаптированы под РФ (VK вместо Meta, Яндекс вместо Google)</li>
+<li>Воронка просчитана до сделок с реалистичными конверсиями</li>
+<li>Бюджет распределён разумно - ни один канал >35%</li>
+</ol>
+</div>
+
+<div class="qa-box-minus">
+<h4>QA Review - Минусы</h4>
+<ol>
+<li>Meta/Google отсутствуют - pipeline не адаптирован (нет агента VK Ads, Авито)</li>
+<li>CPL для Telegram 5000-7000 руб - превышает целевой CPL 5000</li>
+<li>Нет упоминания лендинга/сайта</li>
+<li>Нет CRM/трекинг требований</li>
+<li>"Доходность аренды от 7%" - нет источника, потенциально misleading</li>
+<li>"Осталось 12 квартир" - хардкод числа</li>
+</ol>
+</div>
+
+<!-- SECTION 3: TARGETING -->
+<h2 id="section-3">3. Таргетолог (VK/Meta)</h2>
+
+<div class="section-content">
+
+<p><strong>Примечание по платформе:</strong> Стратег выбрал VK Ads как основную social-платформу (20% бюджета, 100 000 руб/мес). Meta/Instagram не вошли в медиамикс из-за блокировки в РФ. План адаптирован под VK Ads с Meta как тестовый канал из резерва.</p>
+
+<h3>1. Objective &amp; Conversion Setup</h3>
+<ul>
+<li><strong>Business goal:</strong> 18-25 квалифицированных лидов/мес через VK Ads</li>
+<li><strong>VK objective:</strong> Лидогенерация (Lead Ads) + Трафик на сайт (ретаргетинг)</li>
+<li><strong>Primary optimization event:</strong> Отправка лид-формы (lead submit)</li>
+</ul>
+
+<h3>2. Audience Matrix</h3>
+<table>
+<tr><th>Аудитория</th><th>Тип</th><th>Источник</th><th>Приоритет</th></tr>
+<tr><td>Родители Краснодара, broad</td><td>Cold</td><td>Гео + интересы: семья, дети</td><td>High</td></tr>
+<tr><td>Интересы: недвижимость + ипотека</td><td>Cold</td><td>Гео Краснодар</td><td>High</td></tr>
+<tr><td>Подписчики конкурентов (ЮСИ, AVA, ССК)</td><td>Cold</td><td>Парсинг VK</td><td>High</td></tr>
+<tr><td>Посетители сайта 7-30д</td><td>Warm</td><td>VK Pixel, ретаргетинг</td><td>High</td></tr>
+<tr><td>Look-alike от лидов 1-3%</td><td>Cold</td><td>CRM upload</td><td>Medium (фаза 2)</td></tr>
+<tr><td>Инвесторы: бизнес + финансы, 30-55</td><td>Cold</td><td>Гео РФ + интересы</td><td>Medium</td></tr>
+<tr><td>Открывшие форму, не отправившие</td><td>Hot</td><td>VK Lead Form retargeting</td><td>High</td></tr>
+</table>
+
+<h3>3. Campaign Logic</h3>
+<table>
+<tr><th>Кампания</th><th>Сегмент</th><th>Бюджет</th><th>Задача</th></tr>
+<tr><td>Campaign 1</td><td>Cold - Молодые семьи</td><td>50 000 руб (50%)</td><td>Лидогенерация через парковый оффер</td></tr>
+<tr><td>Campaign 2</td><td>Cold - Инвесторы</td><td>25 000 руб (25%)</td><td>Рациональный оффер с цифрами</td></tr>
+<tr><td>Campaign 3</td><td>Retargeting</td><td>15 000 руб (15%)</td><td>Scarcity, social proof, CTA</td></tr>
+<tr><td>Campaign 4</td><td>Резерв - Meta тест</td><td>10-12 000 руб</td><td>Проверка VPN-аудитории Instagram</td></tr>
+</table>
+
+<h3>4. Experiment Plan</h3>
+<table>
+<tr><th>Тест</th><th>Переменная</th><th>Метрика успеха</th></tr>
+<tr><td>T1</td><td>Parents vs конкуренты vs intent</td><td>Cost per qualified lead &lt; 5 500 руб</td></tr>
+<tr><td>T2</td><td>Оффер: парк vs ипотека vs цена</td><td>CTR > 1.2%, form CR > 15%</td></tr>
+<tr><td>T3</td><td>Видео vs карусель vs статика</td><td>CPL, VTR</td></tr>
+<tr><td>T4</td><td>Длина формы: 3 поля vs 5 полей</td><td>Cost per qualified lead</td></tr>
+<tr><td>T5</td><td>Meta vs VK (фаза 2)</td><td>CPL &lt; 6 000, qualified rate > 20%</td></tr>
+</table>
+
+<h3>5. 14-Day Action Plan</h3>
+<table>
+<tr><th>Период</th><th>Действие</th><th>Ожидаемый сигнал</th></tr>
+<tr><td>Day 0</td><td>VK Pixel на сайт, UTM, интеграция лид-форм с CRM</td><td>Tracking ready</td></tr>
+<tr><td>Day 1-2</td><td>Запуск Campaign 1 (семьи) + Campaign 3 (ретаргетинг)</td><td>Кампании прошли модерацию</td></tr>
+<tr><td>Day 3-4</td><td>Запуск Campaign 2 (инвесторы)</td><td>CPM &lt; 400, CTR > 0.8%</td></tr>
+<tr><td>Day 5-7</td><td>Первый срез CTR, CPL, form completion</td><td>15-25 лидов</td></tr>
+<tr><td>Day 8-10</td><td>Первый pruning: пауза ad sets с CPL > 7 000</td><td>Снижение CPL</td></tr>
+<tr><td>Day 11-14</td><td>Масштабирование winners +20-30%</td><td>CPL &lt; 5 500, 30-40 лидов</td></tr>
+</table>
+
+</div>
+
+<!-- QA REVIEW: TARGETING -->
+<div class="qa-box">
+<h4>QA Review - Плюсы</h4>
+<ol>
+<li>Адаптировался под VK Ads вместо Meta</li>
+<li>Meta вынесена в резерв как тестовая гипотеза - грамотно</li>
+<li>Full funnel с ретаргетингом с первого дня</li>
+<li>5 экспериментов с чёткими критериями</li>
+<li>Risks хорошо прописаны</li>
+</ol>
+</div>
+
+<div class="qa-box-minus">
+<h4>QA Review - Минусы</h4>
+<ol>
+<li>Skill написан для Meta, агент импровизирует для VK - workaround, не экспертиза</li>
+<li>"Доходность 7%" - без источника</li>
+<li>Парсинг конкурентов как основной метод - VK ужесточает политику</li>
+<li>Бюджет ретаргетинга 15К/мес - мало</li>
+<li>Нет VK Ads форматов/спецификаций в skill</li>
+</ol>
+</div>
+
+<!-- SECTION 4: CONTEXTOLOGIST -->
+<h2 id="section-4">4. Контекстолог (Яндекс/Google)</h2>
+
+<div class="section-content">
+
+<h3>1. Measurement Setup</h3>
+<p><strong>Текущий статус - всё отсутствует:</strong> GA4, GTM, Метрика, Колтрекинг, CRM integration, Offline conversion import</p>
+<p><strong>BLOCKER:</strong> Не запускать кампании без настроенного трекинга.</p>
+
+<table>
+<tr><th>Что настроить</th><th>Детали</th></tr>
+<tr><td>Яндекс Метрика</td><td>form_submit, phone_click, whatsapp_click, plan_view, thanks_page, scroll_50, time_on_site_60s</td></tr>
+<tr><td>Колтрекинг</td><td>Calltouch / CoMagic / Callibri - мин. 3 подменных номера</td></tr>
+<tr><td>GTM</td><td>Единый контейнер для Метрики, колтрекинга, пикселей</td></tr>
+<tr><td>CRM интеграция</td><td>Мин. ручная выгрузка 2 раза/неделю, целевая - API</td></tr>
+<tr><td>UTM-разметка</td><td>utm_source, utm_medium, utm_campaign, utm_content, utm_term</td></tr>
+</table>
+
+<h3>2. Семантическое ядро - 7 кластеров</h3>
+<table>
+<tr><th>Кластер</th><th>Температура</th><th>CPC ожид.</th><th>Примеры</th></tr>
+<tr><td>1. Бренд ЖК "Парковый"</td><td>HOT</td><td>40-180 руб</td><td>жк парковый краснодар, парковый краснодар цены</td></tr>
+<tr><td>2. Гео + Коммерческий</td><td>HOT</td><td>150-380 руб</td><td>купить квартиру краснодар, новостройки краснодар</td></tr>
+<tr><td>3. Конкуренты</td><td>HOT</td><td>80-220 руб</td><td>югстройинвест квартиры, ava group краснодар</td></tr>
+<tr><td>4. Ипотека + Финансы</td><td>WARM</td><td>80-250 руб</td><td>ипотека краснодар новостройка</td></tr>
+<tr><td>5. Релокация</td><td>WARM</td><td>80-280 руб</td><td>переезд в краснодар квартира</td></tr>
+<tr><td>6. Инвестиции</td><td>WARM</td><td>60-240 руб</td><td>инвестиции в недвижимость краснодар</td></tr>
+<tr><td>7. Квартирография</td><td>HOT-WARM</td><td>70-250 руб</td><td>квартира с парком краснодар, жк с парком</td></tr>
+</table>
+
+<h3>3. Структура аккаунта Яндекс Директ</h3>
+<table>
+<tr><th>Кампания</th><th>Тип</th><th>Бюджет/день</th><th>Стратегия</th><th>Запуск</th></tr>
+<tr><td>МК - ключевые</td><td>Мастер кампаний</td><td>2 500 руб</td><td>Макс. конверсий (CPA 5 000)</td><td>День 1</td></tr>
+<tr><td>МК - авто-аудитория</td><td>Мастер кампаний</td><td>1 500 руб</td><td>Макс. конверсий (CPA 5 500)</td><td>День 1</td></tr>
+<tr><td>Поиск - Бренд ЖК</td><td>Поисковая</td><td>500 руб</td><td>Ручные ставки</td><td>День 1</td></tr>
+<tr><td>Поиск - Горячий гео</td><td>Поисковая</td><td>2 000 руб</td><td>Ручные -> оплата за конверсию</td><td>День 4</td></tr>
+<tr><td>Поиск - Конкуренты</td><td>Поисковая</td><td>800 руб</td><td>Ручные ставки</td><td>День 8</td></tr>
+<tr><td>Поиск - Ипотека/Релокация</td><td>Поисковая</td><td>700 руб</td><td>Ручные ставки</td><td>День 15</td></tr>
+<tr><td>Товарный МК</td><td>Мастер кампаний</td><td>1 500 руб</td><td>Макс. конверсий</td><td>День 8</td></tr>
+<tr><td>РСЯ - основная</td><td>Сети</td><td>800 руб</td><td>Оплата за клики</td><td>День 15</td></tr>
+<tr><td>Ретаргетинг</td><td>Сети</td><td>700 руб</td><td>Оплата за конверсию</td><td>День 8</td></tr>
+</table>
+<p><strong>Итого:</strong> ~11 000 руб/день = ~330 000 руб/мес на режиме. Месяц 1 реальный расход ~175 000 руб.</p>
+
+<h3>4. Decision Matrix (11 сигналов)</h3>
+<table>
+<tr><th>Сигнал</th><th>Действие</th></tr>
+<tr><td>CTR &lt; 3% (Поиск)</td><td>Ревизия заголовков, проверить релевантность</td></tr>
+<tr><td>CTR &lt; 0.3% (РСЯ)</td><td>Обновить креативы, проверить площадки</td></tr>
+<tr><td>CPC растёт, CTR стабильный</td><td>Проверить аукцион, расширить семантику</td></tr>
+<tr><td>CPL ок, но качество плохое</td><td>Сузить семантику, проверить landing page</td></tr>
+<tr><td>CPL высокий, CTR высокий</td><td>Проблема конверсии сайта - тестировать лендинг</td></tr>
+<tr><td>Бюджет исчерпывается до 14:00</td><td>Увеличить бюджет или сузить таргетинг</td></tr>
+<tr><td>МК в обучении > 7 дней</td><td>Упростить цель, увеличить бюджет</td></tr>
+<tr><td>Конверсии Метрика != CRM</td><td>Проверить трекинг, дубли, спам</td></tr>
+</table>
+
+<h3>5. Минус-слова (проработаны ДО запуска)</h3>
+<p><strong>4 категории:</strong> общие (аренда, вторичка, бесплатно...), специфические для недвижимости (дача, участок, элитный, эконом...), гео-минусы (сочи, анапа, ростов...), кросс-групповые (после запуска).</p>
+
+<h3>6. Google Ads (вторичный, месяц 2-3)</h3>
+<table>
+<tr><th>Campaign</th><th>Type</th><th>Daily Budget</th><th>Priority</th></tr>
+<tr><td>Brand - ЖК Парковый</td><td>Search</td><td>500 руб</td><td>Medium</td></tr>
+<tr><td>Non-Brand - Relocants</td><td>Search</td><td>1 000 руб</td><td>Medium</td></tr>
+<tr><td>Remarketing - Display</td><td>Display</td><td>500 руб</td><td>Low</td></tr>
+</table>
+
+</div>
+
+<!-- QA REVIEW: CONTEXTOLOGIST -->
+<div class="qa-box">
+<h4>QA Review - Плюсы</h4>
+<ol>
+<li>Measurement Setup - отличный блок. BLOCKER на запуск без трекинга</li>
+<li>7 кластеров семантики с оценкой CPC и частотности</li>
+<li>Минус-слова - 4 категории, проработано ДО запуска</li>
+<li>Алгоритм Прайса применён: МК первыми -> поиск -> РСЯ</li>
+<li>Decision Matrix - 11 сигналов с действиями</li>
+<li>Чеклист запуска</li>
+</ol>
+</div>
+
+<div class="qa-box-minus">
+<h4>QA Review - Минусы</h4>
+<ol>
+<li>Char limits не проверены точно для каждого объявления</li>
+<li>"Осталось 12 квартир" - хардкод из стратегии</li>
+<li>Бюджет 11К/день = 330К/мес, но стратег выделил 175К. <span class="badge-fail">Расхождение!</span></li>
+<li>Google Ads - 60К/мес откуда? Стратег не выделял</li>
+<li>CPC прогнозы - assumption-based, пометки "assumption" нет</li>
+</ol>
+</div>
+
+<!-- SECTION 5: MEDIA BUYER -->
+<h2 id="section-5">5. Медиабайер</h2>
+
+<div class="section-content">
+
+<h3>Распределение бюджета (консолидация)</h3>
+<table>
+<tr><th>Канал</th><th>Доля</th><th>Бюджет руб/мес</th><th>Целевой CPL</th><th>Лидов/мес</th></tr>
+<tr><td>Яндекс Директ</td><td>35%</td><td>175 000</td><td>3 500-5 000</td><td>35-50</td></tr>
+<tr><td>VK Ads</td><td>20%</td><td>100 000</td><td>4 000-5 500</td><td>18-25</td></tr>
+<tr><td>Авито</td><td>15%</td><td>75 000</td><td>3 000-4 500</td><td>15-25</td></tr>
+<tr><td>Telegram Ads + посевы</td><td>15%</td><td>75 000</td><td>5 000-7 000</td><td>10-15</td></tr>
+<tr><td>SMM</td><td>10%</td><td>50 000</td><td>-</td><td>ER 3%+</td></tr>
+<tr><td>Резерв</td><td>5%</td><td>25 000</td><td>-</td><td>-</td></tr>
+</table>
+<p><strong>Принцип 70/20/10:</strong> 70% на proven-каналы (Яндекс + VK), 20% на тесты (Telegram + Авито), 10% на эксперименты (SMM + резерв).</p>
+
+<h3>Unit Economics - прогноз (мес 3)</h3>
+<table>
+<tr><th>Метрика</th><th>Прогноз</th></tr>
+<tr><td>Бюджет</td><td>500 000 руб/мес</td></tr>
+<tr><td>Лидов</td><td>80-120</td></tr>
+<tr><td>Средний CPL</td><td>4 000-5 000 руб</td></tr>
+<tr><td>Просмотров</td><td>20-30</td></tr>
+<tr><td>Броней</td><td>2-4</td></tr>
+<tr><td>Сделок/мес</td><td>2-3</td></tr>
+<tr><td>Средний чек</td><td>~7 млн руб</td></tr>
+<tr><td>Выручка/мес</td><td>14-21 млн руб</td></tr>
+<tr><td>ROAS</td><td>28-42x</td></tr>
+</table>
+
+<h3>Календарь запуска (4 недели)</h3>
+<table>
+<tr><th>Неделя</th><th>Действия</th><th>Бюджет/день</th></tr>
+<tr><td>Неделя 0</td><td>Подготовка: Метрика, колтрекинг, GTM, VK Pixel, UTM, минус-слова, фид</td><td>-</td></tr>
+<tr><td>Неделя 1</td><td>Яндекс МК + Поиск Бренд + VK семьи + ретаргетинг</td><td>4 500 -> 9 000 руб</td></tr>
+<tr><td>Неделя 2</td><td>+ Товарный МК, Конкуренты, Авито, VK pruning</td><td>13 100 -> 15 600 руб</td></tr>
+<tr><td>Неделя 3</td><td>+ РСЯ, Ипотека/Релокация, Telegram Ads</td><td>16 500 руб</td></tr>
+<tr><td>Неделя 4</td><td>Полный аудит, перераспределение, отчёт мес 1</td><td>16 500 руб</td></tr>
+</table>
+
+<h3>Experiment Plan (9 тестов)</h3>
+<table>
+<tr><th>#</th><th>Что тестируем</th><th>Канал</th><th>Срок</th></tr>
+<tr><td>T1</td><td>МК ключевые vs МК авто</td><td>Яндекс</td><td>Дни 1-14</td></tr>
+<tr><td>T2</td><td>Оффер: парк vs ипотека vs цена</td><td>Яндекс + VK</td><td>Дни 4-18</td></tr>
+<tr><td>T3</td><td>VK: parents vs конкуренты vs intent</td><td>VK</td><td>Дни 1-14</td></tr>
+<tr><td>T4</td><td>Видео vs карусель vs статика</td><td>VK</td><td>Дни 1-14</td></tr>
+<tr><td>T5</td><td>Длина формы: 3 поля vs 5 полей</td><td>VK</td><td>30+ лидов</td></tr>
+<tr><td>T6</td><td>Товарный МК vs обычный</td><td>Яндекс</td><td>Дни 8-22</td></tr>
+<tr><td>T7</td><td>Конкурентные ключи вкл/выкл</td><td>Яндекс</td><td>Дни 8-22</td></tr>
+<tr><td>T8</td><td>Гео: Краснодар vs Москва+СПб</td><td>Яндекс</td><td>Дни 15-30</td></tr>
+<tr><td>T9</td><td>Meta через VPN</td><td>Meta</td><td>Месяц 2</td></tr>
+</table>
+
+<h3>Чеклист запуска (15 пунктов)</h3>
+<table>
+<tr><th>#</th><th>Пункт</th></tr>
+<tr><td>1</td><td>Яндекс Метрика установлена, цели работают</td></tr>
+<tr><td>2</td><td>Колтрекинг подключён (тестовый звонок)</td></tr>
+<tr><td>3</td><td>GTM установлен, теги в Preview</td></tr>
+<tr><td>4</td><td>VK Pixel на сайт</td></tr>
+<tr><td>5</td><td>VK Lead Forms интегрированы с CRM</td></tr>
+<tr><td>6</td><td>UTM-разметка единая</td></tr>
+<tr><td>7</td><td>Минус-слова загружены</td></tr>
+<tr><td>8</td><td>Объявления прошли проверку (char limits, policy)</td></tr>
+<tr><td>9</td><td>Мобильная версия сайта работает</td></tr>
+<tr><td>10</td><td>Фид для товарного МК готов</td></tr>
+<tr><td>11</td><td>Бюджеты и ставки по плану</td></tr>
+<tr><td>12</td><td>Доступ к CRM</td></tr>
+<tr><td>13</td><td>Расписание чистки запросов</td></tr>
+<tr><td>14</td><td>Креативы для VK готовы</td></tr>
+<tr><td>15</td><td>Карточки квартир для Авито</td></tr>
+</table>
+
+</div>
+
+<!-- QA REVIEW: MEDIA BUYER -->
+<div class="qa-box">
+<h4>QA Review - Плюсы</h4>
+<ol>
+<li>Хорошая консолидация всех планов в единый документ</li>
+<li>70/20/10 правило применено</li>
+<li>Unit Economics до ROAS 28-42x</li>
+<li>Календарь запуска интегрирует все каналы</li>
+<li>Чеклист 15 пунктов</li>
+</ol>
+</div>
+
+<div class="qa-box-minus">
+<h4>QA Review - Минусы</h4>
+<ol>
+<li>Много дублирования - copy-paste из targeting и context plans</li>
+<li>Бюджетное противоречие не разрешено (175К vs 330К) <span class="badge-fail">BUG</span></li>
+<li>Авито и Telegram описаны поверхностно</li>
+<li>Весь резерв 25К уходит на Google, на Meta-тест ничего</li>
+<li>Роль медиабайера размыта - стал компилятором</li>
+</ol>
+</div>
+
+<!-- SECTION 6: COPYWRITER -->
+<h2 id="section-6">6. Копирайтер</h2>
+
+<div class="section-content">
+
+<h3>Сводная таблица креативов</h3>
+<table>
+<tr><th>Платформа</th><th>Сегмент</th><th>Кол-во вариантов</th></tr>
+<tr><td>VK Feed</td><td>Молодые семьи</td><td>4</td></tr>
+<tr><td>VK Feed</td><td>Инвесторы</td><td>3</td></tr>
+<tr><td>VK Feed</td><td>Релоканты</td><td>3</td></tr>
+<tr><td>VK Stories</td><td>Молодые семьи</td><td>3</td></tr>
+<tr><td>VK Stories</td><td>Инвесторы</td><td>3</td></tr>
+<tr><td>VK Stories</td><td>Релоканты</td><td>3</td></tr>
+<tr><td>Яндекс Поиск</td><td>Молодые семьи</td><td>3</td></tr>
+<tr><td>Яндекс Поиск</td><td>Инвесторы</td><td>3</td></tr>
+<tr><td>Яндекс Поиск</td><td>Релоканты</td><td>3</td></tr>
+<tr><td>Яндекс РСЯ</td><td>Все сегменты</td><td>4</td></tr>
+<tr><td>Google Search</td><td>Релоканты + Бренд + Инвесторы</td><td>4</td></tr>
+<tr><td>Google Display</td><td>Все (ремаркетинг)</td><td>3</td></tr>
+<tr><td>Instagram Reels</td><td>Все сегменты</td><td>4</td></tr>
+<tr style="font-weight: bold; background: #eef;"><td colspan="2">Итого</td><td>43 варианта</td></tr>
+</table>
+
+<h3>Примеры креативов по сегментам</h3>
+
+<h4>VK Feed - Молодые семьи (Вариант 1)</h4>
+<table>
+<tr><th>Поле</th><th>Текст</th></tr>
+<tr><td>Primary text</td><td>Дети гуляют в парке, а не на парковке. ЖК Парковый - 3 га зелени прямо у дома. Ипотека от 0.1%</td></tr>
+<tr><td>Headline</td><td>Квартиры с парком от 4.2 млн</td></tr>
+<tr><td>Description</td><td>Центр Краснодара. Сдача 2027</td></tr>
+<tr><td>CTA</td><td>Узнать подробнее</td></tr>
+<tr><td>Visual</td><td>Видео: ребёнок бежит по парку, камера поднимается на дома ЖК</td></tr>
+</table>
+
+<h4>VK Feed - Инвесторы (Вариант 5)</h4>
+<table>
+<tr><th>Поле</th><th>Текст</th></tr>
+<tr><td>Primary text</td><td>Депозит - 8%. Аренда студии в центре Краснодара - от 7% + рост стоимости. Студия от 4.2 млн</td></tr>
+<tr><td>Headline</td><td>Инвестиция в центр Краснодара</td></tr>
+<tr><td>CTA</td><td>Получить предложение</td></tr>
+<tr><td>Visual</td><td>Инфографика: депозит vs недвижимость, цифры доходности</td></tr>
+</table>
+
+<h4>VK Feed - Релоканты (Вариант 8)</h4>
+<table>
+<tr><th>Поле</th><th>Текст</th></tr>
+<tr><td>Primary text</td><td>Квартира с парком 3 га в центре Краснодара - за цену студии на Новой Риге. Онлайн-показ за 15 мин</td></tr>
+<tr><td>Headline</td><td>Из Москвы в Краснодар. От 4.2 млн</td></tr>
+<tr><td>CTA</td><td>Записаться на показ</td></tr>
+<tr><td>Visual</td><td>Сплит-экран: серая Москва 12 млн vs солнечный Краснодар 4.2 млн</td></tr>
+</table>
+
+<h4>Instagram Reels - Organic (Вариант 1)</h4>
+<blockquote>
+Утро. Кофе. Открываешь окно - а там парк. Не обещание на рендере, а 3 гектара зелени прямо во дворе.<br><br>
+ЖК Парковый - это когда дети бегут гулять, а ты не нервничаешь. Закрытый двор, никаких машин. Центр Краснодара, 5 минут до всего.<br><br>
+280 квартир. Не тысячи. Камерный проект, где знаешь соседей.<br><br>
+Хочешь увидеть своими глазами? Пиши "ПАРК" в директ - покажем онлайн за 15 минут.
+</blockquote>
+
+</div>
+
+<!-- QA REVIEW: COPYWRITER -->
+<div class="qa-box">
+<h4>QA Review - Плюсы</h4>
+<ol>
+<li>43 варианта - хорошее покрытие</li>
+<li>Char limits в целом соблюдены (но с ошибками подсчёта)</li>
+<li>Hooks разнообразные</li>
+<li>Visual briefs конкретные</li>
+<li>Instagram Reels organic - хороший storytelling</li>
+<li>CTA для Reels ("ПАРК" в директ) - хороший приём</li>
+</ol>
+</div>
+
+<div class="qa-box-minus">
+<h4>QA Review - Минусы</h4>
+<ol>
+<li>"Доходность 7%" - в 3-м агенте подряд, никто не проверил <span class="badge-fail">FAIL</span></li>
+<li>"Осталось 12 квартир" - хардкод <span class="badge-warn">WARN</span></li>
+<li>"Рост цены до 25%" - misleading без доказательств <span class="badge-fail">FAIL</span></li>
+<li>"300+ семей переехали" - unverifiable claim <span class="badge-fail">FAIL</span></li>
+<li>"Аренда + рост = от 15%" - misleading <span class="badge-fail">FAIL</span></li>
+<li>Однообразие - почти каждый вариант: парк 3 га, от 4.2 млн, ипотека 0.1%</li>
+<li>Нет VK-specific спецификаций</li>
+</ol>
+</div>
+
+<!-- SECTION 7: VALIDATOR -->
+<h2 id="section-7">7. Валидатор</h2>
+
+<div class="section-content">
+
+<h3>Сводка</h3>
+<table>
+<tr><th>Всего креативов</th><th><span class="badge-pass">PASS</span></th><th><span class="badge-warn">WARN</span></th><th><span class="badge-fail">FAIL</span></th></tr>
+<tr><td>43</td><td>20</td><td>10</td><td>13</td></tr>
+</table>
+
+<h3>Критические проблемы</h3>
+<ol>
+<li><strong>Массовый неверный подсчёт символов</strong> - расхождения в 80% полей</li>
+<li><strong>Непроверенные финансовые утверждения</strong> - доходность, рост цен, количество семей</li>
+<li><strong>Превышение лимитов</strong> - Яндекс Поиск, Яндекс РСЯ, Google Search, Google Display</li>
+<li><strong>Захардкоженные цифры</strong> - "12 квартир" должно быть динамическим</li>
+</ol>
+
+<h3>Непроверенные финансовые утверждения</h3>
+<table>
+<tr><th>Утверждение</th><th>Где используется</th><th>Проблема</th><th>Статус</th></tr>
+<tr><td>"доходность аренды от 7%"</td><td>VK Feed, Stories, Яндекс, Google, РСЯ, Display, Reels</td><td>Нет источника. В стратегии - как то, что нужно ПРЕДОСТАВИТЬ клиенту</td><td><span class="badge-fail">FAIL</span></td></tr>
+<tr><td>"рост цены к сдаче до 25%"</td><td>Яндекс Поиск 6</td><td>Нет подтверждения. Superlative без third-party verification</td><td><span class="badge-fail">FAIL</span></td></tr>
+<tr><td>"300+ семей уже переехали"</td><td>VK Feed 10</td><td>Откуда цифра? ЖК ещё строится</td><td><span class="badge-fail">FAIL</span></td></tr>
+<tr><td>"аренда + рост = от 15%"</td><td>VK Stories 5</td><td>Суммирование непроверенных цифр. Гарантия инвест. дохода</td><td><span class="badge-fail">FAIL</span></td></tr>
+<tr><td>"цена ниже на 20-25%"</td><td>Instagram Reels 3</td><td>Нет подтверждения дельты</td><td><span class="badge-warn">WARN</span></td></tr>
+</table>
+
+<h3>Превышения лимитов символов</h3>
+
+<h4>Яндекс Поиск - Текст (лимит: 81 символ)</h4>
+<table>
+<tr><th>Вариант</th><th>Заявлено</th><th>Реально</th><th>Превышение</th><th>Статус</th></tr>
+<tr><td>Вариант 1</td><td>81</td><td>86</td><td>+5</td><td><span class="badge-fail">FAIL</span></td></tr>
+<tr><td>Вариант 2</td><td>81</td><td>84</td><td>+3</td><td><span class="badge-fail">FAIL</span></td></tr>
+<tr><td>Вариант 3 (исправлено)</td><td>81</td><td>92</td><td>+11</td><td><span class="badge-fail">FAIL</span></td></tr>
+<tr><td>Вариант 4</td><td>81</td><td>87</td><td>+6</td><td><span class="badge-fail">FAIL</span></td></tr>
+<tr><td>Вариант 5</td><td>81</td><td>87</td><td>+6</td><td><span class="badge-fail">FAIL</span></td></tr>
+<tr><td>Вариант 6</td><td>-</td><td>84</td><td>+3</td><td><span class="badge-fail">FAIL</span></td></tr>
+<tr><td>Вариант 7</td><td>80</td><td>86</td><td>+5</td><td><span class="badge-fail">FAIL</span></td></tr>
+<tr><td>Вариант 8</td><td>75</td><td>80</td><td>-</td><td><span class="badge-pass">PASS</span></td></tr>
+<tr><td>Вариант 9</td><td>79</td><td>84</td><td>+3</td><td><span class="badge-fail">FAIL</span></td></tr>
+</table>
+
+<h4>Google Search - Description (лимит: 90 символов)</h4>
+<table>
+<tr><th>Вариант</th><th>Поле</th><th>Реально</th><th>Превышение</th><th>Статус</th></tr>
+<tr><td>Вариант 1</td><td>D1</td><td>91</td><td>+1</td><td><span class="badge-fail">FAIL</span></td></tr>
+<tr><td>Вариант 1</td><td>D2</td><td>92</td><td>+2</td><td><span class="badge-fail">FAIL</span></td></tr>
+<tr><td>Вариант 2</td><td>D2</td><td>92</td><td>+2</td><td><span class="badge-fail">FAIL</span></td></tr>
+<tr><td>Вариант 3</td><td>D1</td><td>92</td><td>+2</td><td><span class="badge-fail">FAIL</span></td></tr>
+<tr><td>Вариант 4</td><td>D1</td><td>92</td><td>+2</td><td><span class="badge-fail">FAIL</span></td></tr>
+<tr><td>Вариант 4</td><td>D2</td><td>93</td><td>+3</td><td><span class="badge-fail">FAIL</span></td></tr>
+</table>
+
+<h4>Google Display - Description (лимит: 90 символов)</h4>
+<table>
+<tr><th>Вариант</th><th>Реально</th><th>Превышение</th><th>Статус</th></tr>
+<tr><td>Вариант 1</td><td>93</td><td>+3</td><td><span class="badge-fail">FAIL</span></td></tr>
+<tr><td>Вариант 2</td><td>96</td><td>+6</td><td><span class="badge-fail">FAIL</span></td></tr>
+<tr><td>Вариант 3</td><td>95</td><td>+5</td><td><span class="badge-fail">FAIL</span></td></tr>
+</table>
+
+<h3>Auto-fix примеры</h3>
+<table>
+<tr><th>Вариант</th><th>Было</th><th>Стало</th><th>Изменение</th></tr>
+<tr><td>Яндекс 1</td><td>Центр Краснодара. Ипотека 0.1%. Закрытый двор, подземный паркинг. Запишитесь на показ! (86)</td><td>Центр Краснодара. Ипотека 0.1%. Закрытый двор, паркинг. Запишитесь на показ! (77)</td><td>убрано "подземный"</td></tr>
+<tr><td>Google 1 D2</td><td>Переезд в Краснодар? Покажем квартиру онлайн. 280 квартир, парк, центр. Запишитесь на показ! (92)</td><td>Переезд в Краснодар? Покажем квартиру онлайн. 280 квартир, парк, центр. Запишитесь! (85)</td><td>"Запишитесь на показ!" -> "Запишитесь!"</td></tr>
+<tr><td>Display 3</td><td>ЖК Парковый - парк 3 га, 280 квартир. Дефицит качественных объектов в центре. Запросите расчёт! (95)</td><td>ЖК Парковый - парк 3 га, 280 квартир. Дефицит жилья в центре. Запросите расчёт! (80)</td><td>Понадобилась 2-я итерация</td></tr>
+</table>
+
+<h3>Итоговый чеклист валидатора</h3>
+<table>
+<tr><th>Проверка</th><th>Результат</th></tr>
+<tr><td>Символьные лимиты VK Feed</td><td><span class="badge-pass">PASS</span></td></tr>
+<tr><td>Символьные лимиты VK Stories</td><td><span class="badge-pass">PASS</span></td></tr>
+<tr><td>Символьные лимиты Яндекс Поиск</td><td><span class="badge-fail">FAIL</span> (8 из 9 текстов)</td></tr>
+<tr><td>Символьные лимиты Яндекс РСЯ</td><td><span class="badge-fail">FAIL</span> (3 из 4 текстов)</td></tr>
+<tr><td>Символьные лимиты Google Search</td><td><span class="badge-fail">FAIL</span> (6 из 8 descriptions)</td></tr>
+<tr><td>Символьные лимиты Google Display</td><td><span class="badge-fail">FAIL</span> (3 desc + 1 long headline)</td></tr>
+<tr><td>Рекламные политики</td><td><span class="badge-fail">FAIL</span> (непроверенные финансовые claims)</td></tr>
+<tr><td>Бриф compliance</td><td><span class="badge-warn">WARN</span> (нет Telegram Ads и Авито)</td></tr>
+<tr><td>CTA</td><td><span class="badge-pass">PASS</span></td></tr>
+<tr><td>Грамматика</td><td><span class="badge-pass">PASS</span></td></tr>
+<tr><td>Тон</td><td><span class="badge-pass">PASS</span></td></tr>
+<tr><td>Hook quality</td><td><span class="badge-pass">PASS</span></td></tr>
+</table>
+
+<h3>Решения, требующие подтверждения клиента</h3>
+<ol>
+<li><strong>Доходность аренды 7%</strong> - есть ли расчёт/аналитика?</li>
+<li><strong>Рост цены 20-25%</strong> - есть ли данные по предыдущим проектам?</li>
+<li><strong>"300+ семей переехали"</strong> - откуда цифра?</li>
+<li><strong>Нужны ли креативы для Telegram Ads и Авито?</strong></li>
+<li><strong>"Осталось 12 квартир"</strong> - реальная цифра или заменить на "осталось мало"?</li>
+</ol>
+
+<p><strong>Качество копирайтинга:</strong> 7/10</p>
+<p><strong>Готовность к запуску:</strong> <span class="badge-fail">НЕТ</span></p>
+
+</div>
+
+<!-- QA REVIEW: VALIDATOR -->
+<div class="qa-box">
+<h4>QA Review - Плюсы</h4>
+<ol>
+<li>Нашёл массовый баг подсчёта символов - 80% полей</li>
+<li>Поймал все 5 misleading claims</li>
+<li>Auto-fix грамотный</li>
+<li>5 вопросов застройщику - правильное разделение</li>
+<li>Покрытие Telegram/Авито отмечено как пробел</li>
+</ol>
+</div>
+
+<div class="qa-box-minus">
+<h4>QA Review - Минусы</h4>
+<ol>
+<li>Не пересчитал КАЖДОЕ поле</li>
+<li>Google Display вариант 3 - понадобилась вторая итерация auto-fix</li>
+<li>Не проверил VK-specific ограничения (их нет в platform-specs)</li>
+</ol>
+</div>
+
+<!-- SECTION 8: FINAL REPORT -->
+<h2 id="section-8">8. Итоговый отчёт тестирования</h2>
+
+<h3>Критические баги pipeline</h3>
+
+<table>
+<tr><th>#</th><th>Баг</th><th>Тип</th><th>Приоритет</th><th>Рекомендация</th></tr>
+<tr>
+<td>1</td>
+<td>Нет агентов VK Ads, Авито, Telegram Ads</td>
+<td>Architecture</td>
+<td><span class="badge-p0">P0</span></td>
+<td>Добавить skill.md для VK Ads, Авито, Telegram Ads</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Таргетолог знает только Meta - для РФ бесполезен</td>
+<td>Architecture</td>
+<td><span class="badge-p0">P0</span></td>
+<td>Переписать targeting/skill.md с поддержкой VK Ads</td>
+</tr>
+<tr>
+<td>3</td>
+<td>platform-specs.md не содержит VK Ads</td>
+<td>References</td>
+<td><span class="badge-p0">P0</span></td>
+<td>Добавить VK Ads specs</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Fact-check отсутствует - misleading claims пропагируются</td>
+<td>Pipeline Flow</td>
+<td><span class="badge-p0">P0</span></td>
+<td>Валидатор после стратега или fact-check шаг</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Копирайтер ошибается в подсчёте символов (80%)</td>
+<td>Agent Quality</td>
+<td><span class="badge-p1">P1</span></td>
+<td>Усилить промпт: "Пересчитай каждый символ дважды"</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Медиабайер = компилятор</td>
+<td>Role Design</td>
+<td><span class="badge-p1">P1</span></td>
+<td>Переосмыслить роль или убрать</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Бюджетные расхождения между агентами</td>
+<td>Pipeline Flow</td>
+<td><span class="badge-p1">P1</span></td>
+<td>Медиабайер должен арбитрировать</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Нет креативов для Telegram и Авито (30% бюджета)</td>
+<td>Coverage Gap</td>
+<td><span class="badge-p1">P1</span></td>
+<td>Копирайтер должен получать список каналов</td>
+</tr>
+</table>
+
+<h3>Что работает хорошо</h3>
+
+<div class="qa-box">
+<ol>
+<li><strong>Последовательность pipeline</strong> - каждый агент работает с output предыдущего</li>
+<li><strong>Стратег</strong> - JTBD, Cialdini, Trout/Ries применены осмысленно</li>
+<li><strong>Контекстолог</strong> - самый сильный агент. Глубокий, детальный</li>
+<li><strong>Валидатор</strong> - нашёл реальные проблемы, auto-fix работает</li>
+<li><strong>Формат вывода единообразный</strong></li>
+</ol>
+</div>
+
+<h3>Общая оценка pipeline</h3>
+
+<div class="score-box">
+6.5 / 10
+<div class="score-label">Pipeline работает end-to-end</div>
+</div>
+
+<p>Pipeline работает end-to-end, но имеет критические пробелы для российского рынка (VK/Яндекс/Авито/Telegram вместо Meta/Google) и проблемы с качеством данных (misleading claims, char counting).</p>
+
+<table>
+<tr><th>Аспект</th><th>Оценка</th><th>Комментарий</th></tr>
+<tr><td>Стратег</td><td>8/10</td><td>Сильный JTBD, позиционирование, каналы. Минус: misleading claims</td></tr>
+<tr><td>Таргетолог</td><td>6/10</td><td>Адаптировался под VK, но skill написан для Meta</td></tr>
+<tr><td>Контекстолог</td><td>9/10</td><td>Самый сильный агент. Measurement, семантика, decision matrix</td></tr>
+<tr><td>Медиабайер</td><td>5/10</td><td>Компилятор, не арбитр. Не разрешил бюджетные противоречия</td></tr>
+<tr><td>Копирайтер</td><td>7/10</td><td>43 креатива, хорошие hooks. Проблемы с char counting и claims</td></tr>
+<tr><td>Валидатор</td><td>8/10</td><td>Нашёл все ключевые проблемы. Auto-fix работает</td></tr>
+</table>
+
+<hr style="margin-top: 60px;">
+<p style="text-align: center; color: #999; font-size: 12px;">
+KUBRIK Pipeline Test Report - 2026-03-31<br>
+Generated by KUBRIK Marketing Pipeline v0.1
+</p>
+
+</body>
+</html>
