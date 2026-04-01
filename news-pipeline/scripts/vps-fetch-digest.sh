@@ -14,6 +14,9 @@ export LANG=en_US.UTF-8
 REPO_DIR="${KUBRIK_REPO:-$HOME/kubrik}"
 PIPELINE_DIR="$REPO_DIR/news-pipeline"
 SCRIPTS_DIR="$PIPELINE_DIR/scripts"
+
+# Source common functions (portable_sha256, etc.)
+. "$SCRIPTS_DIR/common.sh"
 DATA_DIR="$PIPELINE_DIR/data"
 CACHE_DIR="$PIPELINE_DIR/cache"
 CONFIG_FILE="$PIPELINE_DIR/config/.env"
@@ -52,7 +55,7 @@ BLOGS_TSV="$CACHE_DIR/blogs_latest.tsv"
 
 fetch_rss() {
     local name="$1" url="$2" platform="$3"
-    local cache_file="$CACHE_DIR/rss_$(echo "$url" | sha256sum 2>/dev/null | cut -c1-12 || shasum -a 256 <<< "$url" | cut -c1-12).xml"
+    local cache_file="$CACHE_DIR/rss_$(portable_sha256 "$url" 12).xml"
 
     log "Fetching: $name ($platform)..."
 
@@ -69,7 +72,7 @@ fetch_rss() {
     fi
 
     # Split XML tags onto separate lines for awk parsing
-    sed 's/></>\n</g' "$cache_file" > "$cache_file.split"
+    split_xml_tags "$cache_file" > "$cache_file.split"
 
     # Parse with awk
     awk -v platform="$platform" -v cutoff="$CUTOFF_DATE" \
@@ -146,7 +149,7 @@ if [ -s "$BLOGS_TSV" ]; then
         [ -z "$_url" ] && continue
 
         # Generate filename from URL hash
-        _hash=$(echo -n "$_url" | sha256sum | cut -c1-12)
+        _hash=$(portable_sha256 "$_url" 12)
         _article_file="$ARTICLES_DIR/${_platform}_${_hash}.md"
 
         # Skip if already fetched
@@ -197,14 +200,45 @@ fi
 log "Full texts fetched: $FETCHED_COUNT"
 
 # --- Commit and push ---
+PUSH_BRANCH="news-data"
+
 if [ "$TOTAL" -gt 0 ]; then
     cd "$REPO_DIR"
-    git add news-pipeline/data/ news-pipeline/cache/ 2>/dev/null || true
-    git commit -m "news-pipeline: fetch digest $TODAY ($TOTAL articles)
 
-Co-Authored-By: VPS Cron <noreply@kubrik.dev>" --quiet 2>/dev/null || true
+    # Skip files larger than 1MB
+    SKIPPED=0
+    for f in $(find news-pipeline/data/ news-pipeline/cache/ -type f 2>/dev/null); do
+        _fsize=$(wc -c < "$f" 2>/dev/null | tr -d ' ')
+        if [ "$_fsize" -gt 1048576 ]; then
+            log "WARNING: skipping large file (${_fsize} bytes): $f"
+            SKIPPED=$((SKIPPED + 1))
+        else
+            git add "$f" 2>/dev/null || true
+        fi
+    done
+    [ "$SKIPPED" -gt 0 ] && log "Skipped $SKIPPED files over 1MB"
 
-    git push --quiet 2>/dev/null && log "Pushed to repo" || log "WARNING: push failed"
+    # Ensure we are on the dedicated data branch
+    _current_branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+    if [ "$_current_branch" != "$PUSH_BRANCH" ]; then
+        git checkout -B "$PUSH_BRANCH" 2>/dev/null || {
+            log "ERROR: failed to switch to branch $PUSH_BRANCH"
+            exit 1
+        }
+    fi
+
+    if ! git diff --cached --quiet 2>/dev/null; then
+        git commit -m "news-pipeline: fetch digest $TODAY ($TOTAL articles)
+
+Co-Authored-By: VPS Cron <noreply@kubrik.dev>" --quiet 2>/dev/null || {
+            log "ERROR: git commit failed"
+            exit 1
+        }
+
+        git push origin "$PUSH_BRANCH" --quiet 2>/dev/null && log "Pushed to $PUSH_BRANCH" || log "WARNING: push to $PUSH_BRANCH failed"
+    else
+        log "No staged changes to commit"
+    fi
 else
     log "No articles found, skipping commit"
 fi

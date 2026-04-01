@@ -33,7 +33,7 @@ fi
 CUTOFF_DATE=$(days_ago_iso "$PERIOD_DAYS")
 
 # Fetch RSS
-FEED_CACHE="$CACHE_DIR/rss_$(echo "$URL" | shasum -a 256 | cut -c1-12).xml"
+FEED_CACHE="$CACHE_DIR/rss_$(portable_sha256 "$URL" 12).xml"
 web_fetch "$URL" > "$FEED_CACHE"
 
 if [ ! -s "$FEED_CACHE" ]; then
@@ -42,8 +42,7 @@ if [ ! -s "$FEED_CACHE" ]; then
 fi
 
 # The RSS XML is on one long line - split tags onto separate lines first
-sed 's/></>\
-</g' "$FEED_CACHE" > "$FEED_CACHE.split"
+split_xml_tags "$FEED_CACHE" > "$FEED_CACHE.split"
 
 # Parse with awk
 awk -v platform="$FEED_PLATFORM" -v cutoff="$CUTOFF_DATE" \

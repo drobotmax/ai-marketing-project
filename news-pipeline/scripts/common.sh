@@ -40,9 +40,14 @@ ensure_seen() {
     fi
 }
 
+# Portable SHA-256 hash (works on both Linux and macOS)
+portable_sha256() {
+    echo -n "$1" | (sha256sum 2>/dev/null || shasum -a 256) | cut -c1-"${2:-16}"
+}
+
 # Generate a hash for dedup (URL-based)
 hash_url() {
-    echo -n "$1" | shasum -a 256 | cut -c1-16
+    portable_sha256 "$1" 16
 }
 
 # Check if URL hash already seen
@@ -80,6 +85,12 @@ mark_seen() {
             echo "{\"$hash\":\"$today\"}" > "$SEEN_FILE"
         fi
     fi
+}
+
+# Portable sed: split XML closing/opening tags onto separate lines
+# Works on both GNU sed (Linux) and BSD sed (macOS)
+split_xml_tags() {
+    sed $'s/></>\\\n</g' "$1"
 }
 
 # HTTP fetch with rate limiting
