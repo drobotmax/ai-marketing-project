@@ -94,7 +94,7 @@ echo "Step 3/3: Building digest..." >&2
         if [ -n "$_plat_items" ]; then
             echo "## $_plat_upper"
             echo ""
-            echo "$_plat_items" | while IFS=$'\t' read -r _date _platform _title _url _summary; do
+            while IFS=$'\t' read -r _date _platform _title _url _summary; do
                 if [ -z "$NO_DEDUP" ] && is_seen "$_url"; then
                     continue
                 fi
@@ -104,7 +104,7 @@ echo "Step 3/3: Building digest..." >&2
                 fi
                 echo ""
                 _has_content=1
-            done
+            done <<< "$_plat_items"
         fi
     done
 

@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Marketing Agents — Платформа ИИ-агентов для маркетинга</title>
+<style>
+:root {
+    --bg: #08080f;
+    --surface: #10101a;
+    --surface2: #181828;
+    --accent: #6c5ce7;
+    --accent2: #a29bfe;
+    --green: #00cec9;
+    --orange: #fdcb6e;
+    --text: #eeeef5;
+    --text2: #8888a8;
+    --border: #252540;
+    --gradient1: linear-gradient(135deg, #6c5ce7, #00cec9);
+    --gradient2: linear-gradient(135deg, #a29bfe, #74b9ff);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+.deck {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 5rem;
+    opacity: 0;
+    transform: translateX(60px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none;
+    text-align: center;
+}
+
+.slide.active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+.slide.prev {
+    opacity: 0;
+    transform: translateX(-60px);
+}
+
+.slide::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+}
+
+.slide > * { position: relative; z-index: 1; }
+
+.slide-1::before {
+    background: radial-gradient(ellipse at 30% 50%, rgba(108,92,231,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 60%, rgba(0,206,201,0.08) 0%, transparent 50%),
+                var(--bg);
+}
+.slide-2::before {
+    background: radial-gradient(ellipse at 60% 40%, rgba(225,112,85,0.08) 0%, transparent 50%), var(--bg);
+}
+.slide-3::before, .slide-4::before, .slide-5::before {
+    background: radial-gradient(ellipse at 40% 50%, rgba(108,92,231,0.1) 0%, transparent 55%),
+                radial-gradient(ellipse at 70% 70%, rgba(0,206,201,0.06) 0%, transparent 50%),
+                var(--bg);
+}
+.slide-6::before {
+    background: radial-gradient(ellipse at 50% 50%, rgba(0,206,201,0.08) 0%, transparent 55%), var(--bg);
+}
+.slide-7::before {
+    background: radial-gradient(ellipse at 30% 60%, rgba(162,155,254,0.08) 0%, transparent 50%), var(--bg);
+}
+.slide-8::before {
+    background: radial-gradient(ellipse at 50% 40%, rgba(253,203,110,0.06) 0%, transparent 50%), var(--bg);
+}
+.slide-9::before {
+    background: radial-gradient(ellipse at 40% 50%, rgba(108,92,231,0.08) 0%, transparent 50%), var(--bg);
+}
+.slide-10::before {
+    background: radial-gradient(ellipse at 50% 50%, rgba(0,206,201,0.06) 0%, transparent 50%), var(--bg);
+}
+.slide-11::before {
+    background: radial-gradient(ellipse at 50% 50%, rgba(108,92,231,0.15) 0%, transparent 55%),
+                radial-gradient(ellipse at 30% 70%, rgba(0,206,201,0.1) 0%, transparent 50%),
+                var(--bg);
+}
+
+/* Typography */
+.badge {
+    display: inline-block;
+    padding: 0.4rem 1.2rem;
+    background: rgba(108,92,231,0.12);
+    border: 1px solid rgba(108,92,231,0.25);
+    border-radius: 100px;
+    font-size: 0.85rem;
+    color: var(--accent2);
+    letter-spacing: 0.06em;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.2rem;
+}
+
+h1 .grad {
+    background: var(--gradient1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+h2 {
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+}
+
+h2 .grad {
+    background: var(--gradient2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitle {
+    font-size: 1.15rem;
+    color: var(--text2);
+    max-width: 700px;
+    line-height: 1.7;
+}
+
+/* Cards grid */
+.cards {
+    display: grid;
+    gap: 1.2rem;
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 1100px;
+}
+
+.cards-3 { grid-template-columns: repeat(3, 1fr); }
+.cards-2 { grid-template-columns: repeat(2, 1fr); }
+.cards-4 { grid-template-columns: repeat(4, 1fr); }
+.cards-5 { grid-template-columns: repeat(5, 1fr); }
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem 1.3rem;
+    text-align: left;
+    transition: border-color 0.3s;
+}
+
+.card:hover { border-color: var(--accent); }
+
+.card-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+    display: block;
+}
+
+.card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    color: var(--text);
+}
+
+.card p {
+    font-size: 0.85rem;
+    color: var(--text2);
+    line-height: 1.5;
+}
+
+/* Flow / pipeline */
+.flow {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.flow-step {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.2rem 1.5rem;
+    text-align: center;
+    min-width: 140px;
+}
+
+.flow-step .icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
+.flow-step h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.2rem; }
+.flow-step p { font-size: 0.75rem; color: var(--text2); }
+
+.flow-arrow {
+    font-size: 1.5rem;
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+/* Stats */
+.stats {
+    display: flex;
+    gap: 3rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.stat .num {
+    font-size: 2.8rem;
+    font-weight: 800;
+    background: var(--gradient1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stat .label {
+    font-size: 0.9rem;
+    color: var(--text2);
+    margin-top: 0.3rem;
+}
+
+/* Team */
+.team {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+    max-width: 950px;
+    width: 100%;
+}
+
+.team-member {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.8rem 1.5rem;
+    text-align: center;
+}
+
+.team-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin: 0 auto 0.8rem;
+    border: 2px solid var(--accent);
+    background: var(--surface2);
+}
+
+.team-member h3 { font-size: 1.05rem; margin-bottom: 0.2rem; }
+.team-member .role { font-size: 0.8rem; color: var(--accent2); margin-bottom: 0.6rem; }
+.team-member p { font-size: 0.8rem; color: var(--text2); line-height: 1.5; text-align: left; }
+
+/* Big result cards */
+.result-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.result-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+}
+
+.result-card .big-num {
+    font-size: 2.4rem;
+    font-weight: 800;
+    margin-bottom: 0.3rem;
+}
+
+.result-card h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+
+.result-card p {
+    font-size: 0.8rem;
+    color: var(--text2);
+    line-height: 1.5;
+}
+
+/* CTA */
+.cta-btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--gradient1);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 12px;
+    text-decoration: none;
+    margin-top: 2rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    border: none;
+}
+
+.cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(108,92,231,0.3);
+}
+
+/* Navigation */
+.nav {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    gap: 0.5rem;
+    z-index: 100;
+}
+
+.nav button {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.nav button:hover {
+    background: var(--surface2);
+    border-color: var(--accent);
+}
+
+.progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: var(--gradient1);
+    transition: width 0.4s ease;
+    z-index: 100;
+}
+
+.slide-counter {
+    position: fixed;
+    bottom: 2.2rem;
+    left: 2rem;
+    font-size: 0.85rem;
+    color: var(--text2);
+    z-index: 100;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .slide { padding: 2rem 1.5rem; }
+    .cards-3, .cards-4, .cards-5 { grid-template-columns: 1fr 1fr; }
+    .cards-2 { grid-template-columns: 1fr; }
+    .team { grid-template-columns: 1fr; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+    .result-cards { grid-template-columns: repeat(2, 1fr); }
+    .stats { gap: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+<div class="slide-counter" id="counter"></div>
+
+<div class="deck" id="deck">
+
+    <!-- SLIDE 1: Title -->
+    <div class="slide slide-1 active" data-slide="1">
+        <div class="badge">AI-Powered Marketing</div>
+        <h1><span class="grad">ИИ-агенты</span><br>для маркетинга в недвижимости</h1>
+        <p class="subtitle">10+ ИИ-специалистов экстра-класса, которые внедряют системность в ваш маркетинг — каждая вложенная копейка даёт прибыль</p>
+        <div class="stats">
+            <div class="stat">
+                <div class="num">10+</div>
+                <div class="label">ИИ-агентов</div>
+            </div>
+            <div class="stat">
+                <div class="num">24/7</div>
+                <div class="label">без больничных и выходных</div>
+            </div>
+            <div class="stat">
+                <div class="num">∞</div>
+                <div class="label">обучается каждую минуту</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 2: Problem -->
+    <div class="slide slide-2" data-slide="2">
+        <div class="badge">Проблема</div>
+        <h2>Бизнес хочет <span class="grad">системный маркетинг</span>,<br>где каждая копейка = прибыль</h2>
+        <div class="cards cards-3" style="margin-top: 2rem;">
+            <div class="card">
+                <span class="card-icon">🎲</span>
+                <h3>Маркетинг вслепую</h3>
+                <p>Бюджеты сливаются без аналитики. Нет понимания, какой канал приносит клиентов, а какой — убытки</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">👥</span>
+                <h3>Кадровый голод</h3>
+                <p>Найти маркетолога-профи — месяцы поиска. Держать полный отдел: аналитик + таргетолог + креативщик = от 300К/мес</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">🐌</span>
+                <h3>Медленный запуск</h3>
+                <p>От идеи до запуска рекламы — 2-4 недели. Конкуренты забирают клиентов, пока вы согласовываете креативы</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 3: Why AI — the Einstein slide -->
+    <div class="slide slide-3" data-slide="3">
+        <div class="badge">Почему ИИ</div>
+        <h2>Мы создаём <span class="grad">команду гениев</span>,<br>которых на рынке единицы</h2>
+        <p class="subtitle">Через ИИ мы внедряем в маркетинг системность. Каждый агент обучен на лучших мировых практиках — это 10+ профи экстра-класса в одной платформе</p>
+        <div class="cards cards-4" style="margin-top: 2rem;">
+            <div class="card" style="text-align: center;">
+                <span class="card-icon" style="font-size: 2.2rem;">🎓</span>
+                <h3>Обучен на лучших</h3>
+                <p>Лучшие книги по маркетингу, лекции Гарварда, кейсы топ-агентств</p>
+            </div>
+            <div class="card" style="text-align: center;">
+                <span class="card-icon" style="font-size: 2.2rem;">📡</span>
+                <h3>Всегда в курсе</h3>
+                <p>Подписан на McKinsey, получает ежедневные отчёты по рынку недвижимости</p>
+            </div>
+            <div class="card" style="text-align: center;">
+                <span class="card-icon" style="font-size: 2.2rem;">🔄</span>
+                <h3>Не останавливается</h3>
+                <p>Не болеет, не ленится, не спит. Работает 24/7 и обучается каждую минуту</p>
+            </div>
+            <div class="card" style="text-align: center;">
+                <span class="card-icon" style="font-size: 2.2rem;">🧠</span>
+                <h3>Системность</h3>
+                <p>Каждое решение основано на данных, а не на интуиции. Ноль человеческих ошибок</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: Solution — pipeline -->
+    <div class="slide slide-4" data-slide="4">
+        <div class="badge">Решение</div>
+        <h2>Готовая платформа<br><span class="grad">10+ ИИ-агентов для маркетинга</span></h2>
+        <p class="subtitle">Каждый агент — узкий специалист. Вместе они закрывают весь маркетинговый цикл</p>
+        <div class="flow">
+            <div class="flow-step">
+                <div class="icon">📊</div>
+                <h4>Аналитик</h4>
+                <p>ЦА, рынок, чеки</p>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+                <div class="icon">🔍</div>
+                <h4>Разведчик</h4>
+                <p>Конкуренты, цены</p>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+                <div class="icon">📝</div>
+                <h4>Стратег</h4>
+                <p>Позиционирование</p>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+                <div class="icon">📱</div>
+                <h4>Таргетолог</h4>
+                <p>Meta, Instagram, аудитории</p>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+                <div class="icon">🎯</div>
+                <h4>Контекстолог</h4>
+                <p>Семантика, кампании</p>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step" style="border-color: var(--green);">
+                <div class="icon">🚀</div>
+                <h4>Запуск</h4>
+                <p>Реклама работает</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 5: All agents -->
+    <div class="slide slide-5" data-slide="5">
+        <div class="badge">Команда агентов</div>
+        <h2>Полный состав <span class="grad">ИИ-отдела</span></h2>
+        <div class="cards cards-5" style="margin-top: 1.5rem;">
+            <div class="card" style="text-align: center; padding: 1.2rem 1rem;">
+                <span class="card-icon" style="font-size: 1.6rem;">📊</span>
+                <h3>Аналитик</h3>
+                <p>ЦА, средний чек, спрос, сегменты</p>
+            </div>
+            <div class="card" style="text-align: center; padding: 1.2rem 1rem;">
+                <span class="card-icon" style="font-size: 1.6rem;">🔍</span>
+                <h3>Разведчик</h3>
+                <p>Конкуренты, цены, рекламные каналы</p>
+            </div>
+            <div class="card" style="text-align: center; padding: 1.2rem 1rem;">
+                <span class="card-icon" style="font-size: 1.6rem;">📝</span>
+                <h3>Стратег</h3>
+                <p>Позиционирование, УТП, стратегия</p>
+            </div>
+            <div class="card" style="text-align: center; padding: 1.2rem 1rem;">
+                <span class="card-icon" style="font-size: 1.6rem;">🎯</span>
+                <h3>Контекстолог</h3>
+                <p>Яндекс.Директ, Google Ads, семантика</p>
+            </div>
+            <div class="card" style="text-align: center; padding: 1.2rem 1rem;">
+                <span class="card-icon" style="font-size: 1.6rem;">📱</span>
+                <h3>Таргетолог</h3>
+                <p>Соцсети, аудитории, look-alike</p>
+            </div>
+            <div class="card" style="text-align: center; padding: 1.2rem 1rem;">
+                <span class="card-icon" style="font-size: 1.6rem;">🎨</span>
+                <h3>Креативщик</h3>
+                <p>Баннеры, видео, тексты объявлений</p>
+            </div>
+            <div class="card" style="text-align: center; padding: 1.2rem 1rem;">
+                <span class="card-icon" style="font-size: 1.6rem;">✍️</span>
+                <h3>Копирайтер</h3>
+                <p>Тексты для сайтов, лендингов, email</p>
+            </div>
+            <div class="card" style="text-align: center; padding: 1.2rem 1rem;">
+                <span class="card-icon" style="font-size: 1.6rem;">📧</span>
+                <h3>Email-маркетолог</h3>
+                <p>Цепочки, рассылки, лид-нёрчеринг</p>
+            </div>
+            <div class="card" style="text-align: center; padding: 1.2rem 1rem;">
+                <span class="card-icon" style="font-size: 1.6rem;">📈</span>
+                <h3>Оптимизатор</h3>
+                <p>A/B тесты, ROI, оптимизация ставок</p>
+            </div>
+            <div class="card" style="text-align: center; padding: 1.2rem 1rem;">
+                <span class="card-icon" style="font-size: 1.6rem;">🔗</span>
+                <h3>Оркестратор</h3>
+                <p>Координация всех агентов, контроль</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 6: Results — business metrics -->
+    <div class="slide slide-6" data-slide="6">
+        <div class="badge">Результаты</div>
+        <h2>Что это даёт <span class="grad">вашему бизнесу</span></h2>
+        <p class="subtitle">Не таблицы и отчёты — а измеримый результат для вашей прибыли</p>
+        <div class="result-cards">
+            <div class="result-card">
+                <div class="big-num" style="color: var(--green);">-50%</div>
+                <h4>Издержки на маркетинг</h4>
+                <p>ИИ-отдел стоит в разы дешевле штатной команды из 5+ человек</p>
+            </div>
+            <div class="result-card">
+                <div class="big-num" style="color: var(--accent2);">x5</div>
+                <h4>Скорость запуска</h4>
+                <p>От идеи до работающей рекламы за часы, а не недели</p>
+            </div>
+            <div class="result-card">
+                <div class="big-num" style="color: var(--orange);">÷2</div>
+                <h4>Стоимость клиента</h4>
+                <p>Постоянная оптимизация снижает CPL за счёт данных и A/B тестов</p>
+            </div>
+            <div class="result-card">
+                <div class="big-num" style="color: #fd79a8;">100%</div>
+                <h4>Прозрачность</h4>
+                <p>Каждый рубль бюджета отслеживается — вы видите, что работает</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 7: Customization for real estate -->
+    <div class="slide slide-7" data-slide="7">
+        <div class="badge">Кастомизация</div>
+        <h2>ИИ-агент обучается<br><span class="grad">на ваших данных</span></h2>
+        <p class="subtitle">Мы не даём универсальный шаблон. Каждый агент погружается в ваш проект, рынок и конкурентов</p>
+        <div class="cards cards-2" style="max-width: 900px; margin-top: 2rem;">
+            <div class="card" style="border-color: var(--accent);">
+                <span class="card-icon">🏗️</span>
+                <h3>Заточен под недвижимость</h3>
+                <p>Знает специфику: шахматки, планировки, ипотечные программы, геотаргетинг по районам, сезонность спроса, ценовые сегменты</p>
+            </div>
+            <div class="card" style="border-color: var(--green);">
+                <span class="card-icon">📚</span>
+                <h3>Учится у лучших</h3>
+                <p>Обучен на лучших книгах по маркетингу, лекциях Гарварда, кейсах топ-агентств. Подписан на McKinsey и получает ежедневные отчёты по рынку</p>
+            </div>
+            <div class="card" style="border-color: var(--orange);">
+                <span class="card-icon">📊</span>
+                <h3>Ваши данные = его знания</h3>
+                <p>Загружаете остатки, локации, презентацию проекта — агент строит стратегию именно под ваш объект и вашу аудиторию</p>
+            </div>
+            <div class="card" style="border-color: #fd79a8;">
+                <span class="card-icon">🔄</span>
+                <h3>Постоянное обучение</h3>
+                <p>Анализирует результаты каждой кампании и адаптирует стратегию. С каждым днём работает точнее и эффективнее</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 8: What it looks like — deliverables -->
+    <div class="slide slide-8" data-slide="8">
+        <div class="badge">Инструменты</div>
+        <h2>Что вы получаете <span class="grad">на выходе</span></h2>
+        <div class="cards cards-3" style="margin-top: 2rem;">
+            <div class="card" style="border-left: 3px solid var(--accent);">
+                <span class="card-icon">📑</span>
+                <h3>Презентации и стратегии</h3>
+                <p>Готовая маркетинговая стратегия с позиционированием, УТП и планом продвижения</p>
+            </div>
+            <div class="card" style="border-left: 3px solid var(--green);">
+                <span class="card-icon">📊</span>
+                <h3>Дашборды аналитики</h3>
+                <p>Живые дашборды: расход, заявки, CPL, ROI — всё в реальном времени</p>
+            </div>
+            <div class="card" style="border-left: 3px solid var(--orange);">
+                <span class="card-icon">🎯</span>
+                <h3>Рекламные кампании</h3>
+                <p>Настроенные кампании в Яндекс.Директ, Google Ads с семантикой и минус-словами</p>
+            </div>
+            <div class="card" style="border-left: 3px solid #74b9ff;">
+                <span class="card-icon">🎨</span>
+                <h3>Креативы и баннеры</h3>
+                <p>Баннеры, тексты объявлений, видео-концепты — адаптированные под каждую площадку</p>
+            </div>
+            <div class="card" style="border-left: 3px solid #fd79a8;">
+                <span class="card-icon">🧲</span>
+                <h3>Лидмагниты</h3>
+                <p>PDF-гайды, чек-листы, калькуляторы ипотеки — инструменты захвата лидов</p>
+            </div>
+            <div class="card" style="border-left: 3px solid #a29bfe;">
+                <span class="card-icon">🌐</span>
+                <h3>Посадочные страницы</h3>
+                <p>Лендинги под каждый сегмент аудитории с формами захвата и аналитикой</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 9: Team + humans -->
+    <div class="slide slide-9" data-slide="9">
+        <div class="badge">Команда</div>
+        <h2>ИИ + люди, которые<br><span class="grad">всё контролируют</span></h2>
+        <p class="subtitle">За каждым проектом стоят реальные эксперты, которые проверяют и направляют работу агентов</p>
+        <div class="team">
+            <div class="team-member">
+                <div class="team-avatar">🤝</div>
+                <h3>Антон Новиков</h3>
+                <div class="role">Маркетинг и развитие</div>
+                <p><!-- TODO: добавить биографию Антона --></p>
+            </div>
+            <div class="team-member">
+                <div class="team-avatar">📊</div>
+                <h3>Дмитрий</h3>
+                <div class="role">Реклама и перформанс</div>
+                <p>Специалист по контекстной рекламе. Экспертиза в Яндекс.Директ и Google Ads, настройке и оптимизации рекламных кампаний</p>
+            </div>
+            <div class="team-member">
+                <div class="team-avatar">💻</div>
+                <h3>Максим Дробот</h3>
+                <div class="role">Технология и ИИ</div>
+                <p>Разработчик ИИ-систем и автоматизации. Создатель платформы, архитектура агентов, интеграции и инфраструктура</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 10: Roadmap -->
+    <div class="slide slide-10" data-slide="10">
+        <div class="badge">Как начать</div>
+        <h2>Процесс <span class="grad">запуска</span></h2>
+        <div class="flow" style="margin-top: 2rem;">
+            <div class="flow-step" style="min-width: 180px;">
+                <div class="icon">📞</div>
+                <h4>1. Знакомство</h4>
+                <p>Обсуждаем проект, цели, бюджет</p>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step" style="min-width: 180px;">
+                <div class="icon">🧠</div>
+                <h4>2. Настройка</h4>
+                <p>Загружаем данные, обучаем агентов</p>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step" style="min-width: 180px;">
+                <div class="icon">🚀</div>
+                <h4>3. Запуск</h4>
+                <p>Стратегия, креативы, кампании</p>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step" style="min-width: 180px; border-color: var(--green);">
+                <div class="icon">📈</div>
+                <h4>4. Рост</h4>
+                <p>Оптимизация, масштабирование</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 11: CTA -->
+    <div class="slide slide-11" data-slide="11">
+        <h1><span class="grad">Готовы к системному<br>маркетингу?</span></h1>
+        <p class="subtitle">Покажем, как 10+ ИИ-агентов будут работать на вашем проекте</p>
+        <button class="cta-btn" onclick="alert('Свяжитесь с нами!')">Обсудить проект</button>
+        <div class="stats" style="margin-top: 3rem;">
+            <div class="stat">
+                <div class="num">10+</div>
+                <div class="label">ИИ-агентов на вашем проекте</div>
+            </div>
+            <div class="stat">
+                <div class="num">24ч</div>
+                <div class="label">до первых результатов</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Navigation -->
+<div class="nav">
+    <button onclick="prevSlide()" aria-label="Previous">←</button>
+    <button onclick="nextSlide()" aria-label="Next">→</button>
+</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const progress = document.getElementById('progress');
+const counter = document.getElementById('counter');
+let current = 0;
+const total = slides.length;
+
+function nextSlide() {
+    if (current >= total - 1) return;
+    slides[current].classList.remove('active');
+    slides[current].classList.add('prev');
+    current++;
+    slides[current].classList.add('active');
+    progress.style.width = ((current + 1) / total * 100) + '%';
+    counter.textContent = (current + 1) + ' / ' + total;
+    setTimeout(() => {
+        slides.forEach(s => s.classList.remove('prev'));
+    }, 600);
+}
+
+function prevSlide() {
+    if (current <= 0) return;
+    slides[current].classList.remove('active');
+    current--;
+    slides[current].classList.add('active');
+    slides[current].classList.remove('prev');
+    progress.style.width = ((current + 1) / total * 100) + '%';
+    counter.textContent = (current + 1) + ' / ' + total;
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); nextSlide(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
+});
+
+let touchStartX = 0;
+document.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+}, { passive: true });
+document.addEventListener('touchend', (e) => {
+    const diff = touchStartX - e.changedTouches[0].screenX;
+    if (Math.abs(diff) > 50) {
+        if (diff > 0) nextSlide(); else prevSlide();
+    }
+}, { passive: true });
+
+progress.style.width = (1 / total * 100) + '%';
+counter.textContent = '1 / ' + total;
+</script>
+
+</body>
+</html>

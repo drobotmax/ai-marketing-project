@@ -3,55 +3,132 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Marketing Agents — Платформа ИИ-агентов для маркетинга</title>
+<title>KUBRIK - Встроенный отдел маркетинга для застройщиков</title>
 <style>
 :root {
-    --bg: #08080f;
-    --surface: #10101a;
-    --surface2: #181828;
-    --accent: #6c5ce7;
-    --accent2: #a29bfe;
-    --green: #00cec9;
-    --orange: #fdcb6e;
-    --text: #eeeef5;
-    --text2: #8888a8;
-    --border: #252540;
-    --gradient1: linear-gradient(135deg, #6c5ce7, #00cec9);
-    --gradient2: linear-gradient(135deg, #a29bfe, #74b9ff);
+    --bg: #07111f;
+    --bg-soft: #0d1a2c;
+    --panel: rgba(12, 24, 41, 0.82);
+    --panel-strong: rgba(9, 19, 33, 0.94);
+    --line: rgba(145, 198, 255, 0.14);
+    --line-strong: rgba(145, 198, 255, 0.28);
+    --text: #f4f8ff;
+    --muted: #97abc6;
+    --accent: #59b8ff;
+    --accent-soft: rgba(89, 184, 255, 0.12);
+    --good: #78e2b1;
+    --warn: #ffd57a;
+    --maxw: 1240px;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: var(--bg);
+    font-family: Inter, Manrope, "Segoe UI", sans-serif;
+    background:
+        radial-gradient(circle at top left, rgba(89, 184, 255, 0.12), transparent 26%),
+        radial-gradient(circle at right 18% top 22%, rgba(89, 184, 255, 0.07), transparent 22%),
+        linear-gradient(180deg, #06101d 0%, #07111f 46%, #050b15 100%);
     color: var(--text);
     overflow: hidden;
-    height: 100vh;
-    width: 100vw;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+    background-size: 72px 72px;
+    opacity: 0.42;
+    pointer-events: none;
+}
+
+.progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0;
+    background: linear-gradient(90deg, #5ed0ff, #2a75ff);
+    z-index: 30;
+    transition: width 0.3s ease;
+}
+
+.counter,
+.hint {
+    position: fixed;
+    z-index: 30;
+    color: var(--muted);
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.counter {
+    left: 28px;
+    bottom: 24px;
+}
+
+.hint {
+    right: 28px;
+    bottom: 24px;
+}
+
+.nav {
+    position: fixed;
+    right: 24px;
+    top: 24px;
+    display: flex;
+    gap: 10px;
+    z-index: 30;
+}
+
+.nav button {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    background: rgba(8, 17, 30, 0.8);
+    color: var(--text);
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.nav button:hover {
+    border-color: var(--line-strong);
+    background: rgba(12, 24, 41, 0.95);
 }
 
 .deck {
+    position: relative;
     width: 100vw;
     height: 100vh;
-    position: relative;
 }
 
 .slide {
     position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
+    padding: 64px 72px 72px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    padding: 3rem 5rem;
+    justify-content: center;
     opacity: 0;
-    transform: translateX(60px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateX(48px);
     pointer-events: none;
-    text-align: center;
+    transition: opacity 0.45s ease, transform 0.45s ease;
 }
 
 .slide.active {
@@ -61,763 +138,978 @@ body {
 }
 
 .slide.prev {
-    opacity: 0;
-    transform: translateX(-60px);
+    transform: translateX(-48px);
 }
 
-.slide::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    z-index: 0;
+.frame {
+    width: min(100%, var(--maxw));
+    min-height: min(82vh, 880px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 26px;
 }
 
-.slide > * { position: relative; z-index: 1; }
-
-.slide-1::before {
-    background: radial-gradient(ellipse at 30% 50%, rgba(108,92,231,0.12) 0%, transparent 60%),
-                radial-gradient(ellipse at 70% 60%, rgba(0,206,201,0.08) 0%, transparent 50%),
-                var(--bg);
-}
-.slide-2::before {
-    background: radial-gradient(ellipse at 60% 40%, rgba(225,112,85,0.08) 0%, transparent 50%), var(--bg);
-}
-.slide-3::before, .slide-4::before, .slide-5::before {
-    background: radial-gradient(ellipse at 40% 50%, rgba(108,92,231,0.1) 0%, transparent 55%),
-                radial-gradient(ellipse at 70% 70%, rgba(0,206,201,0.06) 0%, transparent 50%),
-                var(--bg);
-}
-.slide-6::before {
-    background: radial-gradient(ellipse at 50% 50%, rgba(0,206,201,0.08) 0%, transparent 55%), var(--bg);
-}
-.slide-7::before {
-    background: radial-gradient(ellipse at 30% 60%, rgba(162,155,254,0.08) 0%, transparent 50%), var(--bg);
-}
-.slide-8::before {
-    background: radial-gradient(ellipse at 50% 40%, rgba(253,203,110,0.06) 0%, transparent 50%), var(--bg);
-}
-.slide-9::before {
-    background: radial-gradient(ellipse at 40% 50%, rgba(108,92,231,0.08) 0%, transparent 50%), var(--bg);
-}
-.slide-10::before {
-    background: radial-gradient(ellipse at 50% 50%, rgba(0,206,201,0.06) 0%, transparent 50%), var(--bg);
-}
-.slide-11::before {
-    background: radial-gradient(ellipse at 50% 50%, rgba(108,92,231,0.15) 0%, transparent 55%),
-                radial-gradient(ellipse at 30% 70%, rgba(0,206,201,0.1) 0%, transparent 50%),
-                var(--bg);
+.frame.spread {
+    justify-content: space-between;
 }
 
-/* Typography */
-.badge {
-    display: inline-block;
-    padding: 0.4rem 1.2rem;
-    background: rgba(108,92,231,0.12);
-    border: 1px solid rgba(108,92,231,0.25);
-    border-radius: 100px;
-    font-size: 0.85rem;
-    color: var(--accent2);
-    letter-spacing: 0.06em;
-    margin-bottom: 1.5rem;
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    align-self: flex-start;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: rgba(10, 22, 38, 0.68);
+    color: var(--muted);
     text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.eyebrow::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 18px rgba(89, 184, 255, 0.7);
+}
+
+h1,
+h2 {
+    max-width: 980px;
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+    font-weight: 800;
 }
 
 h1 {
-    font-size: clamp(2.5rem, 5vw, 4.2rem);
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 1.2rem;
-}
-
-h1 .grad {
-    background: var(--gradient1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-size: clamp(60px, 8vw, 104px);
 }
 
 h2 {
-    font-size: clamp(1.8rem, 3.5vw, 3rem);
-    font-weight: 700;
-    line-height: 1.15;
-    margin-bottom: 1rem;
+    font-size: clamp(38px, 5.2vw, 72px);
 }
 
-h2 .grad {
-    background: var(--gradient2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+.lead,
+.subline {
+    max-width: 860px;
+    color: var(--muted);
+    line-height: 1.45;
 }
 
-.subtitle {
-    font-size: 1.15rem;
-    color: var(--text2);
-    max-width: 700px;
-    line-height: 1.7;
+.lead {
+    font-size: clamp(18px, 2.1vw, 28px);
 }
 
-/* Cards grid */
-.cards {
+.subline {
+    font-size: 18px;
+}
+
+.accent {
+    color: var(--accent);
+}
+
+.hero-grid {
     display: grid;
-    gap: 1.2rem;
-    margin-top: 2rem;
-    width: 100%;
-    max-width: 1100px;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 26px;
+    align-items: end;
 }
 
-.cards-3 { grid-template-columns: repeat(3, 1fr); }
-.cards-2 { grid-template-columns: repeat(2, 1fr); }
-.cards-4 { grid-template-columns: repeat(4, 1fr); }
-.cards-5 { grid-template-columns: repeat(5, 1fr); }
-
-.card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 1.5rem 1.3rem;
-    text-align: left;
-    transition: border-color 0.3s;
+.hero-figure {
+    min-height: 260px;
+    border-radius: 32px;
+    border: 1px solid var(--line);
+    background:
+        radial-gradient(circle at 25% 30%, rgba(89, 184, 255, 0.28), transparent 24%),
+        radial-gradient(circle at 72% 62%, rgba(89, 184, 255, 0.16), transparent 22%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)),
+        var(--panel);
+    display: grid;
+    place-items: center;
+    position: relative;
+    overflow: hidden;
 }
 
-.card:hover { border-color: var(--accent); }
-
-.card-icon {
-    font-size: 1.8rem;
-    margin-bottom: 0.8rem;
-    display: block;
+.hero-figure::before,
+.hero-figure::after {
+    content: "";
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transform: rotate(45deg);
 }
 
-.card h3 {
-    font-size: 1rem;
+.hero-figure::before {
+    width: 180px;
+    height: 180px;
+}
+
+.hero-figure::after {
+    width: 320px;
+    height: 320px;
+}
+
+.hero-mark {
+    font-size: clamp(54px, 7vw, 96px);
+    letter-spacing: 0.16em;
+    font-weight: 800;
+    color: rgba(244, 248, 255, 0.88);
+}
+
+.fact-stack,
+.grid-3,
+.grid-4,
+.grid-logos,
+.grid-steps,
+.team-grid,
+.compare-grid {
+    display: grid;
+    gap: 18px;
+}
+
+.fact-stack {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-logos {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-steps,
+.team-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.compare-grid {
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: start;
+}
+
+.card,
+.panel,
+.step,
+.person,
+.metric,
+.logo-group,
+.mini-board {
+    border-radius: 24px;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    backdrop-filter: blur(18px);
+}
+
+.card,
+.panel,
+.step,
+.person,
+.metric,
+.logo-group {
+    padding: 22px;
+}
+
+.mini-board {
+    padding: 0;
+    overflow: hidden;
+}
+
+.card h3,
+.panel h3,
+.step h3,
+.person h3,
+.logo-group h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+}
+
+.card p,
+.card li,
+.panel p,
+.panel li,
+.step p,
+.person p,
+.metric p,
+.logo-chip,
+.table-row,
+.pipe-caption,
+.case-line,
+.contact-line {
+    color: var(--muted);
+    line-height: 1.45;
+    font-size: 15px;
+}
+
+.card ul,
+.panel ul {
+    list-style: none;
+    display: grid;
+    gap: 10px;
+}
+
+.card li::before,
+.panel li::before {
+    content: "•";
+    color: var(--accent);
+    margin-right: 8px;
+}
+
+.card-icon,
+.step-index,
+.person-role,
+.metric-label,
+.group-label {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 14px;
+    color: var(--accent);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     font-weight: 700;
-    margin-bottom: 0.4rem;
+}
+
+.step-index {
+    min-width: 38px;
+    height: 38px;
+    justify-content: center;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    border: 1px solid rgba(89, 184, 255, 0.18);
+}
+
+.solution-map {
+    display: grid;
+    grid-template-columns: 0.8fr 0.6fr 1.6fr;
+    gap: 16px;
+    align-items: center;
+}
+
+.node {
+    min-height: 182px;
+    padding: 24px;
+    border-radius: 28px;
+    border: 1px solid var(--line);
+    background: var(--panel-strong);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+}
+
+.node.center {
+    min-height: 228px;
+    background:
+        radial-gradient(circle at top, rgba(89, 184, 255, 0.16), transparent 48%),
+        var(--panel-strong);
+}
+
+.node h3 {
+    font-size: 22px;
+}
+
+.node p {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.45;
+}
+
+.team-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.team-cloud span,
+.logo-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.table {
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: var(--panel);
+}
+
+.table-header,
+.table-row {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr 1fr;
+}
+
+.table-header {
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+}
+
+.table-header div,
+.table-row div {
+    padding: 14px 16px;
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.table-header div:last-child,
+.table-row div:last-child {
+    border-right: 0;
+}
+
+.table-row {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.table-row strong {
     color: var(--text);
 }
 
-.card p {
-    font-size: 0.85rem;
-    color: var(--text2);
-    line-height: 1.5;
+.table-row .best {
+    color: var(--good);
+    font-weight: 700;
 }
 
-/* Flow / pipeline */
-.flow {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    margin-top: 2.5rem;
-    flex-wrap: wrap;
-    justify-content: center;
+.pipeline {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 12px;
 }
 
-.flow-step {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 1.2rem 1.5rem;
-    text-align: center;
-    min-width: 140px;
+.pipe {
+    position: relative;
+    min-height: 122px;
+    padding: 18px;
+    border-radius: 22px;
+    border: 1px solid var(--line);
+    background: rgba(10, 22, 38, 0.74);
 }
 
-.flow-step .icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
-.flow-step h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.2rem; }
-.flow-step p { font-size: 0.75rem; color: var(--text2); }
-
-.flow-arrow {
-    font-size: 1.5rem;
-    color: var(--accent);
-    flex-shrink: 0;
+.pipe::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -12px;
+    width: 24px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.14);
 }
 
-/* Stats */
-.stats {
-    display: flex;
-    gap: 3rem;
-    margin-top: 2rem;
-    flex-wrap: wrap;
-    justify-content: center;
+.pipe:last-child::after {
+    display: none;
 }
 
-.stat .num {
-    font-size: 2.8rem;
-    font-weight: 800;
-    background: var(--gradient1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+.pipe h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
 }
 
-.stat .label {
-    font-size: 0.9rem;
-    color: var(--text2);
-    margin-top: 0.3rem;
+.pipe-caption {
+    font-size: 13px;
 }
 
-/* Team */
-.team {
+.proof-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 2rem;
-    max-width: 950px;
-    width: 100%;
+    gap: 16px;
 }
 
-.team-member {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 1.8rem 1.5rem;
-    text-align: center;
-}
-
-.team-avatar {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.4rem;
-    margin: 0 auto 0.8rem;
-    border: 2px solid var(--accent);
-    background: var(--surface2);
-}
-
-.team-member h3 { font-size: 1.05rem; margin-bottom: 0.2rem; }
-.team-member .role { font-size: 0.8rem; color: var(--accent2); margin-bottom: 0.6rem; }
-.team-member p { font-size: 0.8rem; color: var(--text2); line-height: 1.5; text-align: left; }
-
-/* Big result cards */
-.result-cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-    margin-top: 2rem;
-    max-width: 1000px;
-    width: 100%;
-}
-
-.result-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 2rem 1.5rem;
-    text-align: center;
-}
-
-.result-card .big-num {
-    font-size: 2.4rem;
-    font-weight: 800;
-    margin-bottom: 0.3rem;
-}
-
-.result-card h4 {
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 0.4rem;
-}
-
-.result-card p {
-    font-size: 0.8rem;
-    color: var(--text2);
-    line-height: 1.5;
-}
-
-/* CTA */
-.cta-btn {
-    display: inline-block;
-    padding: 1rem 2.5rem;
-    background: var(--gradient1);
-    color: #fff;
-    font-size: 1.1rem;
-    font-weight: 700;
-    border-radius: 12px;
-    text-decoration: none;
-    margin-top: 2rem;
-    transition: transform 0.2s, box-shadow 0.2s;
-    cursor: pointer;
-    border: none;
-}
-
-.cta-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(108,92,231,0.3);
-}
-
-/* Navigation */
-.nav {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    display: flex;
-    gap: 0.5rem;
-    z-index: 100;
-}
-
-.nav button {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    background: var(--surface);
+.proof-row .panel p strong,
+.metric strong,
+.case-line strong,
+.contact-line strong {
     color: var(--text);
-    font-size: 1.2rem;
-    cursor: pointer;
+}
+
+.logo-group {
+    display: grid;
+    gap: 14px;
+}
+
+.logo-grid {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s, border-color 0.2s;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-.nav button:hover {
-    background: var(--surface2);
-    border-color: var(--accent);
+.mini-board-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.03);
 }
 
-.progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 3px;
-    background: var(--gradient1);
-    transition: width 0.4s ease;
-    z-index: 100;
+.mini-board-body {
+    padding: 20px;
+    display: grid;
+    gap: 14px;
 }
 
-.slide-counter {
-    position: fixed;
-    bottom: 2.2rem;
-    left: 2rem;
-    font-size: 0.85rem;
-    color: var(--text2);
-    z-index: 100;
+.metric {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .slide { padding: 2rem 1.5rem; }
-    .cards-3, .cards-4, .cards-5 { grid-template-columns: 1fr 1fr; }
-    .cards-2 { grid-template-columns: 1fr; }
-    .team { grid-template-columns: 1fr; }
-    .flow { flex-direction: column; }
-    .flow-arrow { transform: rotate(90deg); }
-    .result-cards { grid-template-columns: repeat(2, 1fr); }
-    .stats { gap: 1.5rem; }
+.metric-value {
+    font-size: 34px;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+}
+
+.metric-label {
+    margin-bottom: 0;
+}
+
+.team-grid .person {
+    min-height: 240px;
+}
+
+.person-role {
+    margin-bottom: 10px;
+}
+
+.contact-card {
+    display: grid;
+    gap: 16px;
+    max-width: 640px;
+}
+
+.contact-line {
+    padding: 18px 20px;
+    border-radius: 18px;
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.footnote {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+@media (max-width: 1100px) {
+    body {
+        overflow: auto;
+    }
+
+    .slide {
+        position: relative;
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+        min-height: 100vh;
+        padding: 72px 20px 48px;
+    }
+
+    .nav,
+    .counter,
+    .hint,
+    .progress {
+        display: none;
+    }
+
+    .hero-grid,
+    .fact-stack,
+    .grid-3,
+    .grid-4,
+    .grid-logos,
+    .grid-steps,
+    .team-grid,
+    .compare-grid,
+    .solution-map,
+    .proof-row,
+    .pipeline {
+        grid-template-columns: 1fr;
+    }
+
+    .table-header,
+    .table-row {
+        grid-template-columns: repeat(4, minmax(160px, 1fr));
+        min-width: 720px;
+    }
+
+    .table {
+        overflow-x: auto;
+    }
+
+    .pipe::after {
+        display: none;
+    }
 }
 </style>
 </head>
 <body>
-
 <div class="progress" id="progress"></div>
-<div class="slide-counter" id="counter"></div>
+<div class="counter" id="counter"></div>
+<div class="hint">← →</div>
 
-<div class="deck" id="deck">
-
-    <!-- SLIDE 1: Title -->
-    <div class="slide slide-1 active" data-slide="1">
-        <div class="badge">AI-Powered Marketing</div>
-        <h1><span class="grad">ИИ-агенты</span><br>для маркетинга в недвижимости</h1>
-        <p class="subtitle">10+ ИИ-специалистов экстра-класса, которые внедряют системность в ваш маркетинг — каждая вложенная копейка даёт прибыль</p>
-        <div class="stats">
-            <div class="stat">
-                <div class="num">10+</div>
-                <div class="label">ИИ-агентов</div>
-            </div>
-            <div class="stat">
-                <div class="num">24/7</div>
-                <div class="label">без больничных и выходных</div>
-            </div>
-            <div class="stat">
-                <div class="num">∞</div>
-                <div class="label">обучается каждую минуту</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SLIDE 2: Problem -->
-    <div class="slide slide-2" data-slide="2">
-        <div class="badge">Проблема</div>
-        <h2>Бизнес хочет <span class="grad">системный маркетинг</span>,<br>где каждая копейка = прибыль</h2>
-        <div class="cards cards-3" style="margin-top: 2rem;">
-            <div class="card">
-                <span class="card-icon">🎲</span>
-                <h3>Маркетинг вслепую</h3>
-                <p>Бюджеты сливаются без аналитики. Нет понимания, какой канал приносит клиентов, а какой — убытки</p>
-            </div>
-            <div class="card">
-                <span class="card-icon">👥</span>
-                <h3>Кадровый голод</h3>
-                <p>Найти маркетолога-профи — месяцы поиска. Держать полный отдел: аналитик + таргетолог + креативщик = от 300К/мес</p>
-            </div>
-            <div class="card">
-                <span class="card-icon">🐌</span>
-                <h3>Медленный запуск</h3>
-                <p>От идеи до запуска рекламы — 2-4 недели. Конкуренты забирают клиентов, пока вы согласовываете креативы</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- SLIDE 3: Why AI — the Einstein slide -->
-    <div class="slide slide-3" data-slide="3">
-        <div class="badge">Почему ИИ</div>
-        <h2>Мы создаём <span class="grad">команду гениев</span>,<br>которых на рынке единицы</h2>
-        <p class="subtitle">Через ИИ мы внедряем в маркетинг системность. Каждый агент обучен на лучших мировых практиках — это 10+ профи экстра-класса в одной платформе</p>
-        <div class="cards cards-4" style="margin-top: 2rem;">
-            <div class="card" style="text-align: center;">
-                <span class="card-icon" style="font-size: 2.2rem;">🎓</span>
-                <h3>Обучен на лучших</h3>
-                <p>Лучшие книги по маркетингу, лекции Гарварда, кейсы топ-агентств</p>
-            </div>
-            <div class="card" style="text-align: center;">
-                <span class="card-icon" style="font-size: 2.2rem;">📡</span>
-                <h3>Всегда в курсе</h3>
-                <p>Подписан на McKinsey, получает ежедневные отчёты по рынку недвижимости</p>
-            </div>
-            <div class="card" style="text-align: center;">
-                <span class="card-icon" style="font-size: 2.2rem;">🔄</span>
-                <h3>Не останавливается</h3>
-                <p>Не болеет, не ленится, не спит. Работает 24/7 и обучается каждую минуту</p>
-            </div>
-            <div class="card" style="text-align: center;">
-                <span class="card-icon" style="font-size: 2.2rem;">🧠</span>
-                <h3>Системность</h3>
-                <p>Каждое решение основано на данных, а не на интуиции. Ноль человеческих ошибок</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- SLIDE 4: Solution — pipeline -->
-    <div class="slide slide-4" data-slide="4">
-        <div class="badge">Решение</div>
-        <h2>Готовая платформа<br><span class="grad">10+ ИИ-агентов для маркетинга</span></h2>
-        <p class="subtitle">Каждый агент — узкий специалист. Вместе они закрывают весь маркетинговый цикл</p>
-        <div class="flow">
-            <div class="flow-step">
-                <div class="icon">📊</div>
-                <h4>Аналитик</h4>
-                <p>ЦА, рынок, чеки</p>
-            </div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step">
-                <div class="icon">🔍</div>
-                <h4>Разведчик</h4>
-                <p>Конкуренты, цены</p>
-            </div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step">
-                <div class="icon">📝</div>
-                <h4>Стратег</h4>
-                <p>Позиционирование</p>
-            </div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step">
-                <div class="icon">📱</div>
-                <h4>Таргетолог</h4>
-                <p>Meta, Instagram, аудитории</p>
-            </div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step">
-                <div class="icon">🎯</div>
-                <h4>Контекстолог</h4>
-                <p>Семантика, кампании</p>
-            </div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step" style="border-color: var(--green);">
-                <div class="icon">🚀</div>
-                <h4>Запуск</h4>
-                <p>Реклама работает</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- SLIDE 5: All agents -->
-    <div class="slide slide-5" data-slide="5">
-        <div class="badge">Команда агентов</div>
-        <h2>Полный состав <span class="grad">ИИ-отдела</span></h2>
-        <div class="cards cards-5" style="margin-top: 1.5rem;">
-            <div class="card" style="text-align: center; padding: 1.2rem 1rem;">
-                <span class="card-icon" style="font-size: 1.6rem;">📊</span>
-                <h3>Аналитик</h3>
-                <p>ЦА, средний чек, спрос, сегменты</p>
-            </div>
-            <div class="card" style="text-align: center; padding: 1.2rem 1rem;">
-                <span class="card-icon" style="font-size: 1.6rem;">🔍</span>
-                <h3>Разведчик</h3>
-                <p>Конкуренты, цены, рекламные каналы</p>
-            </div>
-            <div class="card" style="text-align: center; padding: 1.2rem 1rem;">
-                <span class="card-icon" style="font-size: 1.6rem;">📝</span>
-                <h3>Стратег</h3>
-                <p>Позиционирование, УТП, стратегия</p>
-            </div>
-            <div class="card" style="text-align: center; padding: 1.2rem 1rem;">
-                <span class="card-icon" style="font-size: 1.6rem;">🎯</span>
-                <h3>Контекстолог</h3>
-                <p>Яндекс.Директ, Google Ads, семантика</p>
-            </div>
-            <div class="card" style="text-align: center; padding: 1.2rem 1rem;">
-                <span class="card-icon" style="font-size: 1.6rem;">📱</span>
-                <h3>Таргетолог</h3>
-                <p>Соцсети, аудитории, look-alike</p>
-            </div>
-            <div class="card" style="text-align: center; padding: 1.2rem 1rem;">
-                <span class="card-icon" style="font-size: 1.6rem;">🎨</span>
-                <h3>Креативщик</h3>
-                <p>Баннеры, видео, тексты объявлений</p>
-            </div>
-            <div class="card" style="text-align: center; padding: 1.2rem 1rem;">
-                <span class="card-icon" style="font-size: 1.6rem;">✍️</span>
-                <h3>Копирайтер</h3>
-                <p>Тексты для сайтов, лендингов, email</p>
-            </div>
-            <div class="card" style="text-align: center; padding: 1.2rem 1rem;">
-                <span class="card-icon" style="font-size: 1.6rem;">📧</span>
-                <h3>Email-маркетолог</h3>
-                <p>Цепочки, рассылки, лид-нёрчеринг</p>
-            </div>
-            <div class="card" style="text-align: center; padding: 1.2rem 1rem;">
-                <span class="card-icon" style="font-size: 1.6rem;">📈</span>
-                <h3>Оптимизатор</h3>
-                <p>A/B тесты, ROI, оптимизация ставок</p>
-            </div>
-            <div class="card" style="text-align: center; padding: 1.2rem 1rem;">
-                <span class="card-icon" style="font-size: 1.6rem;">🔗</span>
-                <h3>Оркестратор</h3>
-                <p>Координация всех агентов, контроль</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- SLIDE 6: Results — business metrics -->
-    <div class="slide slide-6" data-slide="6">
-        <div class="badge">Результаты</div>
-        <h2>Что это даёт <span class="grad">вашему бизнесу</span></h2>
-        <p class="subtitle">Не таблицы и отчёты — а измеримый результат для вашей прибыли</p>
-        <div class="result-cards">
-            <div class="result-card">
-                <div class="big-num" style="color: var(--green);">-50%</div>
-                <h4>Издержки на маркетинг</h4>
-                <p>ИИ-отдел стоит в разы дешевле штатной команды из 5+ человек</p>
-            </div>
-            <div class="result-card">
-                <div class="big-num" style="color: var(--accent2);">x5</div>
-                <h4>Скорость запуска</h4>
-                <p>От идеи до работающей рекламы за часы, а не недели</p>
-            </div>
-            <div class="result-card">
-                <div class="big-num" style="color: var(--orange);">÷2</div>
-                <h4>Стоимость клиента</h4>
-                <p>Постоянная оптимизация снижает CPL за счёт данных и A/B тестов</p>
-            </div>
-            <div class="result-card">
-                <div class="big-num" style="color: #fd79a8;">100%</div>
-                <h4>Прозрачность</h4>
-                <p>Каждый рубль бюджета отслеживается — вы видите, что работает</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- SLIDE 7: Customization for real estate -->
-    <div class="slide slide-7" data-slide="7">
-        <div class="badge">Кастомизация</div>
-        <h2>ИИ-агент обучается<br><span class="grad">на ваших данных</span></h2>
-        <p class="subtitle">Мы не даём универсальный шаблон. Каждый агент погружается в ваш проект, рынок и конкурентов</p>
-        <div class="cards cards-2" style="max-width: 900px; margin-top: 2rem;">
-            <div class="card" style="border-color: var(--accent);">
-                <span class="card-icon">🏗️</span>
-                <h3>Заточен под недвижимость</h3>
-                <p>Знает специфику: шахматки, планировки, ипотечные программы, геотаргетинг по районам, сезонность спроса, ценовые сегменты</p>
-            </div>
-            <div class="card" style="border-color: var(--green);">
-                <span class="card-icon">📚</span>
-                <h3>Учится у лучших</h3>
-                <p>Обучен на лучших книгах по маркетингу, лекциях Гарварда, кейсах топ-агентств. Подписан на McKinsey и получает ежедневные отчёты по рынку</p>
-            </div>
-            <div class="card" style="border-color: var(--orange);">
-                <span class="card-icon">📊</span>
-                <h3>Ваши данные = его знания</h3>
-                <p>Загружаете остатки, локации, презентацию проекта — агент строит стратегию именно под ваш объект и вашу аудиторию</p>
-            </div>
-            <div class="card" style="border-color: #fd79a8;">
-                <span class="card-icon">🔄</span>
-                <h3>Постоянное обучение</h3>
-                <p>Анализирует результаты каждой кампании и адаптирует стратегию. С каждым днём работает точнее и эффективнее</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- SLIDE 8: What it looks like — deliverables -->
-    <div class="slide slide-8" data-slide="8">
-        <div class="badge">Инструменты</div>
-        <h2>Что вы получаете <span class="grad">на выходе</span></h2>
-        <div class="cards cards-3" style="margin-top: 2rem;">
-            <div class="card" style="border-left: 3px solid var(--accent);">
-                <span class="card-icon">📑</span>
-                <h3>Презентации и стратегии</h3>
-                <p>Готовая маркетинговая стратегия с позиционированием, УТП и планом продвижения</p>
-            </div>
-            <div class="card" style="border-left: 3px solid var(--green);">
-                <span class="card-icon">📊</span>
-                <h3>Дашборды аналитики</h3>
-                <p>Живые дашборды: расход, заявки, CPL, ROI — всё в реальном времени</p>
-            </div>
-            <div class="card" style="border-left: 3px solid var(--orange);">
-                <span class="card-icon">🎯</span>
-                <h3>Рекламные кампании</h3>
-                <p>Настроенные кампании в Яндекс.Директ, Google Ads с семантикой и минус-словами</p>
-            </div>
-            <div class="card" style="border-left: 3px solid #74b9ff;">
-                <span class="card-icon">🎨</span>
-                <h3>Креативы и баннеры</h3>
-                <p>Баннеры, тексты объявлений, видео-концепты — адаптированные под каждую площадку</p>
-            </div>
-            <div class="card" style="border-left: 3px solid #fd79a8;">
-                <span class="card-icon">🧲</span>
-                <h3>Лидмагниты</h3>
-                <p>PDF-гайды, чек-листы, калькуляторы ипотеки — инструменты захвата лидов</p>
-            </div>
-            <div class="card" style="border-left: 3px solid #a29bfe;">
-                <span class="card-icon">🌐</span>
-                <h3>Посадочные страницы</h3>
-                <p>Лендинги под каждый сегмент аудитории с формами захвата и аналитикой</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- SLIDE 9: Team + humans -->
-    <div class="slide slide-9" data-slide="9">
-        <div class="badge">Команда</div>
-        <h2>ИИ + люди, которые<br><span class="grad">всё контролируют</span></h2>
-        <p class="subtitle">За каждым проектом стоят реальные эксперты, которые проверяют и направляют работу агентов</p>
-        <div class="team">
-            <div class="team-member">
-                <div class="team-avatar">🤝</div>
-                <h3>Антон Новиков</h3>
-                <div class="role">Маркетинг и развитие</div>
-                <p><!-- TODO: добавить биографию Антона --></p>
-            </div>
-            <div class="team-member">
-                <div class="team-avatar">📊</div>
-                <h3>Дмитрий</h3>
-                <div class="role">Реклама и перформанс</div>
-                <p>Специалист по контекстной рекламе. Экспертиза в Яндекс.Директ и Google Ads, настройке и оптимизации рекламных кампаний</p>
-            </div>
-            <div class="team-member">
-                <div class="team-avatar">💻</div>
-                <h3>Максим Дробот</h3>
-                <div class="role">Технология и ИИ</div>
-                <p>Разработчик ИИ-систем и автоматизации. Создатель платформы, архитектура агентов, интеграции и инфраструктура</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- SLIDE 10: Roadmap -->
-    <div class="slide slide-10" data-slide="10">
-        <div class="badge">Как начать</div>
-        <h2>Процесс <span class="grad">запуска</span></h2>
-        <div class="flow" style="margin-top: 2rem;">
-            <div class="flow-step" style="min-width: 180px;">
-                <div class="icon">📞</div>
-                <h4>1. Знакомство</h4>
-                <p>Обсуждаем проект, цели, бюджет</p>
-            </div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step" style="min-width: 180px;">
-                <div class="icon">🧠</div>
-                <h4>2. Настройка</h4>
-                <p>Загружаем данные, обучаем агентов</p>
-            </div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step" style="min-width: 180px;">
-                <div class="icon">🚀</div>
-                <h4>3. Запуск</h4>
-                <p>Стратегия, креативы, кампании</p>
-            </div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step" style="min-width: 180px; border-color: var(--green);">
-                <div class="icon">📈</div>
-                <h4>4. Рост</h4>
-                <p>Оптимизация, масштабирование</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- SLIDE 11: CTA -->
-    <div class="slide slide-11" data-slide="11">
-        <h1><span class="grad">Готовы к системному<br>маркетингу?</span></h1>
-        <p class="subtitle">Покажем, как 10+ ИИ-агентов будут работать на вашем проекте</p>
-        <button class="cta-btn" onclick="alert('Свяжитесь с нами!')">Обсудить проект</button>
-        <div class="stats" style="margin-top: 3rem;">
-            <div class="stat">
-                <div class="num">10+</div>
-                <div class="label">ИИ-агентов на вашем проекте</div>
-            </div>
-            <div class="stat">
-                <div class="num">24ч</div>
-                <div class="label">до первых результатов</div>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-<!-- Navigation -->
 <div class="nav">
-    <button onclick="prevSlide()" aria-label="Previous">←</button>
-    <button onclick="nextSlide()" aria-label="Next">→</button>
+    <button onclick="prevSlide()" aria-label="Назад">←</button>
+    <button onclick="nextSlide()" aria-label="Вперёд">→</button>
 </div>
+
+<main class="deck" id="deck">
+    <section class="slide active">
+        <div class="frame spread">
+            <div>
+                <div class="eyebrow">KUBRIK</div>
+                <h1>KUBRIK</h1>
+                <p class="lead">Встроенный отдел маркетинга для застройщиков</p>
+                <p class="subline">Быстрее, системнее и дешевле, чем нанимать штат.</p>
+            </div>
+            <div class="hero-grid">
+                <div class="hero-figure">
+                    <div class="hero-mark">KBRK</div>
+                </div>
+                <div class="fact-stack" style="grid-template-columns: 1fr;">
+                    <div class="card">
+                        <div class="card-icon">Формат</div>
+                        <h3>Сервис, а не подрядчик</h3>
+                        <p>Один старший представитель, одна система управления, одна зона ответственности.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">Срок</div>
+                        <h3>14 дней до запуска</h3>
+                        <p>От брифа до первых кампаний и сквозной аналитики.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="frame">
+            <div class="eyebrow">Проблема</div>
+            <h2>Почему маркетинг<br>застройщиков буксует</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-icon">Люди</div>
+                    <h3>Штат упирается в потолок</h3>
+                    <ul>
+                        <li>Сильных лидеров рынка трудно нанять на зарплату девелопера.</li>
+                        <li>Ваш результат ограничен уровнем 2-3 сотрудников.</li>
+                        <li>Болезни, увольнения и выгорание останавливают темп.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon">Деньги</div>
+                    <h3>ФОТ съедает гибкость</h3>
+                    <ul>
+                        <li>Маркетолог, трафик, копирайтер, аналитик, дизайнер - это 500-800К в месяц.</li>
+                        <li>Рекламный бюджет ниже, чем у крупнейших игроков.</li>
+                        <li>CRM, аналитика и инструменты добавляют постоянные расходы.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon">Система</div>
+                    <h3>Маркетинг живёт рывками</h3>
+                    <ul>
+                        <li>Тестируются 2 кампании в неделю, когда рынку нужно 20.</li>
+                        <li>Нет аналитики от клика до сделки.</li>
+                        <li>Каналы живут отдельно, а не в одной стратегии.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="frame">
+            <div class="eyebrow">Решение</div>
+            <h2>Что вы получаете<br>с KUBRIK</h2>
+            <p class="lead">Полноценный маркетинговый отдел из 10+ специалистов. Вы общаетесь с одним старшим представителем, а ключевые решения остаются под вашим контролем.</p>
+            <div class="solution-map">
+                <div class="node">
+                    <h3>Клиент</h3>
+                    <p>Объект, бюджет, цели, материалы, финальное утверждение.</p>
+                </div>
+                <div class="node center">
+                    <h3>Старший представитель</h3>
+                    <p>Координирует стратегию, темп, отчётность и работу всех направлений.</p>
+                </div>
+                <div class="node">
+                    <h3>Команда специалистов</h3>
+                    <div class="team-cloud">
+                        <span>Стратег</span>
+                        <span>Контекстолог</span>
+                        <span>Таргетолог</span>
+                        <span>Копирайтер</span>
+                        <span>Аналитик</span>
+                        <span>Дизайнер</span>
+                        <span>Авитолог</span>
+                        <span>SEO</span>
+                        <span>SMM</span>
+                    </div>
+                </div>
+            </div>
+            <p class="footnote">Команда работает 24/7 и не зависит от отпусков, больничных и найма нового штата.</p>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="frame">
+            <div class="eyebrow">Сравнение</div>
+            <h2>Почему не агентство<br>и не фрилансеры</h2>
+            <div class="table">
+                <div class="table-header">
+                    <div>Параметр</div>
+                    <div>Штат</div>
+                    <div>Агентство</div>
+                    <div>KUBRIK</div>
+                </div>
+                <div class="table-row">
+                    <div><strong>Стоимость/мес</strong></div>
+                    <div>500-800К</div>
+                    <div>150-300К</div>
+                    <div class="best">от 150К*</div>
+                </div>
+                <div class="table-row">
+                    <div><strong>Скорость запуска</strong></div>
+                    <div>1-2 месяца</div>
+                    <div>2-4 недели</div>
+                    <div class="best">14 дней</div>
+                </div>
+                <div class="table-row">
+                    <div><strong>Каналы</strong></div>
+                    <div>2-3</div>
+                    <div>3-5</div>
+                    <div class="best">10+</div>
+                </div>
+                <div class="table-row">
+                    <div><strong>Креативы/мес</strong></div>
+                    <div>5-10</div>
+                    <div>10-20</div>
+                    <div class="best">50+</div>
+                </div>
+                <div class="table-row">
+                    <div><strong>Аналитика</strong></div>
+                    <div>Ручная</div>
+                    <div>Раз в месяц</div>
+                    <div class="best">В реальном времени</div>
+                </div>
+                <div class="table-row">
+                    <div><strong>Масштабирование</strong></div>
+                    <div>Новый найм</div>
+                    <div>Новый тариф</div>
+                    <div class="best">Сразу</div>
+                </div>
+            </div>
+            <p class="subline">Мы не очередной подрядчик. Мы встроенный отдел, который работает как ваш собственный, но заметно быстрее.</p>
+            <p class="footnote">*Финальный пакет зависит от состава каналов и объёма работ.</p>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="frame">
+            <div class="eyebrow">Процесс</div>
+            <h2>Как работает KUBRIK</h2>
+            <div class="pipeline">
+                <div class="pipe">
+                    <h3>Ваш бриф</h3>
+                    <div class="pipe-caption">День 1</div>
+                </div>
+                <div class="pipe">
+                    <h3>Стратегия</h3>
+                    <div class="pipe-caption">1-2 дня</div>
+                </div>
+                <div class="pipe">
+                    <h3>Каналы</h3>
+                    <div class="pipe-caption">3-5 дней</div>
+                </div>
+                <div class="pipe">
+                    <h3>Креативы</h3>
+                    <div class="pipe-caption">1-2 дня</div>
+                </div>
+                <div class="pipe">
+                    <h3>Запуск</h3>
+                    <div class="pipe-caption">День 14</div>
+                </div>
+                <div class="pipe">
+                    <h3>Оптимизация</h3>
+                    <div class="pipe-caption">Непрерывно</div>
+                </div>
+                <div class="pipe">
+                    <h3>Отчёт</h3>
+                    <div class="pipe-caption">Еженедельно</div>
+                </div>
+            </div>
+            <p class="lead">14 дней от брифа до первого лида.</p>
+            <div class="proof-row">
+                <div class="panel">
+                    <h3>Системность</h3>
+                    <p>JTBD, Positioning Trout/Ries и Cialdini встроены в работу каждого направления.</p>
+                </div>
+                <div class="panel">
+                    <h3>Скорость</h3>
+                    <p>Десятки кампаний и креативов за сутки, а не по одному согласованию в неделю.</p>
+                </div>
+                <div class="panel">
+                    <h3>Прозрачность</h3>
+                    <p>Единый дашборд со сквозной аналитикой от клика до сделки.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="frame">
+            <div class="eyebrow">Каналы</div>
+            <h2>С какими площадками<br>работаем</h2>
+            <div class="grid-logos">
+                <div class="logo-group">
+                    <div class="group-label">Реклама</div>
+                    <h3>Платный трафик</h3>
+                    <div class="logo-grid">
+                        <span class="logo-chip">Яндекс Директ</span>
+                        <span class="logo-chip">VK Ads</span>
+                        <span class="logo-chip">Авито</span>
+                        <span class="logo-chip">Циан</span>
+                        <span class="logo-chip">Яндекс.Недвижимость</span>
+                        <span class="logo-chip">Google Ads</span>
+                        <span class="logo-chip">Meta</span>
+                        <span class="logo-chip">TikTok</span>
+                    </div>
+                </div>
+                <div class="logo-group">
+                    <div class="group-label">Контент</div>
+                    <h3>Контент и SEO</h3>
+                    <div class="logo-grid">
+                        <span class="logo-chip">Дзен</span>
+                        <span class="logo-chip">YouTube</span>
+                        <span class="logo-chip">Telegram</span>
+                        <span class="logo-chip">VK</span>
+                        <span class="logo-chip">VC</span>
+                        <span class="logo-chip">Reddit</span>
+                        <span class="logo-chip">LinkedIn</span>
+                    </div>
+                </div>
+                <div class="logo-group">
+                    <div class="group-label">Аналитика</div>
+                    <h3>Метрики и CRM</h3>
+                    <div class="logo-grid">
+                        <span class="logo-chip">Яндекс Метрика</span>
+                        <span class="logo-chip">Google Analytics</span>
+                        <span class="logo-chip">amoCRM</span>
+                        <span class="logo-chip">Bitrix24</span>
+                    </div>
+                </div>
+                <div class="logo-group">
+                    <div class="group-label">Принцип</div>
+                    <h3>Не всё сразу</h3>
+                    <p>Подключаем только те каналы, которые реально работают для вашего рынка, продукта и бюджета.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="frame">
+            <div class="eyebrow">Сегменты</div>
+            <h2>Кому подходит KUBRIK</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-icon">01</div>
+                    <h3>Застройщики</h3>
+                    <p>От жилых комплексов до коммерческой недвижимости. РФ, Дубай, Бали, Таиланд.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">02</div>
+                    <h3>Агентства недвижимости</h3>
+                    <p>Масштабирование маркетинга без раздувания штата и потери темпа.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">03</div>
+                    <h3>Luxury-девелоперы</h3>
+                    <p>Точечная работа с высокомаржинальной аудиторией и длинным циклом сделки.</p>
+                </div>
+            </div>
+            <p class="lead">Фокус - недвижимость. Потому что мы знаем эту нишу изнутри.</p>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="frame">
+            <div class="eyebrow">Демо</div>
+            <h2>Что вы получаете<br>на выходе</h2>
+            <div class="compare-grid">
+                <div class="mini-board">
+                    <div class="mini-board-header">
+                        <strong>Тестовый прогон: ЖК «Парковый»</strong>
+                        <span style="color: var(--muted);">31.03.2026</span>
+                    </div>
+                    <div class="mini-board-body">
+                        <div class="case-line"><strong>Стратегия:</strong> готова за 2 минуты</div>
+                        <div class="case-line"><strong>Медиаплан:</strong> бюджеты по каналам за 4 минуты</div>
+                        <div class="case-line"><strong>Креативы:</strong> 43 варианта под 7 платформ за 4 минуты</div>
+                        <div class="case-line"><strong>Валидация:</strong> policy compliance за 5 минут</div>
+                        <div class="case-line"><strong>Итог:</strong> объём работы на 2-3 недели отдела - за 17 минут</div>
+                    </div>
+                </div>
+                <div class="grid-4" style="grid-template-columns: repeat(2, 1fr);">
+                    <div class="metric">
+                        <div class="metric-label">Общее время</div>
+                        <div class="metric-value">17 мин</div>
+                        <p>Полный тест пайплайна от брифа до проверки.</p>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Креативы</div>
+                        <div class="metric-value">43</div>
+                        <p>Под разные сегменты и площадки.</p>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Бюджет</div>
+                        <div class="metric-value">500К</div>
+                        <p>Месячный медиаплан по тестовому объекту.</p>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Каналы</div>
+                        <div class="metric-value">7</div>
+                        <p>От Яндекс Директ до Telegram и Авито.</p>
+                    </div>
+                </div>
+            </div>
+            <p class="footnote">Когда появится первый боевой клиент, этот слайд заменяется на кейс с CPL, лидами и конверсией.</p>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="frame">
+            <div class="eyebrow">Онбординг</div>
+            <h2>Как подключиться</h2>
+            <div class="grid-steps">
+                <div class="step">
+                    <div class="step-index">1</div>
+                    <h3>Бриф</h3>
+                    <p>1 день. Вы даёте объект, бюджет, цели и материалы. Мы всё структурируем.</p>
+                </div>
+                <div class="step">
+                    <div class="step-index">2</div>
+                    <h3>Настройка</h3>
+                    <p>7-10 дней. Стратегия, каналы, креативы и аналитика. Вы утверждаете ключевые решения.</p>
+                </div>
+                <div class="step">
+                    <div class="step-index">3</div>
+                    <h3>Запуск</h3>
+                    <p>День 14. Кампании работают, отчёты приходят, оптимизация идёт без пауз.</p>
+                </div>
+            </div>
+            <p class="lead">Мы всё делаем за вас. Вы предоставляете данные - мы строим маркетинг.</p>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="frame">
+            <div class="eyebrow">Команда</div>
+            <h2>Кто за этим стоит</h2>
+            <div class="team-grid">
+                <div class="person">
+                    <div class="person-role">Продукт и архитектура</div>
+                    <h3>Максим Дробот</h3>
+                    <p>Отвечает за продукт, архитектуру системы, автоматизацию и то, чтобы маркетинг работал как единый механизм.</p>
+                </div>
+                <div class="person">
+                    <div class="person-role">Трафик и кабинеты</div>
+                    <h3>Дмитрий</h3>
+                    <p>Запуск и оптимизация рекламных кампаний. Яндекс Директ, Meta, медиапланирование и перформанс.</p>
+                </div>
+                <div class="person">
+                    <div class="person-role">Стратегия и развитие</div>
+                    <h3>Антон Новиков</h3>
+                    <p>Клиентская стратегия, упаковка оффера и развитие партнёрств со стороны бизнеса.</p>
+                </div>
+            </div>
+            <p class="lead">3 эксперта + AI = мощность 15 человек.</p>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="frame">
+            <div class="eyebrow">Контакты</div>
+            <h2>Давайте обсудим</h2>
+            <div class="contact-card">
+                <div class="contact-line"><strong>Telegram:</strong> @drobotmax</div>
+                <div class="contact-line"><strong>WhatsApp:</strong> по запросу</div>
+                <div class="contact-line"><strong>Email:</strong> drobotmaxim@gmail.com</div>
+            </div>
+            <p class="lead">Запишитесь на 30-минутную консультацию - покажем, как KUBRIK сработает для вашего объекта.</p>
+        </div>
+    </section>
+</main>
 
 <script>
-const slides = document.querySelectorAll('.slide');
+const slides = Array.from(document.querySelectorAll('.slide'));
 const progress = document.getElementById('progress');
 const counter = document.getElementById('counter');
 let current = 0;
-const total = slides.length;
+
+function render() {
+    slides.forEach((slide, index) => {
+        slide.classList.toggle('active', index === current);
+        slide.classList.toggle('prev', index < current);
+    });
+    progress.style.width = `${((current + 1) / slides.length) * 100}%`;
+    counter.textContent = `${current + 1} / ${slides.length}`;
+}
 
 function nextSlide() {
-    if (current >= total - 1) return;
-    slides[current].classList.remove('active');
-    slides[current].classList.add('prev');
-    current++;
-    slides[current].classList.add('active');
-    progress.style.width = ((current + 1) / total * 100) + '%';
-    counter.textContent = (current + 1) + ' / ' + total;
-    setTimeout(() => {
-        slides.forEach(s => s.classList.remove('prev'));
-    }, 600);
+    if (window.innerWidth <= 1100) return;
+    current = Math.min(current + 1, slides.length - 1);
+    render();
 }
 
 function prevSlide() {
-    if (current <= 0) return;
-    slides[current].classList.remove('active');
-    current--;
-    slides[current].classList.add('active');
-    slides[current].classList.remove('prev');
-    progress.style.width = ((current + 1) / total * 100) + '%';
-    counter.textContent = (current + 1) + ' / ' + total;
+    if (window.innerWidth <= 1100) return;
+    current = Math.max(current - 1, 0);
+    render();
 }
 
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); nextSlide(); }
-    if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowRight' || event.key === ' ') {
+        event.preventDefault();
+        nextSlide();
+    }
+    if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        prevSlide();
+    }
 });
 
 let touchStartX = 0;
-document.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-}, { passive: true });
-document.addEventListener('touchend', (e) => {
-    const diff = touchStartX - e.changedTouches[0].screenX;
-    if (Math.abs(diff) > 50) {
-        if (diff > 0) nextSlide(); else prevSlide();
-    }
+document.addEventListener('touchstart', (event) => {
+    touchStartX = event.changedTouches[0].screenX;
 }, { passive: true });
 
-progress.style.width = (1 / total * 100) + '%';
-counter.textContent = '1 / ' + total;
+document.addEventListener('touchend', (event) => {
+    if (window.innerWidth <= 1100) return;
+    const diff = touchStartX - event.changedTouches[0].screenX;
+    if (Math.abs(diff) < 50) return;
+    if (diff > 0) nextSlide();
+    else prevSlide();
+}, { passive: true });
+
+render();
 </script>
-
 </body>
 </html>
