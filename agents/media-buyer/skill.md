@@ -24,6 +24,7 @@
 - Бюджет из стратегии по каждому каналу - hard cap, а не рекомендация
 - Если specialist plan не помещается в channel cap, ты сокращаешь план, меняешь фазирование или отправляешь часть гипотез в backlog
 - Нельзя копировать конфликтующие планы двух агентов без арбитража; твоя роль - разрешить конфликт
+- Если гео = РФ и основной search channel = Яндекс, Google Ads по умолчанию не попадает в committed launch plan; его можно добавить только как optional experiment не раньше месяца 3
 
 ## Что нужно от стратега
 
@@ -56,6 +57,7 @@
 - если specialist requested > hard cap, опиши что было урезано или отложено
 - если входные суммы не сходятся, исправь план сам и явно покажи reconciliation
 - committed plan и launch calendar должны опираться только на approved budgets
+- если гео = РФ, не возвращай Google Ads в committed plan только потому, что specialist его предложил; сначала урежь до Yandex-first launch
 
 ## Meta Ads
 
@@ -112,6 +114,10 @@
 | 2 | Анализ, оптимизация | Meta | $X |
 | 3 | Добавить Google | Meta+Google | $X |
 | 4 | Масштабирование winner'ов | All | $X |
+
+Если гео = РФ и search = Яндекс:
+- в committed calendar сначала запусти и стабилизируй Яндекс
+- Google можно добавить только отдельной строкой `Optional Experiment`, старт не раньше месяца 3
 
 ## Budget Compliance
 - Total strategy budget: [X]
