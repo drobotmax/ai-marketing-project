@@ -35,7 +35,7 @@ The pipeline is ONLY allowed to edit these files/directories:
 | Char limits (feed, stories, reels) | Update table row | `meta-ads/formaty-reklamy/` | copywriter, validator |
 | Policy changes | Update policy section | `meta-ads/pravila/` | validator, targeting |
 | Housing ad restrictions | Update housing section | `meta-ads/pravila/` | targeting |
-| New ad format | Add new section | Create file in `meta-ads/formaty-reklamy/` | copywriter, media-buyer |
+| New ad format | Add new section | Create file in `meta-ads/formaty-reklamy/` | copywriter, media planner |
 | CTA button list | Update CTA list | `meta-ads/formaty-reklamy/` | copywriter |
 | Audience/targeting changes | - | `meta-ads/auditorii/` | targeting |
 | Conversions API changes | - | `meta-ads/meropriyatiya-sobytiya/` | targeting, contextologist |
@@ -48,10 +48,10 @@ The pipeline is ONLY allowed to edit these files/directories:
 | Display char limits | Update table row | `google-ads/campaigns/display-campaigns.md` | copywriter, validator |
 | Policy changes | Update policy section | `google-ads/fix-issues/policy-issues.md` | validator, contextologist |
 | Smart Bidding threshold | - | `google-ads/explore-features/bidding.md` | contextologist |
-| Performance Max changes | - | `google-ads/campaigns/` | contextologist, media-buyer |
+| Performance Max changes | - | `google-ads/campaigns/` | contextologist, media planner |
 | AI Max for Search | - | `google-ads/campaigns/ai-max-for-search-campaigns.md` | contextologist |
 | Keyword match type changes | - | `google-ads/explore-features/keywords.md` | contextologist |
-| New campaign type | Add section | Create file in `google-ads/campaigns/` | contextologist, media-buyer |
+| New campaign type | Add section | Create file in `google-ads/campaigns/` | contextologist, media planner |
 
 ### Yandex Direct changes
 

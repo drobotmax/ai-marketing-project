@@ -8,8 +8,8 @@
 ## Что это за репо
 Общая база знаний и рабочие материалы команды. Здесь живут:
 - Knowledge base для AI-агентов (книги, курсы, справочники платформ)
-- Клиентские папки с брифами, стратегиями, креативами
-- KUBRIK Pipeline агентов (стратег -> таргетолог -> медиабайер -> копирайтер -> валидатор)
+- Клиентские папки с брифами, стратегиями, креативами и контент-планами
+- KUBRIK Pipeline агентов (стратег -> фактчекер -> таргетолог -> media planner -> копирайтер -> char-guard -> валидатор)
 
 ## Навигация
 
@@ -25,16 +25,17 @@ knowledge/                  - база знаний (главный актив)
 
 agents/                     - определения AI-агентов (pipeline)
   strategist/skill.md       - агент-стратег (анализ рынка, ЦА, позиционирование)
+  fact-checker/skill.md     - агент-фактчекер (верификация claims после стратега)
   targeting/skill.md        - агент-таргетолог (аудитории, гипотезы, тесты, оптимизация Meta/Instagram)
-  media-buyer/skill.md      - агент-медиабайер (кампании, аудитории, бюджеты)
-  copywriter/skill.md       - агент-копирайтер (тексты под каждый плейсмент)
+  media-buyer/skill.md      - агент media planner (budget arbitration, cross-channel planning, launch calendar)
+  copywriter/skill.md       - агент-копирайтер (paid creatives + organic content plan при наличии SMM budget)
   validator/skill.md        - агент-валидатор (QA: лимиты, policy, бриф)
   sales-qa/skill.md         - агент sales QA (разбор звонков, ICP fit, objections, next step)
   references/platform-specs.md - техтребования Meta/Google/Yandex
   references/sales-qa-checklist.md - чеклист quality review для отдела продаж
 
 clients/                    - результаты работы по клиентам
-  [client-slug]/            - brief.md, strategy.md, media-plan.md, creatives.md, validation.md
+  [client-slug]/            - brief.md, strategy.md, media-plan.md, creatives.md, content-plan.md, creatives.char-guard.md, validation.md
 
 strategy/                   - стратегии и аналитика
   positioning-analysis.md   - утвержденное позиционирование (2026-03-26)
@@ -84,11 +85,81 @@ landing/                    - посадочные страницы
 clients/[client-slug]/
   brief.md          - исходный бриф
   strategy.md       - стратегия
+  fact-check.md     - результат фактчека
   media-plan.md     - медиаплан
   creatives.md      - креативы
+  content-plan.md   - organic / SMM план, если в стратегии есть community budget
+  creatives.char-guard.md - креативы после программного пересчёта лимитов
   validation.md     - результат валидации
   sales-qa.md       - разбор sales-call / переписки / оффера
 ```
+
+Если в стратегии или медиаплане есть строка SMM / organic / community, обязательны два артефакта:
+- `creatives.md` для paid placements
+- `content-plan.md` для owned channels и прогрева
+
+### Минимальный contract для `brief.md`
+
+Перед запуском pipeline в `brief.md` должны быть заполнены обязательные поля. Если их нет, стратег не должен додумывать недостающие данные, а валидатор должен пометить запуск как `BLOCKED`.
+
+Минимальная структура:
+
+```markdown
+## Объект
+- Название:
+- Застройщик:
+- Локация:
+- Класс:
+- Этажность / объём:
+- Срок сдачи:
+
+## Продукт
+- Квартирография / продуктовые лоты:
+- УТП:
+
+## Целевая аудитория
+- Основные сегменты:
+
+## Бюджет и цели
+- Бюджет:
+- Гео:
+- Цели / KPI:
+
+## Инфраструктура запуска (обязательно)
+- Landing page URL:
+- CRM система: AmoCRM / Bitrix / другая / нет
+- Фид / карточки квартир на сайте: есть / нет
+- 152-ФЗ: чекбокс согласия в лид-формах есть / нет
+- Колтрекинг: есть / нет
+- Яндекс Метрика: есть / нет, ID счётчика
+```
+
+Правила:
+- `Landing page URL` - обязательный источник правды для performance-каналов
+- `CRM система` - обязательное поле даже если интеграции ещё нет
+- `Фид / карточки квартир` - определяет, можно ли планировать товарные кампании
+- `152-ФЗ` - без подтверждённого consent нельзя считать лид-формы launch-ready
+- `Колтрекинг` и `Яндекс Метрика` влияют на readiness и measurement plan, их нельзя оставлять неизвестными
+
+## Post-processing: Character Guard
+
+После генерации `creatives.md` не полагаться на LLM-подсчёт символов как на source of truth.
+
+Обязательный шаг перед валидацией:
+
+```bash
+python3 scripts/creative_char_guard.py clients/<client-slug>/creatives.md \
+  --mode fix \
+  --overflow-policy trim \
+  --output clients/<client-slug>/creatives.char-guard.md \
+  --report clients/<client-slug>/creatives.char-guard.report.md
+```
+
+Правила:
+- `creatives.md` - сырой output копирайтера
+- `creatives.char-guard.md` - файл для валидатора и ручного ревью
+- скрипт программно пересчитывает char count, обновляет `(X chars)` и отмечает остаточные overflow
+- если безопасно, скрипт сокращает текст до лимита; если нет - оставляет overflow в отчёте для доработки человеком/LLM
 
 ## GitHub Project
 Задачи и спринты: https://github.com/users/drobotmax/projects/1

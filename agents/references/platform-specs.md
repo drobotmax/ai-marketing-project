@@ -94,6 +94,37 @@ Learn More, Shop Now, Sign Up, Book Now, Contact Us, Get Offer, Send Message, Do
 
 ---
 
+## VK Ads / Community
+
+### VK Feed Ads
+| Field | Recommended | Max |
+|-------|------------|-----|
+| Primary text | 90-140 chars | 2200 chars |
+| Headline | - | 40 chars |
+| Description | - | 30 chars |
+
+### VK Stories
+| Field | Spec |
+|-------|------|
+| Format | 9:16 vertical |
+| Text overlay | Up to 3 short lines |
+| CTA | One clear next step |
+
+### VK Community Organic
+| Format | Guidance |
+|--------|----------|
+| Post | Use for progress updates, FAQ, social proof, offer explanation |
+| Clip | Use for quick visual proof, planning walk-throughs, on-site atmosphere |
+| Stories | Use for short updates, polls, objections, reminders |
+| Pinned post | Explain project, CTA, links, lead capture path |
+
+**Best practices:**
+- Organic content should support trust and lead warm-up, not exist separately from paid funnel
+- Do not repost Instagram Reels unchanged - adapt hook, CTA, and framing to VK audience behavior
+- For real estate, default rubrics: construction progress, Q&A, layouts, infrastructure, case proof
+
+---
+
 ## Character Counting Rules
 
 - Spaces count as characters

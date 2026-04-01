@@ -27,7 +27,7 @@ For EACH article in the digest, produce a classification:
 - category: spec_change | policy_update | new_feature | deprecation | notify_only | skip
 - urgency: breaking | important | informational
 - confidence: 0-100%
-- affected_agents: [list of: strategist, targeting, media-buyer, copywriter, validator, contextologist]
+- affected_agents: [list of: strategist, targeting, media-planner, copywriter, validator, contextologist]
 - action: update_specs | update_kb | update_agent | notify_only | skip
 - reasoning: [one sentence why this classification]
 ```
