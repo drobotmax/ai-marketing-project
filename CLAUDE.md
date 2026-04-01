@@ -22,6 +22,7 @@ knowledge/                  - база знаний (главный актив)
   copywriting-course/       - курс копирайтинга "Сделаем" (40 уроков)
   meta-ads/                 - справка Meta Ads Help Center (1200+ страниц)
   seo-course/               - SEO курс
+  yandex-direct-course/     - Яндекс Директ: launch logic, Метрика, YouTube-модуль 2026 и vertical playbooks
 
 agents/                     - определения AI-агентов (pipeline)
   strategist/skill.md       - агент-стратег (анализ рынка, ЦА, позиционирование)
@@ -72,6 +73,7 @@ landing/                    - посадочные страницы
 - **7 принципов** (Cialdini) - принципы убеждения в каждый текст
 - **ERRC** (Blue Ocean) - незанятое пространство
 - **Positioning** (Trout/Ries) - владей одним словом в голове клиента
+- Для РФ-контекста и первичной недвижимости использовать `knowledge/yandex-direct-course/real-estate-primary/` как каноничный vertical layer по интентам, аналитике и creative angles
 
 ### Дизайн (HTML-артефакты)
 - Self-contained HTML (inline CSS/JS)

@@ -63,3 +63,4 @@ See `prais_launch_algorithm.md` for the full text.
 - `youtube-2026/README.md` - separate YouTube course on Yandex Direct 2026 with launch, search, RSYA, retargeting and optimization notes
 - `yandex-start-basics/README.md` - official Yandex start course with fundamentals, Metrica, USP, economics and common mistakes
 - `metrica-advanced/README.md` - advanced Metrica module from Yandex Direct 2.0 on reports, segments, attribution, Webvisor and heatmaps
+- `real-estate-primary/README.md` - vertical-specific module on Yandex Direct for primary real estate: structure, campaign types, analytics, ad copy and creatives

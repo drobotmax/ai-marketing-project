@@ -32,6 +32,8 @@
 - Если гео = РФ и основной search channel = Яндекс, Google Ads по умолчанию не попадает в committed launch plan; его можно добавить только как optional experiment не раньше месяца 3
 - Если specialist предлагает канал без операционной готовности (нет креативов, трекинга, лендинга, sales SLA), такой канал не должен попадать в committed launch
 - В committed plan должны попадать только решения, у которых есть owner, timing и понятный success signal
+- Если объект = первичная недвижимость, считай обязательным reconciliation по CRM / офлайн-конверсиям: дешёвый CPL без qualification loop не является достаточным аргументом для scale
+- Для РФ-проектов с Яндексом опирайся на `knowledge/yandex-direct-course/real-estate-primary/primary-real-estate-direct-playbook.md` как vertical-specific playbook по sequencing search / РСЯ / МК / ретаргетинга
 
 ## Что нужно от стратега
 
