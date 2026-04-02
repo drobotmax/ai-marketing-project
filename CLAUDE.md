@@ -19,6 +19,7 @@ knowledge/                  - база знаний (главный актив)
   bali-market/              - рынок Бали: цены, локации, девелоперы, регуляции
   targeting-course/         - курс по таргету Meta/Instagram (27 уроков, транскрипты)
   targeting-course-2/       - продвинутый курс по таргету (~51 видео)
+  vk-ads/                   - VK Ads: курс Воронина (11 уроков), лид-формы, ошибки (eLama)
   copywriting-course/       - курс копирайтинга "Сделаем" (40 уроков)
   meta-ads/                 - справка Meta Ads Help Center (1200+ страниц)
   seo-course/               - SEO курс
@@ -102,7 +103,8 @@ landing/                    - посадочные страницы
 Курсы и книги - основа для принятия решений:
 - `yandex-direct-course/` - алгоритм Прайса, транскрипты уроков, Метрика, YouTube-модуль 2026
 - `yandex-direct-course/real-estate-primary/` - vertical layer для РФ первички
-- `targeting-course/` + `targeting-course-2/` - курсы по таргету (видео Димы)
+- `targeting-course/` + `targeting-course-2/` - курсы по таргету Meta/Instagram (видео Димы)
+- `vk-ads/` - VK Ads: курс Воронина по VK таргету 2025 (11 уроков), настройка лид-форм, типичные ошибки (eLama)
 - `copywriting-course/` - курс копирайтинга "Сделаем" (40 уроков)
 - `seo-course/` - SEO + AI search
 - `books/` - Schwartz (awareness), JTBD, StoryBrand, Sugarman, Cialdini, Blue Ocean, Positioning, Hormozi
@@ -125,11 +127,11 @@ landing/                    - посадочные страницы
 
 | Агент | T2 (обучение) | T3 (справка) |
 |-------|--------------|-------------|
-| Стратег | `books/`, `yandex-direct-course/`, `targeting-course/`, `[market]/` | - |
+| Стратег | `books/`, `yandex-direct-course/`, `targeting-course/`, `vk-ads/`, `[market]/` | - |
 | Фактчекер | `books/`, `[market]/` | - |
 | Контекстолог | `yandex-direct-course/`, `seo-course/` | Международные: `google-ads/`, `google-analytics/` и др. |
-| Таргетолог | `targeting-course/`, `targeting-course-2/` | Международные: `meta-ads/` |
-| Копирайтер | `copywriting-course/`, `books/` | `references/platform-specs.md` (лимиты) |
+| Таргетолог | `targeting-course/`, `targeting-course-2/`, `vk-ads/` | Международные: `meta-ads/` |
+| Копирайтер | `copywriting-course/`, `books/`, `vk-ads/` (для VK-специфичных текстов) | `references/platform-specs.md` (лимиты) |
 | Валидатор | - | `references/platform-specs.md` (лимиты, policy) |
 
 **Что НЕ делать:**
