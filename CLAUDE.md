@@ -11,6 +11,28 @@
 - Клиентские папки с брифами, стратегиями, креативами и контент-планами
 - KUBRIK Pipeline агентов (стратег -> фактчекер -> таргетолог -> media planner -> копирайтер -> char-guard -> валидатор)
 
+## AI-native operating model
+
+KUBRIK строится не как набор разрозненных промптов, а как операционная система маркетингового сервиса.
+
+- **Everything becomes tokens** - все важные артефакты живут в текстовом виде и доступны агентам: брифы, стратегии, call notes, hypotheses, launch checklists, отчеты, learnings
+- **Every project is a resumable session** - каждая задача ведется как сессия с входом, артефактами, tool calls, решениями и `next step`, чтобы ее можно было продолжить, передать или форкнуть
+- **Skills over tribal knowledge** - любой повторяемый процесс превращается в явный skill / playbook, а не остается "как это обычно делает Дима/Антон/Максим"
+- **Act -> Learn -> Act Better** - каждая кампания, QA-сессия и тест обязаны оставлять после себя structured learning, чтобы следующий запуск был сильнее предыдущего
+- **People manage systems** - роль команды не делать руками всю операционку, а улучшать систему, ставить задачи агентам и контролировать качество
+
+### Operational primitives
+
+Для KUBRIK source of truth должен строиться вокруг 5 сущностей:
+
+1. **Client memory** - что мы знаем о девелопере, объекте, ICP, рынке, ограничениях, истории запусков
+2. **Sessions** - конкретные работы: аудит, стратегия, запуск, QA, weekly report, sales review
+3. **Artifacts** - brief, strategy, media-plan, creatives, validation, dashboards, call summaries
+4. **Skills** - инструкции и workflow, по которым работают люди и агенты
+5. **Learnings** - что сработало, что сломалось, какие решения повторять или запрещать
+
+Минимальная цель на ближайший этап: у каждого клиента должны появляться не только deliverables, но и накопляемая операционная память.
+
 ## Навигация
 
 ```
@@ -38,6 +60,10 @@ agents/                     - определения AI-агентов (pipeline
 
 clients/                    - результаты работы по клиентам
   [client-slug]/            - brief.md, strategy.md, media-plan.md, creatives.md, content-plan.md, creatives.char-guard.md, validation.md
+    ops/                    - операционная память клиента
+      client-memory.md      - facts, ICP, constraints, decisions, open questions
+      sessions/             - resumable task logs with next steps
+      learnings.md          - what worked / failed / changed
 
 strategy/                   - стратегии и аналитика
   positioning-analysis.md   - утвержденное позиционирование (2026-03-26)
@@ -160,11 +186,43 @@ clients/[client-slug]/
   creatives.char-guard.md - креативы после программного пересчёта лимитов
   validation.md     - результат валидации
   sales-qa.md       - разбор sales-call / переписки / оффера
+  ops/
+    client-memory.md - оперативная память по клиенту: факты, ограничения, решения, открытые вопросы
+    learnings.md     - журнал инсайтов: что сработало, что не сработало, что поменяли
+    sessions/
+      YYYY-MM-DD-<slug>.md - отдельная сессия/задача с контекстом, артефактами и next step
 ```
 
 Если в стратегии или медиаплане есть строка SMM / organic / community, обязательны два артефакта:
 - `creatives.md` для paid placements
 - `content-plan.md` для owned channels и прогрева
+
+### Session contract
+
+Любая нетривиальная задача по клиенту должна по возможности оставлять session-лог в `clients/[client-slug]/ops/sessions/`.
+
+Минимальная структура:
+
+```markdown
+# Session: <name>
+
+## Goal
+
+## Inputs
+
+## Artifacts used
+
+## Decisions made
+
+## Next step
+
+## Follow-ups for skills / KB
+```
+
+Это нужно, чтобы сессию можно было:
+- продолжить позже без потери контекста
+- передать другому человеку или агенту
+- превратить повторяющуюся работу в skill
 
 ### Минимальный contract для `brief.md`
 
