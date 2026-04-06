@@ -22,7 +22,7 @@ Append-only log of all knowledge base changes made by the automated news pipelin
 **Changes:**
 - `knowledge/yandex-direct-course/attribution-models-deprecation-2026.md` - создан файл: устаревшие модели атрибуции Метрики/Директа отключаются 21 апр / 20 мая 2026, таблица миграции
 **Agents updated:** none (изменение в аналитике, не в рекламных форматах)
-**Commit:** TBD
+**Commit:** 15f5c9f
 
 ## 2026-04-06 | yandex new_feature
 **Source:** https://yandex.ru/adv/news/v-kartah-poyavilas-vozmozhnost-dlya-prodvizheniya-biznes-centrov
@@ -31,7 +31,7 @@ Append-only log of all knowledge base changes made by the automated news pipelin
 **Changes:**
 - `knowledge/yandex-direct-course/yandex-maps-3d-business-centers.md` - создан файл: 3D-макеты в Яндекс Картах теперь доступны для бизнес-центров (коммерческая недвижимость), актуально для клиентов KUBRIK
 **Agents updated:** none
-**Commit:** TBD
+**Commit:** 15f5c9f
 
 ## 2026-03-31 | yandex new_feature
 **Source:** https://yandex.ru/adv/news/ycp-kak-poluchat-prodazhi-iz-otvetov-v-chate-s-alisoj-ai-i-iz-poiska-yandeksa
