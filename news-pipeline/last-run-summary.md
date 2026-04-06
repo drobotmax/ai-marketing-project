@@ -1,35 +1,28 @@
 # KUBRIK News Pipeline Run | 2026-04-06
 
-Articles: 5 | KB Updates: 0 | Notify Only: 3 | Skipped: 1
-
-> **Note:** Digest date is 2026-03-31 (6 days old). Этот дайджест уже был полностью обработан в прошлом запуске 2026-03-31 (см. changelog). Новых статей для обработки нет.
-
----
-
-## Предыдущий запуск (2026-03-31) - архив
-
-Articles: 5 | KB Updates: 2 | Notify Only: 2 | Skipped: 1
+Articles: 6 | KB Updates: 2 | Notify Only: 4 | Skipped: 0
 
 ## KB Updates
 
-- **Google** (new_feature, informational, 88%): Demand Gen Drop March 2026 - Veo (генерация видео из статичных изображений для достижения Ad Strength "Excellent"), YouTube Creator Partnerships boost (+30% конверсий на Shorts при сохранении CPA), оптимизация под follow-on views
-  - `knowledge/google-ads/campaigns/demand-gen-campaigns.md` (создан)
-  - `agents/contextologist/skill.md` (добавлена ссылка на новый KB файл)
+- **Yandex (deprecation, important, 90%):** Устаревшие модели атрибуции Метрики и Директа отключаются в 2 этапа. 21 апреля - нельзя выбрать в новых кампаниях; 20 мая - авто-миграция. Затронуты: "Первый переход", "Последний значимый переход", "Последний переход из Директа" (+ кросс-девайс вариант). Заменяются на кросс-девайс аналоги и Автоматическую атрибуцию.
+  - `knowledge/yandex-direct-course/attribution-models-deprecation-2026.md` (создан)
 
-- **Yandex** (new_feature, important, 90%): Yandex Commerce Protocol (YCP) - первый российский стандарт интеграции интернет-магазинов с ИИ. Кнопка "Купить в 1 клик" в Алисе AI и Яндекс Поиске. 19M+ пользователей Алисы в неделю, ~30% покупок оформляются прямо в чате. Подключение бесплатно. Примечание: не является рекламным форматом Директа (нельзя настроить в кабинете).
-  - `knowledge/yandex-direct-course/yandex-commerce-protocol-ycp.md` (создан)
+- **Yandex (new_feature, informational, 90%):** 3D-макеты в Яндекс Картах теперь доступны для бизнес-центров (коммерческая недвижимость). Раньше только для ЖК. Требует Брендированного приоритетного размещения. Актуально для клиентов с коммерческой недвижимостью.
+  - `knowledge/yandex-direct-course/yandex-maps-3d-business-centers.md` (создан)
 
 ## Notify Only
 
-- **Google**: "5 ways to collaborate with agentic advisors" - best practices по Ads Advisor и Analytics Advisor, без изменений продукта
-- **Google**: "Commerce Media Suite: Kroger + YouTube" - интеграция DV360 с Kroger Precision Marketing, SKU-level conversion reporting. Инструмент Display & Video 360 (enterprise), вне стандартного стека Google Ads для недвижимости.
-
-## Skipped
-
-- **Google**: "Ads Decoded episode 5: lead gen" - видеоподкаст о best practices, без конкретных product changes
+- **Yandex:** Ecom-дайджест Q1 2026 - Новый Мастер отчётов вышел из беты, Алиса AI для покупателей, Яндекс KITβ - общий ecom-дайджест, не релевантно для KUBRIK
+- **Yandex:** «Хорошее место» - акция для Яндекс Бизнеса со скидками (1 апр - 30 июн) - промо-предложение, не актуально
+- **Yandex:** Adfox дайджест - обновление правил открутки, таргетинг по частоте, ИИ-помощник. Adfox - паблишерский инструмент, не для рекламодателей
+- **Yandex:** РСЯ для блогеров - 1 год. Аналитическая статья со статистикой, без продуктовых изменений
 
 ## Breaking
 
-Нет.
+_Нет критических изменений._
 
-Commit: 25d3c09
+## Важно для команды
+
+Проверить настройки атрибуции в активных кампаниях клиентов до 21 апреля 2026. Рекомендуется переключиться на кросс-девайс аналоги или Автоматическую атрибуцию заранее.
+
+Commit: TBD
