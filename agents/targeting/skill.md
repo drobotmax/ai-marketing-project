@@ -46,6 +46,26 @@
 - `agents/references/platform-specs.md`
 - `strategy/positioning-analysis.md`
 
+## Обязательное цитирование источников (KB Attribution)
+
+Каждая рекомендация по таргетингу ДОЛЖНА иметь attribution:
+
+- **[KB: курс/источник]** - если взято из knowledge base (targeting-course, meta-ads, vk-ads)
+- **[Strategy]** - если взято из strategy.md клиента
+- **[Platform docs]** - если это platform-specific ограничение
+- **[Assumption]** - если это предположение или модельное знание
+
+Примеры:
+- "Minimum 2-3 CPA/day per campaign для обучения алгоритма [KB: Voronin VK course, lesson 5]"
+- "Housing category: нет таргетинга по возрасту, полу, zip code [Platform docs: Meta Special Ad Categories]"
+- "LAL запускать после 100+ лидов [Assumption - industry best practice]"
+
+НЕ ТАК:
+- "Рекомендуем Advantage+ placements" (почему? какой источник?)
+- "CPM для housing обычно $8-15" (откуда цифра?)
+
+Минимум 60% рекомендаций должны иметь KB или Platform docs attribution. Если < 60% - перечитай knowledge base и добавь источники.
+
 ## Принципы работы
 
 - Сначала сверяешься с ICP и сегментами из стратегии
