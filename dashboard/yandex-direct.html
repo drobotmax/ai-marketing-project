@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KUBRIK - Yandex Direct Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --navy: #0A1628;
+    --navy-elevated: #0E1D33;
+    --navy-card: #12233D;
+    --navy-hover: #172B4A;
+    --navy-surface: #1A2D4A;
+    --emerald: #34D399;
+    --emerald-light: #6EE7B7;
+    --emerald-dim: rgba(52, 211, 153, 0.08);
+    --emerald-border: rgba(52, 211, 153, 0.2);
+    --amber: #FBBF24;
+    --amber-dim: rgba(251, 191, 36, 0.1);
+    --amber-border: rgba(251, 191, 36, 0.25);
+    --red: #F87171;
+    --red-dim: rgba(248, 113, 113, 0.1);
+    --red-border: rgba(248, 113, 113, 0.25);
+    --blue: #60A5FA;
+    --blue-dim: rgba(96, 165, 250, 0.1);
+    --purple: #A78BFA;
+    --purple-dim: rgba(167, 139, 250, 0.1);
+    --purple-border: rgba(167, 139, 250, 0.25);
+    --white: #E8ECF1;
+    --gray: #8B9BB4;
+    --muted: #4A5E7A;
+    --border: #1A2D4A;
+    --font: 'Inter', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+    --radius: 12px;
+    --radius-sm: 8px;
+}
+
+html { scroll-behavior: smooth; }
+body {
+    font-family: var(--font);
+    background: var(--navy);
+    color: var(--white);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--muted); border-radius: 3px; }
+
+/* Top Bar */
+.topbar {
+    position: fixed; top: 0; left: 0; right: 0; height: 56px;
+    background: var(--navy-elevated);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px; z-index: 100;
+}
+.topbar-brand {
+    font-size: 18px; font-weight: 800;
+    letter-spacing: 2px; color: var(--emerald);
+}
+.topbar-brand span { color: var(--gray); font-weight: 400; font-size: 14px; margin-left: 12px; letter-spacing: 0; }
+.topbar-meta { font-size: 13px; color: var(--gray); font-family: var(--mono); }
+
+/* Main Layout */
+.main { padding: 72px 24px 24px; max-width: 1400px; margin: 0 auto; }
+
+/* KPI Cards */
+.kpi-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px; margin-bottom: 24px;
+}
+.kpi-card {
+    background: var(--navy-card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 20px;
+}
+.kpi-label { font-size: 12px; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+.kpi-value { font-size: 28px; font-weight: 700; font-family: var(--mono); }
+.kpi-sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.kpi-value.emerald { color: var(--emerald); }
+.kpi-value.amber { color: var(--amber); }
+.kpi-value.blue { color: var(--blue); }
+.kpi-value.red { color: var(--red); }
+.kpi-value.purple { color: var(--purple); }
+
+/* Sections */
+.section {
+    background: var(--navy-card); border: 1px solid var(--border);
+    border-radius: var(--radius); margin-bottom: 24px; overflow: hidden;
+}
+.section-header {
+    padding: 16px 20px; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+}
+.section-title { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+.section-badge {
+    font-size: 11px; font-family: var(--mono); padding: 2px 8px;
+    border-radius: 4px; background: var(--emerald-dim); color: var(--emerald);
+    border: 1px solid var(--emerald-border);
+}
+
+/* Table */
+.data-table { width: 100%; border-collapse: collapse; }
+.data-table th {
+    text-align: left; padding: 10px 16px; font-size: 11px;
+    color: var(--gray); text-transform: uppercase; letter-spacing: 1px;
+    border-bottom: 1px solid var(--border); font-weight: 600;
+}
+.data-table td {
+    padding: 12px 16px; font-size: 13px; border-bottom: 1px solid var(--border);
+}
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:hover td { background: var(--navy-hover); }
+.data-table .num { font-family: var(--mono); text-align: right; }
+.data-table .name { font-weight: 500; max-width: 280px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* Nested ads row */
+.data-table .ad-row td { padding-left: 40px; font-size: 12px; color: var(--gray); }
+.data-table .ad-row:hover td { color: var(--white); }
+.expand-btn {
+    background: none; border: none; color: var(--muted); cursor: pointer;
+    font-size: 12px; padding: 2px 6px; border-radius: 4px; font-family: var(--mono);
+}
+.expand-btn:hover { color: var(--emerald); background: var(--emerald-dim); }
+
+.status-on { color: var(--emerald); }
+.status-off { color: var(--red); }
+.status-suspended { color: var(--amber); }
+
+/* Chart */
+.chart-container { padding: 20px; height: 280px; position: relative; }
+canvas { width: 100% !important; height: 100% !important; }
+
+/* Funnel */
+.funnel { padding: 24px; }
+.funnel-stage {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 2px; position: relative;
+}
+.funnel-bar-wrap { flex: 1; position: relative; }
+.funnel-bar {
+    height: 44px; border-radius: 6px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 16px; position: relative; overflow: hidden;
+    transition: all 0.3s ease;
+}
+.funnel-bar:hover { filter: brightness(1.15); }
+.funnel-label { font-size: 13px; font-weight: 600; z-index: 1; }
+.funnel-numbers { font-family: var(--mono); font-size: 13px; z-index: 1; display: flex; gap: 16px; }
+.funnel-numbers .qty { color: var(--white); }
+.funnel-numbers .cost { color: rgba(255,255,255,0.6); }
+.funnel-conv {
+    width: 60px; text-align: right; font-size: 11px;
+    font-family: var(--mono); color: var(--muted);
+}
+.funnel-arrow {
+    text-align: center; color: var(--muted); font-size: 10px;
+    padding: 2px 0; margin-left: 76px;
+}
+
+/* Alerts */
+.alert-list { padding: 8px; }
+.alert-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 12px; border-radius: var(--radius-sm);
+    font-size: 13px; margin-bottom: 4px;
+}
+.alert-item.warning { background: var(--amber-dim); border: 1px solid var(--amber-border); color: var(--amber); }
+.alert-item.error { background: var(--red-dim); border: 1px solid var(--red-border); color: var(--red); }
+.alert-item.info { background: var(--blue-dim); border: 1px solid rgba(96,165,250,0.25); color: var(--blue); }
+.alert-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.alert-item.warning .alert-dot { background: var(--amber); }
+.alert-item.error .alert-dot { background: var(--red); }
+.alert-item.info .alert-dot { background: var(--blue); }
+
+/* Two-column layout */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+@media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; } }
+
+/* Empty / Loading state */
+.empty-state {
+    padding: 60px 20px; text-align: center; color: var(--muted);
+}
+.empty-state h3 { font-size: 16px; color: var(--gray); margin-bottom: 8px; }
+.empty-state p { font-size: 13px; }
+.empty-state code {
+    display: inline-block; margin-top: 12px; padding: 8px 16px;
+    background: var(--navy); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); font-family: var(--mono); font-size: 12px; color: var(--emerald);
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+    <div class="topbar-brand">KUBRIK <span>Yandex Direct</span></div>
+    <div class="topbar-meta" id="meta">Loading...</div>
+</div>
+
+<div class="main" id="app">
+    <div class="empty-state" id="loading">
+        <h3>Loading dashboard data...</h3>
+        <p>Place data.json in this directory or run:</p>
+        <code>python scripts/export_dashboard_data.py</code>
+    </div>
+</div>
+
+<script>
+const $ = sel => document.querySelector(sel);
+const app = $('#app');
+
+function fmt(n) {
+    if (n === undefined || n === null) return '-';
+    return Number(n).toLocaleString('ru-RU');
+}
+function fmtMoney(n) {
+    if (n === undefined || n === null) return '-';
+    return Number(n).toLocaleString('ru-RU', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+}
+function fmtMoney2(n) {
+    if (n === undefined || n === null) return '-';
+    return Number(n).toLocaleString('ru-RU', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+function renderDashboard(data) {
+    const o = data.overview;
+    const period = `${data.period.from} - ${data.period.to}`;
+
+    $('#meta').textContent = `${period} | Updated: ${data.exported_at}`;
+
+    let html = '';
+
+    // KPI Cards
+    html += `<div class="kpi-grid">
+        <div class="kpi-card">
+            <div class="kpi-label">Spend</div>
+            <div class="kpi-value amber">${fmtMoney(o.total_cost)}</div>
+            <div class="kpi-sub">RUB incl. VAT</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-label">Clicks</div>
+            <div class="kpi-value blue">${fmt(o.total_clicks)}</div>
+            <div class="kpi-sub">CPC: ${fmtMoney2(o.avg_cpc)}</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-label">Impressions</div>
+            <div class="kpi-value">${fmt(o.total_impressions)}</div>
+            <div class="kpi-sub">CTR: ${o.avg_ctr}%</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-label">Leads</div>
+            <div class="kpi-value emerald">${fmt(o.total_conversions)}</div>
+            <div class="kpi-sub">CPL: ${o.total_conversions > 0 ? fmtMoney2(o.total_cost / o.total_conversions) : '-'}</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-label">Deals</div>
+            <div class="kpi-value purple">${fmt((data.funnel || {}).deals_qty || 0)}</div>
+            <div class="kpi-sub">CPD: ${(data.funnel || {}).deals_qty > 0 ? fmtMoney2(o.total_cost / data.funnel.deals_qty) : '-'}</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-label">Campaigns</div>
+            <div class="kpi-value">${o.campaigns_active}<span style="font-size:16px;color:var(--muted)"> / ${o.campaigns_total}</span></div>
+            <div class="kpi-sub">active / total</div>
+        </div>
+    </div>`;
+
+    // Sales Funnel
+    const f = data.funnel || {};
+    html += renderFunnel(f, o.total_cost);
+
+    // Daily Spend Chart
+    html += `<div class="section">
+        <div class="section-header">
+            <div class="section-title">Daily Spend</div>
+            <div class="section-badge">${data.daily_spend.length} days</div>
+        </div>
+        <div class="chart-container"><canvas id="spendChart"></canvas></div>
+    </div>`;
+
+    // Campaigns + Ads table (full width)
+    html += renderCampaignsWithAds(data);
+
+    // Two-column: Keywords + Alerts
+    html += `<div class="grid-2">`;
+
+    // Top Keywords
+    html += `<div class="section">
+        <div class="section-header">
+            <div class="section-title">Top Keywords</div>
+            <div class="section-badge">by clicks</div>
+        </div>
+        <table class="data-table">
+            <thead><tr>
+                <th>Keyword</th><th class="num">Clicks</th><th class="num">CTR</th><th class="num">Spend</th>
+            </tr></thead>
+            <tbody>`;
+
+    const kws = data.top_keywords || [];
+    for (const kw of kws.slice(0, 15)) {
+        html += `<tr>
+            <td class="name">${kw.Criteria || kw.keyword || '-'}</td>
+            <td class="num">${fmt(kw.Clicks || kw.clicks)}</td>
+            <td class="num">${kw.Ctr || kw.ctr || '-'}%</td>
+            <td class="num">${fmtMoney(kw.Cost || kw.cost)}</td>
+        </tr>`;
+    }
+    if (kws.length === 0) html += `<tr><td colspan="4" style="text-align:center;color:var(--muted)">No data</td></tr>`;
+    html += `</tbody></table></div>`;
+
+    // Alerts
+    html += `<div class="section">
+        <div class="section-header">
+            <div class="section-title">Alerts</div>
+            <div class="section-badge" style="background:var(--amber-dim);color:var(--amber);border-color:var(--amber-border)">${(data.alerts || []).length}</div>
+        </div>`;
+    if (data.alerts && data.alerts.length > 0) {
+        html += `<div class="alert-list">`;
+        for (const a of data.alerts) {
+            const cls = a.type === 'low_ctr' ? 'warning' : a.type === 'error' ? 'error' : 'info';
+            html += `<div class="alert-item ${cls}"><div class="alert-dot"></div>${a.message}</div>`;
+        }
+        html += `</div>`;
+    } else {
+        html += `<div style="padding:24px;text-align:center;color:var(--muted);font-size:13px">No alerts</div>`;
+    }
+    html += `</div>`;
+
+    html += `</div>`; // grid-2
+
+    app.innerHTML = html;
+    drawSpendChart(data.daily_spend);
+    bindExpandButtons();
+}
+
+function renderFunnel(f, totalCost) {
+    const stages = [
+        { key: 'leads', label: 'Leads (all)', color: '#60A5FA', bg: 'rgba(96,165,250,0.15)' },
+        { key: 'qual_leads', label: 'Qual. Leads', color: '#34D399', bg: 'rgba(52,211,153,0.15)' },
+        { key: 'meetings_set', label: 'Meeting Set', color: '#FBBF24', bg: 'rgba(251,191,36,0.15)' },
+        { key: 'meetings_done', label: 'Meeting Done', color: '#FB923C', bg: 'rgba(251,146,60,0.15)' },
+        { key: 'bookings', label: 'Booking', color: '#A78BFA', bg: 'rgba(167,139,250,0.15)' },
+        { key: 'deals', label: 'Deal', color: '#F472B6', bg: 'rgba(244,114,182,0.15)' },
+    ];
+
+    const maxQty = Math.max(...stages.map(s => f[s.key + '_qty'] || 0), 1);
+
+    let html = `<div class="section">
+        <div class="section-header">
+            <div class="section-title">Sales Funnel</div>
+            <div class="section-badge">lead to deal</div>
+        </div>
+        <div class="funnel">`;
+
+    for (let i = 0; i < stages.length; i++) {
+        const s = stages[i];
+        const qty = f[s.key + '_qty'] || 0;
+        const cost = qty > 0 ? totalCost / qty : 0;
+        const widthPct = Math.max(20, (qty / maxQty) * 100);
+
+        const prevQty = i > 0 ? (f[stages[i-1].key + '_qty'] || 0) : 0;
+        const convRate = i > 0 && prevQty > 0 ? ((qty / prevQty) * 100).toFixed(0) : '';
+
+        html += `<div class="funnel-stage">
+            <div class="funnel-bar-wrap">
+                <div class="funnel-bar" style="width:${widthPct}%;background:${s.bg};border:1px solid ${s.color}30">
+                    <span class="funnel-label" style="color:${s.color}">${s.label}</span>
+                    <span class="funnel-numbers">
+                        <span class="qty">${fmt(qty)}</span>
+                        <span class="cost">${qty > 0 ? fmtMoney(cost) + ' /ea' : '-'}</span>
+                    </span>
+                </div>
+            </div>
+            <div class="funnel-conv">${convRate ? convRate + '%' : ''}</div>
+        </div>`;
+
+        if (i < stages.length - 1) {
+            html += `<div class="funnel-arrow">|</div>`;
+        }
+    }
+
+    html += `</div></div>`;
+    return html;
+}
+
+function renderCampaignsWithAds(data) {
+    const campaigns = (data.campaigns || []).sort((a, b) => (b.cost || 0) - (a.cost || 0));
+    const adsMap = {};
+    for (const ad of (data.ads || [])) {
+        const cid = ad.campaign_id || ad.CampaignId;
+        if (!adsMap[cid]) adsMap[cid] = [];
+        adsMap[cid].push(ad);
+    }
+
+    let html = `<div class="section">
+        <div class="section-header">
+            <div class="section-title">Campaigns & Ads</div>
+            <div class="section-badge">${campaigns.length} campaigns</div>
+        </div>
+        <table class="data-table">
+            <thead><tr>
+                <th style="width:30px"></th>
+                <th>Name</th>
+                <th class="num">Impressions</th>
+                <th class="num">Clicks</th>
+                <th class="num">CTR</th>
+                <th class="num">CPC</th>
+                <th class="num">Conv.</th>
+                <th class="num">Spend</th>
+            </tr></thead>
+            <tbody>`;
+
+    for (const c of campaigns) {
+        const cAds = adsMap[c.id] || [];
+        const expandId = `ads-${c.id}`;
+        const hasAds = cAds.length > 0;
+
+        html += `<tr>
+            <td>${hasAds ? `<button class="expand-btn" data-target="${expandId}">+</button>` : ''}</td>
+            <td class="name">${c.name || c.id}</td>
+            <td class="num">${fmt(c.impressions)}</td>
+            <td class="num">${fmt(c.clicks)}</td>
+            <td class="num">${c.ctr || '-'}%</td>
+            <td class="num">${fmtMoney2(c.avg_cpc)}</td>
+            <td class="num">${fmt(c.conversions)}</td>
+            <td class="num">${fmtMoney(c.cost)}</td>
+        </tr>`;
+
+        for (const ad of cAds) {
+            const adTitle = ad.title || ad.Title || `Ad #${ad.id || ad.Id}`;
+            html += `<tr class="ad-row ${expandId}" style="display:none">
+                <td></td>
+                <td class="name">${adTitle}</td>
+                <td class="num">${fmt(ad.impressions || ad.Impressions)}</td>
+                <td class="num">${fmt(ad.clicks || ad.Clicks)}</td>
+                <td class="num">${ad.ctr || ad.Ctr || '-'}%</td>
+                <td class="num">${fmtMoney2(ad.avg_cpc || ad.AvgCpc)}</td>
+                <td class="num">${fmt(ad.conversions || ad.Conversions)}</td>
+                <td class="num">${fmtMoney(ad.cost || ad.Cost)}</td>
+            </tr>`;
+        }
+    }
+
+    if (campaigns.length === 0) {
+        html += `<tr><td colspan="8" style="text-align:center;color:var(--muted)">No campaigns</td></tr>`;
+    }
+
+    html += `</tbody></table></div>`;
+    return html;
+}
+
+function bindExpandButtons() {
+    document.querySelectorAll('.expand-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = btn.dataset.target;
+            const rows = document.querySelectorAll(`.${target}`);
+            const isOpen = btn.textContent === '-';
+            btn.textContent = isOpen ? '+' : '-';
+            rows.forEach(r => r.style.display = isOpen ? 'none' : '');
+        });
+    });
+}
+
+function drawSpendChart(dailyData) {
+    const canvas = document.getElementById('spendChart');
+    if (!canvas || dailyData.length === 0) return;
+
+    const ctx = canvas.getContext('2d');
+    const rect = canvas.parentElement.getBoundingClientRect();
+    canvas.width = rect.width * 2;
+    canvas.height = rect.height * 2;
+    ctx.scale(2, 2);
+
+    const w = rect.width;
+    const h = rect.height;
+    const pad = { top: 20, right: 20, bottom: 40, left: 60 };
+    const plotW = w - pad.left - pad.right;
+    const plotH = h - pad.top - pad.bottom;
+
+    const values = dailyData.map(d => d.cost);
+    const maxVal = Math.max(...values, 1);
+
+    ctx.strokeStyle = 'rgba(74, 94, 122, 0.3)';
+    ctx.lineWidth = 0.5;
+    for (let i = 0; i <= 4; i++) {
+        const y = pad.top + (plotH / 4) * i;
+        ctx.beginPath();
+        ctx.moveTo(pad.left, y);
+        ctx.lineTo(w - pad.right, y);
+        ctx.stroke();
+        ctx.fillStyle = '#4A5E7A';
+        ctx.font = '11px JetBrains Mono';
+        ctx.textAlign = 'right';
+        ctx.fillText(fmt(Math.round(maxVal - (maxVal / 4) * i)), pad.left - 8, y + 4);
+    }
+
+    const barGap = 4;
+    const barW = Math.max(4, (plotW / dailyData.length) - barGap);
+
+    for (let i = 0; i < dailyData.length; i++) {
+        const x = pad.left + i * (barW + barGap) + barGap / 2;
+        const barH = (values[i] / maxVal) * plotH;
+        const y = pad.top + plotH - barH;
+
+        const gradient = ctx.createLinearGradient(x, y, x, pad.top + plotH);
+        gradient.addColorStop(0, '#34D399');
+        gradient.addColorStop(1, 'rgba(52, 211, 153, 0.2)');
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.roundRect(x, y, barW, barH, [3, 3, 0, 0]);
+        ctx.fill();
+
+        const showEvery = dailyData.length > 14 ? 3 : dailyData.length > 7 ? 2 : 1;
+        if (i % showEvery === 0) {
+            ctx.fillStyle = '#4A5E7A';
+            ctx.font = '10px JetBrains Mono';
+            ctx.textAlign = 'center';
+            ctx.fillText(dailyData[i].date.slice(5), x + barW / 2, pad.top + plotH + 20);
+        }
+    }
+}
+
+// Load data
+async function init() {
+    try {
+        const resp = await fetch('data.json');
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+        const data = await resp.json();
+        renderDashboard(data);
+    } catch (e) {
+        console.log('No data.json found, showing demo data');
+        renderDashboard(DEMO_DATA);
+    }
+}
+
+// Demo data
+const DEMO_DATA = {
+    exported_at: new Date().toISOString().slice(0, 10),
+    period: { from: "2026-04-03", to: "2026-04-09" },
+    overview: {
+        campaigns_total: 4,
+        campaigns_active: 3,
+        total_cost: 42850,
+        total_clicks: 1247,
+        total_impressions: 58320,
+        total_conversions: 23,
+        avg_ctr: 2.14,
+        avg_cpc: 34.36,
+    },
+    funnel: {
+        leads_qty: 23,
+        qual_leads_qty: 15,
+        meetings_set_qty: 10,
+        meetings_done_qty: 8,
+        bookings_qty: 3,
+        deals_qty: 2,
+    },
+    campaigns: [
+        { id: "1", name: "Search - Hot Intent", impressions: 28400, clicks: 712, cost: 22100, conversions: 14, ctr: 2.51, avg_cpc: 31.04 },
+        { id: "2", name: "MK - Apartments from Developer", impressions: 18200, clicks: 385, cost: 14250, conversions: 7, ctr: 2.12, avg_cpc: 37.01 },
+        { id: "3", name: "YAN - Retargeting", impressions: 9400, clicks: 120, cost: 5100, conversions: 2, ctr: 1.28, avg_cpc: 42.50 },
+        { id: "4", name: "Search - Warm", impressions: 2320, clicks: 30, cost: 1400, conversions: 0, ctr: 1.29, avg_cpc: 46.67 },
+    ],
+    ads: [
+        { campaign_id: "1", id: "101", title: "Buy apt in LCD Premium - from developer", impressions: 15200, clicks: 412, cost: 12800, conversions: 9, ctr: 2.71, avg_cpc: 31.07 },
+        { campaign_id: "1", id: "102", title: "New buildings from 5.2M - 0% mortgage", impressions: 13200, clicks: 300, cost: 9300, conversions: 5, ctr: 2.27, avg_cpc: 31.00 },
+        { campaign_id: "2", id: "201", title: "MK auto: apartments + mortgage", impressions: 10800, clicks: 230, cost: 8500, conversions: 4, ctr: 2.13, avg_cpc: 36.96 },
+        { campaign_id: "2", id: "202", title: "MK auto: new buildings district", impressions: 7400, clicks: 155, cost: 5750, conversions: 3, ctr: 2.09, avg_cpc: 37.10 },
+        { campaign_id: "3", id: "301", title: "Return: you viewed apartments", impressions: 9400, clicks: 120, cost: 5100, conversions: 2, ctr: 1.28, avg_cpc: 42.50 },
+        { campaign_id: "4", id: "401", title: "Search warm: mortgage new buildings", impressions: 2320, clicks: 30, cost: 1400, conversions: 0, ctr: 1.29, avg_cpc: 46.67 },
+    ],
+    daily_spend: [
+        { date: "2026-04-03", cost: 5820 },
+        { date: "2026-04-04", cost: 6340 },
+        { date: "2026-04-05", cost: 4200 },
+        { date: "2026-04-06", cost: 3100 },
+        { date: "2026-04-07", cost: 7450 },
+        { date: "2026-04-08", cost: 8240 },
+        { date: "2026-04-09", cost: 7700 },
+    ],
+    top_keywords: [
+        { Criteria: "buy apartment new building", Clicks: "142", Ctr: "3.8", Cost: "4260" },
+        { Criteria: "apartments from developer", Clicks: "118", Ctr: "3.2", Cost: "3540" },
+        { Criteria: "new buildings moscow prices", Clicks: "95", Ctr: "2.9", Cost: "3325" },
+        { Criteria: "premium residential complex", Clicks: "67", Ctr: "2.1", Cost: "2680" },
+        { Criteria: "mortgage for new building", Clicks: "54", Ctr: "1.8", Cost: "1890" },
+        { Criteria: "studio in new building", Clicks: "48", Ctr: "2.4", Cost: "1440" },
+        { Criteria: "one-room from developer", Clicks: "41", Ctr: "2.0", Cost: "1435" },
+        { Criteria: "apartment discounts", Clicks: "38", Ctr: "1.5", Cost: "1520" },
+    ],
+    alerts: [
+        { type: "low_ctr", message: "Low CTR (1.28%) - YAN Retargeting" },
+        { type: "low_ctr", message: "Low CTR (1.29%) - Search Warm" },
+    ],
+};
+
+init();
+</script>
+</body>
+</html>

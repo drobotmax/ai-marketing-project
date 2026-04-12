@@ -1,0 +1,60 @@
+{
+  "brief_id": "TB-02",
+  "round": 2,
+  "scores": {
+    "S1_market_depth": 5,
+    "S2_segment_clarity": 5,
+    "S3_channel_logic": 4,
+    "T1_audience_architecture": 4,
+    "T2_platform_expertise": 4,
+    "T3_test_design": 4,
+    "M1_budget_coherence": 5,
+    "M2_cross_channel_logic": 4,
+    "C1_hook_strength": 4,
+    "C2_brief_alignment": 5,
+    "E1_information_flow": 5,
+    "E2_consistency": 5
+  },
+  "base_score": 54,
+  "validator_pass_rate": 0.85,
+  "kb_citation_rate": 0.55,
+  "bonus": 0,
+  "total_score": 54,
+  "weakest_criterion": "T3_test_design",
+  "strongest_criterion": "S1_market_depth",
+  "delta_vs_round1": {
+    "S1_market_depth": 1,
+    "S2_segment_clarity": 1,
+    "S3_channel_logic": 0,
+    "T1_audience_architecture": 0,
+    "T2_platform_expertise": 1,
+    "T3_test_design": 1,
+    "M1_budget_coherence": 1,
+    "M2_cross_channel_logic": 0,
+    "C1_hook_strength": 0,
+    "C2_brief_alignment": 1,
+    "E1_information_flow": 1,
+    "E2_consistency": 1,
+    "base_score": 8,
+    "total_score": 9
+  },
+  "top_issues": [
+    "Creatives and validation docs have zero KB/source attribution tags - all citations concentrated in strategy, targeting, and context plans. This drags down blended KB citation rate from ~86% in planning docs to ~55% overall",
+    "Test design improved (stopping rules mentioned, A/B testing tool referenced) but still lacks statistical significance thresholds and minimum sample sizes - T3 experiments say '5 days or 1,000 impressions' and '30+ leads' but no power analysis or confidence interval targets",
+    "Channel logic keeps Organic at $500/mo (10%) but gives no platform-specific rationale beyond 'trust building' - no explanation of why not Telegram ads for RU audience or YouTube for lifestyle content, same gap as Round 1"
+  ],
+  "per_criterion_notes": {
+    "S1_market_depth": "Upgraded to 5 from R1's 4. Round 2 adds extensive KB-sourced market data: Bali GDP growth ~10%, market consolidation to ~10 developers from 50+, Canggu oversupply (7,100 new 1BR) vs Ubud not oversaturated, Airbnb NIB regulation March 2026, risk/return ratio improvement, price benchmarks ($220K-$435K Ubud), land prices (7-8M IDR/are/year). Competitor section now includes developer benchmarks (OXO, Predmet, Leaven) with specific differentiation. All sourced with [KB:] tags to specific market files and Mityuhin insights.",
+    "S2_segment_clarity": "Upgraded to 5 from R1's 4. Each segment now has explicit JTBD framework (Christensen) with functional, emotional, and social jobs. Four Forces analysis (Push/Pull/Habit/Anxiety) for investor and nomad segments. Pain points cite specific sources (Domogatsky scandal, SWOI frozen project, management quality variance from stay-tests). Triggers are now framework-driven (Hormozi Value Equation for effort reduction, Cialdini principles for social proof and authority). This is a major improvement over R1's 'good but could be more behavioral' triggers.",
+    "S3_channel_logic": "Stays at 4, same as R1. Channels tied to segments, funnel stages, and budget with clear roles. Blue Ocean ERRC framework is a nice addition. Budget guardrails table with hard caps is good. Same gap as R1: no explanation for why not YouTube or Telegram ads for RU audience. Organic at 10% is justified only generically as 'trust building'. The 60/30/10 split is reasonable but the reasoning for Meta getting 60% is marked [Assumption] not [KB:].",
+    "T1_audience_architecture": "Stays at 4, same as R1. Clear cold/warm/hot funnel with 8 audiences in matrix. Retargeting windows defined (7d/14d/30d). LAL deferred to Phase 2 with rationale (need 100+ leads). Housing category note for international markets is well-researched. Still missing: explicit audience exclusion logic (only 'non-submit' mentioned), no audience overlap analysis, no refresh cadence for custom audiences.",
+    "T2_platform_expertise": "Upgraded to 4 from R1's 3 - this was the weakest criterion in R1. Major improvement: 24 [KB:] tags in targeting plan referencing Meta Ads docs (generatsiya-lidov.md, polzovatelskie-auditorii.md, CAPI, A/B testing). Contextologist has 49 [KB:] tags citing Google Ads docs and contextologist skill (Alpha/Beta structure, Smart Bidding thresholds, RSA Ad Strength benchmarks, enhanced conversions, remarketing segments). References A/B testing tool ('do not conduct arbitrary testing by manually toggling ad sets'). Not a 5 because: some recommendations still marked [Assumption] (e.g., CPM benchmarks $8-15, creative refresh cadence), no direct course/book citation for platform strategy.",
+    "T3_test_design": "Upgraded to 4 from R1's 3. Four experiments with hypothesis, variable, success metric, and minimum run conditions. T1 now specifies '5 days or 1,000 impressions per variant' with KB citation for A/B testing methodology. T3 adds '30+ leads per variant' for form friction test. Uses Meta Experiments tool reference. Improvement over R1: explicit next actions ('Scale winner, iterate loser') and one test has a quality metric (qualified rate from sales). Still not a 5: no statistical significance thresholds, no power analysis, no confidence intervals, 'scale winner' is vague on what scaling means numerically.",
+    "M1_budget_coherence": "Upgraded to 5 from R1's 4. Total $5,000 = exactly brief budget. Budget reconciliation table explicitly shows Strategy hard cap, Targeting requested, Context requested, Approved committed, Delta, and Status for each channel - all PASS with $0 delta. Unit economics sanity check calculates full funnel from $5K spend to deal value ($265K midpoint), marketing cost per deal (~$5K = 1.9% of deal value). R1 had a retargeting split overage ($610 vs $500 cap) that is now fully resolved - no overages anywhere.",
+    "M2_cross_channel_logic": "Stays at 4, same as R1. Conflict resolution table now addresses 4 specific conflicts (launch sequencing, retargeting overlap, CPL expectations, sales SLA) with clear planner decisions and rationale. Launch calendar is detailed with daily granularity and gates. Cross-channel optimization rules defined (e.g., shift budget if one channel 2x+ expensive per qualified lead). Phase transition criteria with success/failure definitions. Not a 5 because: scaling rules reference 'optional scale scenarios' but without specific triggers tied to statistical thresholds, and Organic channel's role in cross-channel flow is underdeveloped.",
+    "C1_hook_strength": "Stays at 4, same as R1. Hooks are segment-specific: 'Рынок Бали остывает - дилетанты уходят' (market cooling for sophisticated investors), 'Stop paying rent in Bali' (loss framing for nomads), 'Give your kids a childhood in nature' (emotional for families). Split-image visual concept (chaotic Canggu vs serene Ubud) is creative. Not a 5 because: Google Search hooks are still functional but generic ('Buy a Villa in Ubud, Bali' is a keyword, not a hook), and some Meta hooks repeat the same '8% ROI' angle across investor variants without testing fundamentally different psychological levers.",
+    "C2_brief_alignment": "Upgraded to 5 from R1's 4. All 3 segments covered across Meta (5 feed + 3 stories) and Google (5 search variants). All USPs present in every relevant creative: 8% ROI, full management, 25yr leasehold, $180K entry, 120-280m2, Ubud rice terraces. Each creative explicitly maps to a segment from strategy. RU and EN variants for investors. Competitor variant uses alternative positioning without naming competitors in ad text (policy compliant). Brand campaign present for defense. No messaging contradictions with strategy positioning.",
+    "E1_information_flow": "Upgraded to 5 from R1's 4. Clear chain of custody: Strategy defines 3 segments with JTBD -> Targeting preserves all 3 with matching descriptions and maps them to campaigns -> Context plan creates keyword clusters per segment -> Media plan reconciles budgets from both specialists with zero delta -> Creatives produce segment-specific variants -> Validation checks each creative against strategy requirements. Budget guardrails flow from strategy ($3K Meta, $1.5K Google, $500 Organic) through every downstream doc. Qualified lead definition and CPL targets consistent throughout.",
+    "E2_consistency": "Upgraded to 5 from R1's 4. Budget numbers perfectly consistent across all 6 documents: $5,000 total, $3,000 Meta, $1,500 Google, $500 Organic. The R1 retargeting overage issue ($610 vs $500) is completely resolved - retargeting budgets now explicitly split within channel caps ($600 Meta retargeting within $3K cap, $150 Google remarketing within $1.5K cap). Segment names and descriptions match across all docs. Pricing ($180K-$350K, 'from $180K'), USPs (8% ROI, full management, 25yr lease), and positioning (honest returns vs hype) are coherent throughout. No contradictions found."
+  }
+}

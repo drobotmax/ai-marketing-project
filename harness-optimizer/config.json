@@ -1,0 +1,81 @@
+{
+  "version": "0.1.0",
+  "target_score": 54,
+  "max_score": 60,
+  "target_validator_pass_rate": 0.70,
+  "max_rounds": 10,
+  "min_briefs_per_round": 2,
+  "full_briefs_per_round": 5,
+  "mutation_levels": {
+    "1_prompt": "agents/*/skill.md - prompt text, examples, anti-examples, rules",
+    "2_format": "output templates, inter-agent data format, context window",
+    "3_topology": "agent order, parallelism, fact-checker toggle, validator iterations"
+  },
+  "agents": [
+    {
+      "id": "strategist",
+      "path": "agents/strategist/skill.md",
+      "scores": ["S1", "S2", "S3"]
+    },
+    {
+      "id": "targeting",
+      "path": "agents/targeting/skill.md",
+      "scores": ["T1", "T2", "T3"]
+    },
+    {
+      "id": "contextologist",
+      "path": "agents/contextologist/skill.md",
+      "scores": ["T1", "T2", "T3"]
+    },
+    {
+      "id": "media-buyer",
+      "path": "agents/media-buyer/skill.md",
+      "scores": ["M1", "M2"]
+    },
+    {
+      "id": "copywriter",
+      "path": "agents/copywriter/skill.md",
+      "scores": ["C1", "C2"]
+    },
+    {
+      "id": "validator",
+      "path": "agents/validator/skill.md",
+      "scores": []
+    }
+  ],
+  "scoring_criteria": [
+    "S1_market_depth",
+    "S2_segment_clarity",
+    "S3_channel_logic",
+    "T1_audience_architecture",
+    "T2_platform_expertise",
+    "T3_test_design",
+    "M1_budget_coherence",
+    "M2_cross_channel_logic",
+    "C1_hook_strength",
+    "C2_brief_alignment",
+    "E1_information_flow",
+    "E2_consistency"
+  ],
+  "current_round": 3,
+  "mutations_log": [
+    {
+      "round": 1,
+      "level": 1,
+      "type": "prompt",
+      "agents": ["strategist", "targeting", "contextologist"],
+      "change": "Added KB Attribution rule with [KB:], [Brief], [Assumption] tags, 60% threshold, examples and anti-examples",
+      "impact": "+7 base score avg, T2: 2.5->4.0, KB citation: 14%->60%",
+      "status": "confirmed_effective"
+    },
+    {
+      "round": 3,
+      "level": 1,
+      "type": "prompt",
+      "agents": ["copywriter"],
+      "change": "Added Hook Strength rules: strong hook examples with numbers/provocations, banned template list, psychological levers requirement, uniqueness rule",
+      "impact": "+1 C1 both briefs (3.5->4.5 avg), minor M1 regression in TB-02 (stochastic)",
+      "status": "confirmed_effective"
+    }
+  ]
+}

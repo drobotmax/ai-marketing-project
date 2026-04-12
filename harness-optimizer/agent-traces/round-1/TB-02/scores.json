@@ -1,0 +1,44 @@
+{
+  "brief_id": "TB-02",
+  "round": 1,
+  "scores": {
+    "S1_market_depth": 4,
+    "S2_segment_clarity": 4,
+    "S3_channel_logic": 4,
+    "T1_audience_architecture": 4,
+    "T2_platform_expertise": 3,
+    "T3_test_design": 3,
+    "M1_budget_coherence": 4,
+    "M2_cross_channel_logic": 4,
+    "C1_hook_strength": 4,
+    "C2_brief_alignment": 4,
+    "E1_information_flow": 4,
+    "E2_consistency": 4
+  },
+  "base_score": 46,
+  "validator_pass_rate": 0.77,
+  "kb_citation_rate": 0.22,
+  "bonus": -1,
+  "total_score": 45,
+  "weakest_criterion": "T2_platform_expertise",
+  "strongest_criterion": "C1_hook_strength",
+  "top_issues": [
+    "No KB citations: targeting and context agents make correct recommendations but never reference course materials or knowledge base sources, making claims unverifiable and losing bonus points",
+    "Test design lacks stopping rules: experiments have hypotheses and metrics but no statistical significance thresholds, no minimum sample sizes for significance, and no clear kill/scale decision framework",
+    "Platform expertise is generic: housing category limitations noted but no platform-specific best practices cited (e.g., Meta campaign budget optimization thresholds, Google Ads quality score factors, Advantage+ audience expansion mechanics)"
+  ],
+  "per_criterion_notes": {
+    "S1_market_depth": "Strong Ubud-specific data: view-villas +30% rent premium, 5.47M Bali tourists 2025, rental yields -18% YoY, PBG queue 300 projects, realistic ROI benchmarks 8-10%. Competitor differentiation clear (agencies vs developer). Missing: price per sqm benchmarks, occupancy rates, seasonality curves.",
+    "S2_segment_clarity": "Each segment has JTBD, pain points, and triggers. Investor segment names specific fears (Domogatsky/SWOI scandals), nomad segment anchors rental costs ($1,500-3,000/mo), family segment references schools by name (Green School $12-18K/yr, Dyatmika). Not a 5 because triggers could be more behavioral (e.g., what event prompts search).",
+    "S3_channel_logic": "Channels tied to segments, funnel stages, and budget with clear roles (Meta=demand creation, Google=demand capture). Housing category acknowledged. Budget guardrails table is excellent. Missing: why not YouTube or Telegram ads for RU audience.",
+    "T1_audience_architecture": "Clear cold/warm/hot funnel with retargeting windows (30d/14d/7d), progression logic, LAL deferred to Phase 2 with rationale. Audience matrix links each audience to funnel stage and hypothesis. Missing: explicit lookalike source strategy and audience exclusion logic beyond converters.",
+    "T2_platform_expertise": "Housing category limitations correctly noted, Advantage+ placements used, CPM benchmarks provided ($8-15 for housing). However, zero KB citations - no references to courses, books, or knowledge base. Recommendations are correct but unsourced. This is the weakest area.",
+    "T3_test_design": "4 well-structured experiments with hypothesis, variable, success metric, and minimum run conditions. Missing: statistical significance thresholds, minimum sample sizes for valid conclusions, clear stopping rules (when to kill a losing variant), and no mention of sequential testing to avoid p-hacking.",
+    "M1_budget_coherence": "Total $5,000 matches brief exactly. $490 buffer intentional for scaling winners. Retargeting split creates $110 overage ($400 Meta + $210 Google = $610 vs $500 cap) but explicitly resolved via buffer in media plan. Unit economics implicit (CPL targets map to lead volume targets).",
+    "M2_cross_channel_logic": "Phased launch calendar with clear sequencing rationale (PMax delayed to Day 8 for conversion data). Conflict resolution table addresses 4 specific inter-agent conflicts. Cross-channel optimization rules defined. Brand cannibalization by PMax anticipated.",
+    "C1_hook_strength": "Distinct hooks per segment: '5 лет аренды = $90K в никуда' (loss aversion for nomads), '15-20% ROI? Забудьте' (anti-hype for skeptical investors), 'Дети растут среди рисовых террас' (emotional for families). Each uses different psychological lever. Not a 5 because Google Search hooks are more generic.",
+    "C2_brief_alignment": "All 3 segments covered across Meta and Google. All USPs present (8% ROI, full management, 25-year leasehold, $180-350K range). Messaging consistent with strategy positioning (honest ROI vs inflated promises). Each creative maps to a segment from strategy.",
+    "E1_information_flow": "Segments from strategy preserved in targeting (same 3 segments with matching descriptions), media plan (budget per segment-aligned campaign), and creatives (dedicated variants per segment). Qualified lead definition aligned across docs. Budget guardrails flow from strategy through media plan.",
+    "E2_consistency": "Budget numbers consistent: $5,000 total, $2,500 Meta, $2,000 Google, $500 retargeting across all docs. Segment names and descriptions match. Minor inconsistency: retargeting budget $610 actual vs $500 strategy cap, but explicitly resolved in media plan conflict resolution table. No messaging contradictions."
+  }
+}

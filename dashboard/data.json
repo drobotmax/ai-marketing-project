@@ -1,0 +1,21 @@
+{
+  "exported_at": "2026-04-10",
+  "period": {
+    "from": "2026-03-11",
+    "to": "2026-04-09"
+  },
+  "overview": {
+    "campaigns_total": 2,
+    "campaigns_active": 0,
+    "total_cost": 0,
+    "total_clicks": 0,
+    "total_impressions": 0,
+    "total_conversions": 0,
+    "avg_ctr": 0,
+    "avg_cpc": 0
+  },
+  "campaigns": [],
+  "daily_spend": [],
+  "top_keywords": [],
+  "alerts": []
+}

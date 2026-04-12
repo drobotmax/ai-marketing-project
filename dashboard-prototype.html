@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KUBRIK | Горизонт Девелопмент - Дашборд</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --dark-navy: #1a1a2e;
+    --navy: #16213e;
+    --blue: #0f3460;
+    --accent: #e94560;
+    --bg: #f5f5f5;
+    --white: #ffffff;
+    --border: #e0e0e0;
+    --text: #1a1a2e;
+    --text-secondary: #6b7280;
+    --green: #10b981;
+    --red: #ef4444;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 24px 20px;
+  }
+
+  /* Header */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .logo {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--dark-navy);
+  }
+
+  .logo-accent { color: var(--accent); }
+
+  .header-divider {
+    width: 1px;
+    height: 28px;
+    background: var(--border);
+  }
+
+  .client-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-secondary);
+  }
+
+  .period-selector {
+    display: flex;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .period-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    border: none;
+    background: var(--white);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.15s;
+    border-right: 1px solid var(--border);
+  }
+
+  .period-btn:last-child { border-right: none; }
+
+  .period-btn.active {
+    background: var(--dark-navy);
+    color: var(--white);
+  }
+
+  .period-btn:hover:not(.active) {
+    background: var(--bg);
+  }
+
+  /* KPI Row */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .kpi-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+  }
+
+  .kpi-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+
+  .kpi-value {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+    line-height: 1.1;
+  }
+
+  .kpi-delta {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  .kpi-delta.positive {
+    color: var(--green);
+    background: rgba(16, 185, 129, 0.1);
+  }
+
+  .kpi-delta.negative {
+    color: var(--red);
+    background: rgba(239, 68, 68, 0.1);
+  }
+
+  /* Charts Row */
+  .charts-row {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: var(--shadow);
+  }
+
+  .card-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+
+  .chart-container {
+    position: relative;
+    width: 100%;
+    height: 280px;
+  }
+
+  /* Table */
+  .table-card { overflow-x: auto; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  th {
+    text-align: left;
+    padding: 10px 12px;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-secondary);
+    border-bottom: 2px solid var(--border);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 12px 12px;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+
+  tr.total-row td {
+    font-weight: 700;
+    border-top: 2px solid var(--dark-navy);
+    border-bottom: none;
+    background: var(--bg);
+  }
+
+  /* Bottom Panels */
+  .bottom-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .campaign-platform {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-right: 6px;
+  }
+
+  .platform-yandex { background: #fef3c7; color: #92400e; }
+  .platform-google { background: #dbeafe; color: #1e40af; }
+  .platform-vk { background: #ede9fe; color: #5b21b6; }
+  .platform-meta { background: #fce7f3; color: #9d174d; }
+
+  .status-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  .status-active { background: rgba(16, 185, 129, 0.1); color: var(--green); }
+  .status-paused { background: rgba(239, 68, 68, 0.1); color: var(--red); }
+  .status-testing { background: rgba(245, 158, 11, 0.1); color: #d97706; }
+
+  .insight-card {
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text);
+    background: var(--bg);
+  }
+
+  .insight-card:last-child { margin-bottom: 0; }
+
+  .insight-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 3px;
+    margin-right: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .tag-optimize { background: rgba(15, 52, 96, 0.1); color: var(--blue); }
+  .tag-scale { background: rgba(16, 185, 129, 0.1); color: var(--green); }
+  .tag-alert { background: rgba(239, 68, 68, 0.1); color: var(--red); }
+
+  /* Funnel */
+  .funnel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: 20px 0;
+  }
+
+  .funnel-step {
+    text-align: center;
+    flex: 1;
+    position: relative;
+  }
+
+  .funnel-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--dark-navy);
+  }
+
+  .funnel-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+
+  .funnel-bar {
+    height: 8px;
+    background: var(--dark-navy);
+    border-radius: 4px;
+    margin: 10px 8px 0;
+    transition: all 0.3s;
+  }
+
+  .funnel-arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 4px;
+    flex-shrink: 0;
+    min-width: 50px;
+  }
+
+  .funnel-arrow-icon {
+    font-size: 18px;
+    color: var(--text-secondary);
+    line-height: 1;
+  }
+
+  .funnel-conversion {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-top: 2px;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border);
+    margin-top: 8px;
+  }
+
+  .footer strong { color: var(--dark-navy); }
+
+  /* Responsive */
+  @media (max-width: 1100px) {
+    .kpi-row { grid-template-columns: repeat(3, 1fr); }
+    .charts-row, .bottom-row { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 640px) {
+    .kpi-row { grid-template-columns: repeat(2, 1fr); }
+    .header { flex-direction: column; gap: 12px; }
+    .funnel-container { flex-wrap: wrap; }
+    .funnel-value { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-left">
+      <div class="logo">KUBR<span class="logo-accent">I</span>K</div>
+      <div class="header-divider"></div>
+      <div class="client-name">Горизонт Девелопмент</div>
+    </div>
+    <div class="period-selector">
+      <button class="period-btn" data-period="7" onclick="setPeriod(7)">7д</button>
+      <button class="period-btn active" data-period="30" onclick="setPeriod(30)">30д</button>
+      <button class="period-btn" data-period="90" onclick="setPeriod(90)">90д</button>
+    </div>
+  </div>
+
+  <!-- KPI Cards -->
+  <div class="kpi-row" id="kpiRow"></div>
+
+  <!-- Charts -->
+  <div class="charts-row">
+    <div class="card">
+      <div class="card-title">Расход и лиды по дням</div>
+      <div class="chart-container">
+        <canvas id="lineChart"></canvas>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Расход по платформам</div>
+      <div class="chart-container">
+        <canvas id="donutChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Platform Table -->
+  <div class="card table-card" style="margin-bottom: 20px;">
+    <div class="card-title">Сравнение платформ</div>
+    <table id="platformTable"></table>
+  </div>
+
+  <!-- Bottom Row -->
+  <div class="bottom-row">
+    <div class="card">
+      <div class="card-title">Топ кампании по лидам</div>
+      <table id="campaignTable"></table>
+    </div>
+    <div class="card">
+      <div class="card-title">AI-инсайты</div>
+      <div id="insightsContainer"></div>
+    </div>
+  </div>
+
+  <!-- Funnel -->
+  <div class="card" style="margin-bottom: 20px;">
+    <div class="card-title">Воронка качества лидов</div>
+    <div class="funnel-container" id="funnelContainer"></div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <strong>KUBRIK</strong> | Обновлено: 6 апреля 2026, 12:00 | Следующее обновление через 6 часов
+  </div>
+
+</div>
+
+<script>
+// ==================== DATA ====================
+const DATA = {
+  7: {
+    kpis: [
+      { label: 'Расход', value: '198 540 ₽', delta: '+8%', good: false },
+      { label: 'Показы', value: '287 320', delta: '+5%', good: true },
+      { label: 'Клики', value: '4 218', delta: '+11%', good: true },
+      { label: 'Лиды', value: '31', delta: '+19%', good: true },
+      { label: 'CPL', value: '6 405 ₽', delta: '-12%', good: true },
+      { label: 'Конверсия', value: '0.73%', delta: '+0.08pp', good: true },
+    ],
+    daily: {
+      labels: Array.from({length: 7}, (_, i) => {
+        const d = new Date(2026, 3, i); return `${d.getDate()}.04`;
+      }),
+      spend: [26200, 28400, 30100, 27800, 29500, 28100, 28440],
+      leads: [4, 5, 6, 3, 5, 4, 4],
+    },
+    platforms: {
+      labels: ['Яндекс Директ', 'Google Ads', 'VK Реклама', 'Meta Ads'],
+      values: [45, 30, 15, 10],
+    },
+    table: [
+      ['Яндекс Директ', '89 340 ₽', '142 100', '2 150', '1.51%', '41.6 ₽', '16', '5 584 ₽', '3.2x'],
+      ['Google Ads', '59 560 ₽', '86 200', '1 260', '1.46%', '47.3 ₽', '9', '6 618 ₽', '2.8x'],
+      ['VK Реклама', '29 780 ₽', '41 800', '530', '1.27%', '56.2 ₽', '4', '7 445 ₽', '2.1x'],
+      ['Meta Ads', '19 860 ₽', '17 220', '278', '1.61%', '71.4 ₽', '2', '9 930 ₽', '1.6x'],
+      ['ИТОГО', '198 540 ₽', '287 320', '4 218', '1.47%', '47.1 ₽', '31', '6 405 ₽', '2.7x'],
+    ],
+    campaigns: [
+      { name: 'Поиск | ЖК Горизонт | Краснодар', platform: 'yandex', leads: 9, cpl: '5 120 ₽', status: 'active' },
+      { name: 'РСЯ | Квартиры студии', platform: 'yandex', leads: 7, cpl: '4 840 ₽', status: 'active' },
+      { name: 'Search | ЖК Горизонт | Branding', platform: 'google', leads: 6, cpl: '5 930 ₽', status: 'active' },
+      { name: 'Meta | LAL покупатели', platform: 'meta', leads: 5, cpl: '6 210 ₽', status: 'testing' },
+      { name: 'VK | Ретаргетинг сайт', platform: 'vk', leads: 4, cpl: '7 120 ₽', status: 'active' },
+    ],
+    funnel: [
+      { label: 'Показы', value: '287K' },
+      { label: 'Клики', value: '4 218', rate: '1.47%' },
+      { label: 'Лиды', value: '31', rate: '0.73%' },
+      { label: 'Квалиф.', value: '10', rate: '32.3%' },
+      { label: 'Просмотры', value: '5', rate: '50.0%' },
+      { label: 'Сделки', value: '1', rate: '20.0%' },
+    ],
+  },
+  30: {
+    kpis: [
+      { label: 'Расход', value: '847 320 ₽', delta: '+12%', good: false },
+      { label: 'Показы', value: '1 234 567', delta: '+8%', good: true },
+      { label: 'Клики', value: '18 432', delta: '+15%', good: true },
+      { label: 'Лиды', value: '127', delta: '+22%', good: true },
+      { label: 'CPL', value: '6 672 ₽', delta: '-9%', good: true },
+      { label: 'Конверсия', value: '0.69%', delta: '+0.12pp', good: true },
+    ],
+    daily: {
+      labels: Array.from({length: 30}, (_, i) => {
+        const d = new Date(2026, 2, 8 + i); return `${d.getDate()}.${String(d.getMonth()+1).padStart(2,'0')}`;
+      }),
+      spend: [24100,26300,28700,25400,27100,29800,31200,28600,26900,30100,27500,29200,31800,28300,26700,30500,32100,29400,27800,31600,28900,30800,33200,29700,28100,32400,30600,28500,31900,29200],
+      leads: [3,4,5,3,4,5,6,4,3,5,4,5,6,4,3,5,6,5,4,6,4,5,7,5,4,6,5,4,6,5],
+    },
+    platforms: {
+      labels: ['Яндекс Директ', 'Google Ads', 'VK Реклама', 'Meta Ads'],
+      values: [45, 30, 15, 10],
+    },
+    table: [
+      ['Яндекс Директ', '381 294 ₽', '592 400', '9 340', '1.58%', '40.8 ₽', '62', '6 150 ₽', '3.4x'],
+      ['Google Ads', '254 196 ₽', '370 370', '5 530', '1.49%', '46.0 ₽', '38', '6 689 ₽', '2.9x'],
+      ['VK Реклама', '127 098 ₽', '185 185', '2 396', '1.29%', '53.0 ₽', '17', '7 476 ₽', '2.2x'],
+      ['Meta Ads', '84 732 ₽', '86 612', '1 166', '1.35%', '72.7 ₽', '10', '8 473 ₽', '1.8x'],
+      ['ИТОГО', '847 320 ₽', '1 234 567', '18 432', '1.49%', '46.0 ₽', '127', '6 672 ₽', '2.9x'],
+    ],
+    campaigns: [
+      { name: 'Поиск | ЖК Горизонт | Краснодар', platform: 'yandex', leads: 34, cpl: '5 240 ₽', status: 'active' },
+      { name: 'РСЯ | Квартиры студии', platform: 'yandex', leads: 28, cpl: '4 670 ₽', status: 'active' },
+      { name: 'Search | ЖК Горизонт | Branding', platform: 'google', leads: 21, cpl: '6 120 ₽', status: 'active' },
+      { name: 'Meta | LAL покупатели', platform: 'meta', leads: 18, cpl: '6 840 ₽', status: 'testing' },
+      { name: 'VK | Ретаргетинг сайт', platform: 'vk', leads: 14, cpl: '7 320 ₽', status: 'active' },
+    ],
+    funnel: [
+      { label: 'Показы', value: '1.2M' },
+      { label: 'Клики', value: '18 432', rate: '1.49%' },
+      { label: 'Лиды', value: '127', rate: '0.69%' },
+      { label: 'Квалиф.', value: '41', rate: '32.3%' },
+      { label: 'Просмотры', value: '18', rate: '43.9%' },
+      { label: 'Сделки', value: '3', rate: '16.7%' },
+    ],
+  },
+  90: {
+    kpis: [
+      { label: 'Расход', value: '2 418 760 ₽', delta: '+18%', good: false },
+      { label: 'Показы', value: '3 567 890', delta: '+14%', good: true },
+      { label: 'Клики', value: '52 180', delta: '+21%', good: true },
+      { label: 'Лиды', value: '348', delta: '+28%', good: true },
+      { label: 'CPL', value: '6 950 ₽', delta: '-7%', good: true },
+      { label: 'Конверсия', value: '0.67%', delta: '+0.09pp', good: true },
+    ],
+    daily: {
+      labels: Array.from({length: 30}, (_, i) => {
+        const d = new Date(2026, 0, 6 + i * 3);
+        return `${d.getDate()}.${String(d.getMonth()+1).padStart(2,'0')}`;
+      }),
+      spend: [68200,72400,76100,69800,74500,78100,82300,75600,71900,80100,73500,77200,84800,79300,72700,81500,85100,78400,73800,83600,76900,80800,87200,81700,75100,84400,82600,79500,85900,81200],
+      leads: [9,10,12,9,11,13,14,11,9,12,10,12,14,11,10,13,14,12,10,14,11,13,15,12,10,14,13,11,14,12],
+    },
+    platforms: {
+      labels: ['Яндекс Директ', 'Google Ads', 'VK Реклама', 'Meta Ads'],
+      values: [43, 31, 16, 10],
+    },
+    table: [
+      ['Яндекс Директ', '1 040 067 ₽', '1 640 430', '26 610', '1.62%', '39.1 ₽', '168', '6 191 ₽', '3.5x'],
+      ['Google Ads', '749 816 ₽', '1 071 170', '15 650', '1.46%', '47.9 ₽', '104', '7 210 ₽', '2.7x'],
+      ['VK Реклама', '387 002 ₽', '571 260', '6 780', '1.19%', '57.1 ₽', '48', '8 063 ₽', '2.0x'],
+      ['Meta Ads', '241 876 ₽', '285 030', '3 140', '1.10%', '77.0 ₽', '28', '8 638 ₽', '1.7x'],
+      ['ИТОГО', '2 418 760 ₽', '3 567 890', '52 180', '1.46%', '46.3 ₽', '348', '6 950 ₽', '2.8x'],
+    ],
+    campaigns: [
+      { name: 'Поиск | ЖК Горизонт | Краснодар', platform: 'yandex', leads: 92, cpl: '5 080 ₽', status: 'active' },
+      { name: 'РСЯ | Квартиры студии', platform: 'yandex', leads: 76, cpl: '4 520 ₽', status: 'active' },
+      { name: 'Search | ЖК Горизонт | Branding', platform: 'google', leads: 58, cpl: '6 340 ₽', status: 'active' },
+      { name: 'Meta | LAL покупатели', platform: 'meta', leads: 44, cpl: '7 120 ₽', status: 'active' },
+      { name: 'VK | Ретаргетинг сайт', platform: 'vk', leads: 38, cpl: '7 680 ₽', status: 'paused' },
+    ],
+    funnel: [
+      { label: 'Показы', value: '3.6M' },
+      { label: 'Клики', value: '52 180', rate: '1.46%' },
+      { label: 'Лиды', value: '348', rate: '0.67%' },
+      { label: 'Квалиф.', value: '112', rate: '32.2%' },
+      { label: 'Просмотры', value: '49', rate: '43.8%' },
+      { label: 'Сделки', value: '9', rate: '18.4%' },
+    ],
+  },
+};
+
+const INSIGHTS = [
+  { tag: 'optimize', tagText: 'Оптимизация', text: 'CPL в Яндекс Директе снизился на 15% после сужения гео до Краснодар+10км. Рекомендуем применить аналогичную стратегию в Google Ads.' },
+  { tag: 'scale', tagText: 'Масштабирование', text: 'Кампания "РСЯ Квартиры студии" генерирует 34% лидов при 18% бюджета - рекомендуем увеличить бюджет на 30%.' },
+  { tag: 'scale', tagText: 'Масштабирование', text: 'Meta LAL аудитория показывает CTR 2.1x выше среднего - масштабировать с текущих 10% бюджета до 15%.' },
+  { tag: 'alert', tagText: 'Внимание', text: 'VK: частота показа 4.7 - рекомендуем обновить креативы для снижения баннерной слепоты.' },
+];
+
+// ==================== RENDER ====================
+let lineChart = null;
+let donutChart = null;
+let currentPeriod = 30;
+
+function setPeriod(period) {
+  currentPeriod = period;
+  document.querySelectorAll('.period-btn').forEach(btn => {
+    btn.classList.toggle('active', parseInt(btn.dataset.period) === period);
+  });
+  render();
+}
+
+function render() {
+  const d = DATA[currentPeriod];
+  renderKPIs(d.kpis);
+  renderLineChart(d.daily);
+  renderDonutChart(d.platforms);
+  renderPlatformTable(d.table);
+  renderCampaignTable(d.campaigns);
+  renderInsights();
+  renderFunnel(d.funnel);
+}
+
+function renderKPIs(kpis) {
+  const row = document.getElementById('kpiRow');
+  row.innerHTML = kpis.map(k => {
+    const isGood = k.good;
+    const deltaClass = isGood ? 'positive' : 'negative';
+    const arrow = k.delta.startsWith('-') ? '\u2193' : '\u2191';
+    return `
+      <div class="kpi-card">
+        <div class="kpi-label">${k.label}</div>
+        <div class="kpi-value">${k.value}</div>
+        <span class="kpi-delta ${deltaClass}">${arrow} ${k.delta.replace(/^[+-]/, '')}</span>
+      </div>`;
+  }).join('');
+}
+
+function renderLineChart(data) {
+  const ctx = document.getElementById('lineChart').getContext('2d');
+  if (lineChart) lineChart.destroy();
+
+  lineChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: data.labels,
+      datasets: [
+        {
+          label: 'Расход, ₽',
+          type: 'bar',
+          data: data.spend,
+          backgroundColor: 'rgba(26, 26, 46, 0.15)',
+          borderColor: 'rgba(26, 26, 46, 0.3)',
+          borderWidth: 1,
+          borderRadius: 3,
+          yAxisID: 'y',
+          order: 2,
+        },
+        {
+          label: 'Лиды',
+          type: 'line',
+          data: data.leads,
+          borderColor: '#e94560',
+          backgroundColor: 'rgba(233, 69, 96, 0.08)',
+          borderWidth: 2.5,
+          pointRadius: 3,
+          pointBackgroundColor: '#e94560',
+          fill: true,
+          tension: 0.3,
+          yAxisID: 'y1',
+          order: 1,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: {
+          position: 'top',
+          align: 'end',
+          labels: { boxWidth: 12, font: { size: 11 }, padding: 16 },
+        },
+      },
+      scales: {
+        x: {
+          grid: { display: false },
+          ticks: { font: { size: 10 }, maxRotation: 0, autoSkip: true, maxTicksLimit: 15 },
+        },
+        y: {
+          position: 'left',
+          grid: { color: 'rgba(0,0,0,0.04)' },
+          ticks: {
+            font: { size: 10 },
+            callback: v => (v >= 1000 ? (v/1000).toFixed(0) + 'K' : v),
+          },
+        },
+        y1: {
+          position: 'right',
+          grid: { drawOnChartArea: false },
+          ticks: { font: { size: 10 }, stepSize: 1 },
+        },
+      },
+    },
+  });
+}
+
+function renderDonutChart(data) {
+  const ctx = document.getElementById('donutChart').getContext('2d');
+  if (donutChart) donutChart.destroy();
+
+  donutChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: data.labels,
+      datasets: [{
+        data: data.values,
+        backgroundColor: ['#1a1a2e', '#0f3460', '#6366f1', '#e94560'],
+        borderWidth: 2,
+        borderColor: '#fff',
+      }],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      cutout: '65%',
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: { boxWidth: 12, font: { size: 11 }, padding: 12 },
+        },
+        tooltip: {
+          callbacks: {
+            label: ctx => `${ctx.label}: ${ctx.parsed}%`,
+          },
+        },
+      },
+    },
+  });
+}
+
+function renderPlatformTable(rows) {
+  const headers = ['Платформа', 'Расход', 'Показы', 'Клики', 'CTR', 'CPC', 'Лиды', 'CPL', 'ROAS'];
+  const table = document.getElementById('platformTable');
+  table.innerHTML = `
+    <thead><tr>${headers.map(h => `<th>${h}</th>`).join('')}</tr></thead>
+    <tbody>
+      ${rows.map((r, i) => {
+        const isTotal = i === rows.length - 1;
+        return `<tr class="${isTotal ? 'total-row' : ''}">${r.map(c => `<td>${c}</td>`).join('')}</tr>`;
+      }).join('')}
+    </tbody>`;
+}
+
+function renderCampaignTable(campaigns) {
+  const table = document.getElementById('campaignTable');
+  const statusLabels = { active: 'Активна', paused: 'Пауза', testing: 'Тест' };
+  table.innerHTML = `
+    <thead><tr><th>Кампания</th><th>Лиды</th><th>CPL</th><th>Статус</th></tr></thead>
+    <tbody>
+      ${campaigns.map(c => `
+        <tr>
+          <td><span class="campaign-platform platform-${c.platform}">${c.platform.toUpperCase()}</span>${c.name}</td>
+          <td>${c.leads}</td>
+          <td>${c.cpl}</td>
+          <td><span class="status-badge status-${c.status}">${statusLabels[c.status]}</span></td>
+        </tr>
+      `).join('')}
+    </tbody>`;
+}
+
+function renderInsights() {
+  const container = document.getElementById('insightsContainer');
+  container.innerHTML = INSIGHTS.map(ins => `
+    <div class="insight-card">
+      <span class="insight-tag tag-${ins.tag}">${ins.tagText}</span>
+      ${ins.text}
+    </div>
+  `).join('');
+}
+
+function renderFunnel(steps) {
+  const container = document.getElementById('funnelContainer');
+  const widths = [100, 70, 40, 25, 16, 10];
+  let html = '';
+  steps.forEach((step, i) => {
+    html += `
+      <div class="funnel-step">
+        <div class="funnel-value">${step.value}</div>
+        <div class="funnel-label">${step.label}</div>
+        <div class="funnel-bar" style="width: ${widths[i]}%; margin-left: auto; margin-right: auto; opacity: ${1 - i * 0.12};"></div>
+      </div>`;
+    if (i < steps.length - 1) {
+      html += `
+        <div class="funnel-arrow">
+          <div class="funnel-arrow-icon">\u2192</div>
+          <div class="funnel-conversion">${steps[i+1].rate}</div>
+        </div>`;
+    }
+  });
+  container.innerHTML = html;
+}
+
+// Init
+document.addEventListener('DOMContentLoaded', render);
+</script>
+</body>
+</html>

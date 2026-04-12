@@ -1,0 +1,60 @@
+{
+  "brief_id": "TB-02",
+  "round": 3,
+  "scores": {
+    "S1_market_depth": 5,
+    "S2_segment_clarity": 5,
+    "S3_channel_logic": 4,
+    "T1_audience_architecture": 4,
+    "T2_platform_expertise": 4,
+    "T3_test_design": 4,
+    "M1_budget_coherence": 4,
+    "M2_cross_channel_logic": 4,
+    "C1_hook_strength": 5,
+    "C2_brief_alignment": 5,
+    "E1_information_flow": 5,
+    "E2_consistency": 5
+  },
+  "base_score": 54,
+  "validator_pass_rate": 0.82,
+  "kb_citation_rate": 0.52,
+  "bonus": 0,
+  "total_score": 54,
+  "weakest_criterion": "T3_test_design",
+  "strongest_criterion": "C1_hook_strength",
+  "delta_vs_round2": {
+    "S1_market_depth": 0,
+    "S2_segment_clarity": 0,
+    "S3_channel_logic": 0,
+    "T1_audience_architecture": 0,
+    "T2_platform_expertise": 0,
+    "T3_test_design": 0,
+    "M1_budget_coherence": -1,
+    "M2_cross_channel_logic": 0,
+    "C1_hook_strength": 1,
+    "C2_brief_alignment": 0,
+    "E1_information_flow": 0,
+    "E2_consistency": 0,
+    "base_score": 0,
+    "total_score": 0
+  },
+  "top_issues": [
+    "M1 regressed from 5 to 4: Round 2 had a full-funnel unit economics sanity check ($5K spend -> deal value $265K, marketing cost 1.9% of deal), Round 3 media plan drops this entirely - budget reconciliation passes but lacks the economic proof that justified a 5",
+    "KB citation rate stagnant at ~52%: creatives and validation still have zero [KB:] attribution tags - all citations concentrated in strategy/targeting/context docs, dragging blended rate below the 60% bonus threshold",
+    "T3 test design unchanged: still no statistical significance thresholds, power analysis, or confidence intervals - '7 days, $300 spend' and '50+ leads per variant' are practical minimums but not statistically rigorous stopping rules"
+  ],
+  "per_criterion_notes": {
+    "S1_market_depth": "Holds at 5. Same quality as R2: concrete data (18% yield drop, 7100 Canggu units, 5.47M tourists, ~10 developer consolidation, NIB regulation, $180K-$350K benchmarks). KB-sourced throughout. No regression.",
+    "S2_segment_clarity": "Holds at 5. JTBD framework present for all 3 segments. Pain points reference specific scandals (Domogatsky, SWOI). Triggers include KB sources (Christensen, Cialdini, Sugarman). R3 is slightly less framework-dense than R2 (no explicit Four Forces or Hormozi Value Equation) but still clears the 5 bar with specific behavioral triggers per segment.",
+    "S3_channel_logic": "Holds at 4. Channels tied to segments and funnel stages with budget guardrails. Meta 55% justified as 'industry best practice for Bali' but marked [Assumption]. Same R1/R2 gap persists: no explanation for omitting YouTube or Telegram ads. Organic at 10% still generic 'trust building' without platform-specific rationale.",
+    "T1_audience_architecture": "Holds at 4. Clear cold/warm/hot funnel with 6 audiences. Retargeting windows defined (30d/14d/7d). LAL deferred to Phase 2 with rationale (need 100+ leads). Housing category Special Ad Categories noted. Still missing: explicit audience exclusion logic, overlap analysis between Meta and Google retargeting audiences, refresh cadence.",
+    "T2_platform_expertise": "Holds at 4. KB tags present: generatsiya-lidov.md, targeting-course, cialdini-influence.md in targeting; contextologist skill references throughout context plan. A/B testing tool mentioned. Not a 5: some benchmarks still [Assumption] (CPM $8-15, CPC thresholds), density of KB citations appears slightly lower than R2's 24+49 tags.",
+    "T3_test_design": "Holds at 4. Three experiments with hypothesis/variable/metric/minimum run/next action. Better than rubric 3 but same gaps as R2: no statistical significance thresholds, no power analysis, no confidence intervals. 'Scale winner, pause loser' remains vague on scaling magnitude.",
+    "M1_budget_coherence": "Dropped from 5 to 4. Budget totals match ($5000 = $2750 + $1750 + $500), reconciliation table shows $0 delta, all channels PASS. However, R2 included a full-funnel unit economics sanity check (CPL -> qualified lead -> viewing -> deal, marketing cost as % of deal value) that justified the 5. R3 drops this entirely. Also budget split changed from R2 ($3000/$1500/$500) to R3 ($2750/$1750/$500) without explaining the rationale for the shift.",
+    "M2_cross_channel_logic": "Holds at 4. Conflict resolution table covers 3 conflicts (attribution, WhatsApp split, remarketing overlap) with clear decisions. Launch calendar with 4-week granularity. Cross-channel optimization rules defined. Phase transition criteria present. Not a 5: scaling triggers still lack statistical thresholds, Organic channel role in cross-channel flow underdeveloped.",
+    "C1_hook_strength": "UPGRADED from 4 to 5 - R3 mutation success. Every Meta hook now opens with a specific number/fact: 18% yield drop (MF1), 7100 units Canggu (MF2), $1500/mo rent (MF3), 280m2 (MF4). R2's issue of 'repeating 8% ROI across investor variants' is resolved - investor hooks now use different levers (loss aversion vs curiosity gap). Self-check table validates each hook against banned templates, uniqueness, and lever diversity. Google Search hooks remain keyword-driven (platform-appropriate). All hooks pass banned template check.",
+    "C2_brief_alignment": "Holds at 5. All 3 segments covered across Meta (4 feed + 3 stories) and Google (4 search). USPs present in every relevant creative: 8% ROI, full management, 25yr leasehold, $180K entry, 120-280m2. Each creative explicitly maps to a segment. RU and EN variants for investors. Competitor variant present. No messaging contradictions.",
+    "E1_information_flow": "Holds at 5. Clear chain: Strategy segments -> Targeting campaigns -> Context keyword clusters -> Media reconciliation -> Creatives per segment -> Validation checks. Budget guardrails ($2750/$1750/$500) flow consistently through all docs. CPL targets and segment definitions maintained throughout.",
+    "E2_consistency": "Holds at 5. Budget numbers consistent across all 6 documents: $5000 total, $2750 Meta, $1750 Google, $500 Organic. Segment names match. Pricing ($180K-$350K), USPs (8% ROI, full management, 25yr lease), and positioning consistent. No contradictions found."
+  }
+}

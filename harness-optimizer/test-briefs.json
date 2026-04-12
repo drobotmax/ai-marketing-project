@@ -1,0 +1,122 @@
+[
+  {
+    "id": "TB-01",
+    "name": "Горизонт Девелопмент",
+    "market": "russia",
+    "segment": "mass_market",
+    "description": "ЖК комфорт-класса в Краснодаре, 15 корпусов, от 3.2 млн руб",
+    "brief": {
+      "object": "ЖК Горизонт, Краснодар, Прикубанский округ",
+      "developer": "Горизонт Девелопмент",
+      "class": "комфорт",
+      "price_from": "3 200 000 руб",
+      "price_to": "8 500 000 руб",
+      "area_from": "25 м2",
+      "area_to": "85 м2",
+      "geo": "Краснодар, Россия",
+      "budget_monthly": "300 000 руб",
+      "target_audience": "Молодые семьи, переезжающие из регионов в Краснодар; инвесторы в арендный бизнес",
+      "kpi": "CPL < 2000 руб, 150+ лидов/мес",
+      "landing_url": "https://gorizont-dev.ru",
+      "competitors": "ЮгСтройИмпериал, СпецСтрой, ВКБ-Новостройки",
+      "usp": "Собственная УК, закрытый двор, подземный паркинг в каждом корпусе",
+      "timeline": "Запуск рекламы через 2 недели"
+    }
+  },
+  {
+    "id": "TB-02",
+    "name": "Bali Serenity Villas",
+    "market": "international",
+    "segment": "premium",
+    "description": "Premium villas in Ubud, Bali. $180K-$350K. Investors + lifestyle buyers.",
+    "brief": {
+      "object": "Serenity Villas, Ubud, Bali",
+      "developer": "PT Serenity Bali",
+      "class": "premium",
+      "price_from": "$180,000",
+      "price_to": "$350,000",
+      "area_from": "120 m2",
+      "area_to": "280 m2",
+      "geo": "Ubud, Bali, Indonesia",
+      "budget_monthly": "$5,000",
+      "target_audience": "Russian-speaking investors looking for passive income in Bali; digital nomads wanting a base in Ubud; families relocating to Bali",
+      "kpi": "CPL < $50, 100+ leads/month",
+      "landing_url": "https://serenity-bali.com",
+      "competitors": "Bali Home Immo, Exotiq Property, Kibarer Property",
+      "usp": "Guaranteed 8% ROI first 2 years, full property management included, 25-year leasehold with extension option",
+      "timeline": "Launch in 1 week"
+    }
+  },
+  {
+    "id": "TB-03",
+    "name": "Дом у Моря",
+    "market": "russia",
+    "segment": "premium_russia",
+    "description": "Премиальный клубный дом в Сочи, 12 квартир, от 25 млн руб",
+    "brief": {
+      "object": "Клубный дом 'У Моря', Сочи, Центральный район",
+      "developer": "Бриз Девелопмент",
+      "class": "премиум",
+      "price_from": "25 000 000 руб",
+      "price_to": "85 000 000 руб",
+      "area_from": "80 м2",
+      "area_to": "220 м2",
+      "geo": "Сочи, Россия",
+      "budget_monthly": "500 000 руб",
+      "target_audience": "Предприниматели из Москвы/СПб, покупающие вторую недвижимость; семьи, переезжающие на юг; инвесторы в курортную недвижимость",
+      "kpi": "CPL < 8000 руб, 60+ квалифицированных лидов/мес",
+      "landing_url": "https://dom-u-morya.ru",
+      "competitors": "Magnolia Residence, ЖК Актёр Гэлакси, ЖК Александрийский маяк",
+      "usp": "100м до моря, закрытая территория, консьерж-сервис, авторский дизайн от бюро FGRE",
+      "timeline": "Запуск через 3 недели, сначала Яндекс + VK, потом классифайды"
+    }
+  },
+  {
+    "id": "TB-04",
+    "name": "Dubai Creek Residences",
+    "market": "international",
+    "segment": "luxury_international",
+    "description": "Luxury apartments in Dubai Creek Harbour, $400K-$1.2M",
+    "brief": {
+      "object": "Creek Residences, Dubai Creek Harbour",
+      "developer": "Emaar Properties",
+      "class": "luxury",
+      "price_from": "$400,000",
+      "price_to": "$1,200,000",
+      "area_from": "65 m2",
+      "area_to": "250 m2",
+      "geo": "Dubai, UAE",
+      "budget_monthly": "$8,000",
+      "target_audience": "Russian HNW investors seeking golden visa; CIS expats already in Dubai upgrading; European investors diversifying into Dubai real estate",
+      "kpi": "CPL < $80, 80+ leads/month",
+      "landing_url": "https://creek-residences.ae",
+      "competitors": "Sobha, Damac, Nakheel",
+      "usp": "Emaar brand, Dubai Creek Tower view, 60/40 payment plan, 5-year golden visa eligible",
+      "timeline": "Launch in 2 weeks"
+    }
+  },
+  {
+    "id": "TB-05",
+    "name": "Малоэтажный Парк",
+    "market": "russia",
+    "segment": "economy",
+    "description": "Малоэтажный ЖК эконом-класса в Ленобласти, от 2.1 млн руб",
+    "brief": {
+      "object": "ЖК Малоэтажный Парк, Мурино, Ленинградская область",
+      "developer": "ГК Стройинвест",
+      "class": "эконом",
+      "price_from": "2 100 000 руб",
+      "price_to": "5 500 000 руб",
+      "area_from": "22 м2",
+      "area_to": "72 м2",
+      "geo": "Мурино, Ленобласть, Россия",
+      "budget_monthly": "150 000 руб",
+      "target_audience": "Молодые пары с первым ребёнком, ищущие доступное жильё рядом с СПб; военнослужащие по военной ипотеке; родители, покупающие детям первую квартиру",
+      "kpi": "CPL < 1500 руб, 100+ лидов/мес",
+      "landing_url": "https://park-murino.ru",
+      "competitors": "Setl City, ЛенСтройТрест, Группа ЛСР",
+      "usp": "Малоэтажность (5 этажей), свой двор без машин, школа и детский сад в 300м, рассрочка 0% на 12 мес",
+      "timeline": "Запуск ASAP, бюджет ограничен"
+    }
+  }
+]

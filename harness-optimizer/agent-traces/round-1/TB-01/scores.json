@@ -1,0 +1,44 @@
+{
+  "brief_id": "TB-01",
+  "round": 1,
+  "scores": {
+    "S1_market_depth": 3,
+    "S2_segment_clarity": 4,
+    "S3_channel_logic": 4,
+    "T1_audience_architecture": 4,
+    "T2_platform_expertise": 2,
+    "T3_test_design": 4,
+    "M1_budget_coherence": 5,
+    "M2_cross_channel_logic": 4,
+    "C1_hook_strength": 3,
+    "C2_brief_alignment": 4,
+    "E1_information_flow": 4,
+    "E2_consistency": 4
+  },
+  "base_score": 45,
+  "validator_pass_rate": 0.87,
+  "kb_citation_rate": 0.05,
+  "bonus": -1,
+  "total_score": 44,
+  "weakest_criterion": "T2_platform_expertise",
+  "strongest_criterion": "M1_budget_coherence",
+  "top_issues": [
+    "Zero KB citations: agents make correct platform recommendations but never reference knowledge base sources (courses, books, frameworks). Prompt must enforce citation of KB materials for T1-T3 claims.",
+    "Generic hooks: creatives use category-standard hooks ('Переезжаете в Краснодар?', 'Инвестиция от 3.2 млн') without scroll-stopping specifics, numbers, or provocative angles. Copywriter prompt needs examples of strong vs weak hooks.",
+    "Market depth lacks hard data: strategy mentions Krasnodar in TOP-5 but provides no actual numbers (avg price/sqm, market volume, YoY growth, vacancy rates, competitor market share). Strategist prompt should require minimum 5 quantitative data points."
+  ],
+  "per_criterion_notes": {
+    "S1_market_depth": "Mentions TOP-5 city, migration patterns, mortgage trends, and names competitors with qualitative descriptions. But no hard numbers: no avg price/sqm, no market volume, no competitor market share, no YoY price dynamics. Red flag: 'стабильно высокий спрос' is generic.",
+    "S2_segment_clarity": "Three segments with JTBD, pain points, triggers, income ranges. Good structure. Missing segment sizing and prioritization metrics. 'Местные улучшители' segment added beyond brief - good initiative. Triggers are actionable (ипотека одобрена, рождение ребенка).",
+    "S3_channel_logic": "Each channel has clear funnel role and budget justification. No Google Ads for Russia - correct. Budget guardrails with hard caps. Scale scenario included. SMM at 20K is low but justified as support. Reserve for testing is smart.",
+    "T1_audience_architecture": "Cold/warm matrix with 7 audiences. Retargeting windows specified (7d, 14d, 30d). LAL deferred until 100+ leads - correct. Missing frequency capping strategy per funnel stage and explicit progression triggers (when does cold become warm).",
+    "T2_platform_expertise": "VK-specific features used correctly (lead forms, keyword targeting, community targeting, pixel retargeting). However: ZERO citations to any KB source. No references to courses, books, or frameworks. Context-ads plan mentions 'ОЗК мертв' KB rule but without source attribution.",
+    "T3_test_design": "4 tests per channel (VK and Yandex) with hypothesis, variable, success metric, minimum run conditions, and next actions. Good structure. Missing explicit stopping rules (when to kill a test early) and statistical significance requirements.",
+    "M1_budget_coherence": "Perfect budget reconciliation: 150K + 60K + 50K + 20K + 20K = 300K exactly. All channels meet 30K minimum (SMM at 20K is support, not performance channel). Daily caps derived correctly. Three-way check: strategy caps = specialist requests = approved budgets.",
+    "M2_cross_channel_logic": "Staggered launch calendar (Yandex search day 3, VK cold day 4, RSY/retargeting day 8). Conflict resolution table addresses retargeting overlap with different messaging per channel. Cross-channel optimization rules are practical. Missing explicit scaling triggers between channels.",
+    "C1_hook_strength": "Different hooks per segment - good. But hooks are category-standard: 'Переезжаете в Краснодар?', 'Квартира для семьи от 3.2 млн'. No scroll-stopping specifics. Example of what 5 would look like: '73% краснодарцев переплачивают за паркинг. В ЖК Горизонт он подземный в каждом корпусе.'",
+    "C2_brief_alignment": "All 3 segments from strategy covered in creatives. All 3 USPs (закрытый двор, УК, паркинг) present consistently. Pricing correct. Investor angle correctly uses УК as management argument. One gap: 'trade-in' trigger from segment 3 not reflected in any creative.",
+    "E1_information_flow": "Strategy segments flow cleanly into targeting audiences, context ad clusters, and creative variants. Budget guardrails from strategy respected by all specialists. Media plan correctly references and reconciles specialist outputs. Minor loss: trade-in trigger from strategy not carried downstream.",
+    "E2_consistency": "Budget numbers consistent across all 6 documents. Segment names identical everywhere. No contradictions between documents. Minor note: media plan forecast table shows 280K spend (excludes 20K reserve) but total committed is correctly 300K."
+  }
+}

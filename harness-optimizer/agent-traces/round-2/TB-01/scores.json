@@ -1,0 +1,60 @@
+{
+  "brief_id": "TB-01",
+  "round": 2,
+  "scores": {
+    "S1_market_depth": 3,
+    "S2_segment_clarity": 5,
+    "S3_channel_logic": 5,
+    "T1_audience_architecture": 4,
+    "T2_platform_expertise": 4,
+    "T3_test_design": 4,
+    "M1_budget_coherence": 5,
+    "M2_cross_channel_logic": 5,
+    "C1_hook_strength": 3,
+    "C2_brief_alignment": 4,
+    "E1_information_flow": 4,
+    "E2_consistency": 5
+  },
+  "base_score": 51,
+  "validator_pass_rate": 0.85,
+  "kb_citation_rate": 0.65,
+  "bonus": 1,
+  "total_score": 52,
+  "weakest_criterion": "S1_market_depth",
+  "strongest_criterion": "M1_budget_coherence",
+  "delta_vs_round1": {
+    "S1_market_depth": 0,
+    "S2_segment_clarity": 1,
+    "S3_channel_logic": 1,
+    "T1_audience_architecture": 0,
+    "T2_platform_expertise": 2,
+    "T3_test_design": 0,
+    "M1_budget_coherence": 0,
+    "M2_cross_channel_logic": 1,
+    "C1_hook_strength": 0,
+    "C2_brief_alignment": 0,
+    "E1_information_flow": 0,
+    "E2_consistency": 1,
+    "base_score": 6,
+    "total_score": 8
+  },
+  "top_issues": [
+    "Market depth still lacks hard numbers: no avg price/sqm, no market volume, no YoY growth, no competitor market share. S1 unchanged at 3. The [Assumption] tags are honest but don't substitute for actual data points.",
+    "Hook strength unchanged: 'Переезжаете в Краснодар с семьёй?', 'Квартира в Краснодаре, которая зарабатывает' are category-standard. No scroll-stopping specifics, provocative stats, or surprising angles. Same issue as R1.",
+    "Creatives and media-plan have zero inline KB citations. Attribution is concentrated in strategy/targeting/context-ads. Copywriter and media-buyer agents don't cite sources at all, dragging overall citation rate down if measured across all 6 docs."
+  ],
+  "per_criterion_notes": {
+    "S1_market_depth": "Same as R1 (3). Still no hard data: no avg price/sqm in Krasnodar, no market volume, no YoY dynamics, no competitor market share percentages. Strategy now adds Schwartz market sophistication stage (3-4) and ERRC analysis which shows strategic thinking, but the 'market depth' criterion asks for quantitative market data, not frameworks. Tags like [Assumption - industry data] are honest but confirm the data gap. Red flag 'стабильно высокий спрос' replaced by softer language but still no numbers.",
+    "S2_segment_clarity": "Improved from 4 to 5. Now has full JTBD structure with functional/emotional/social dimensions for each segment [KB: Christensen]. Four forces model (Push/Pull/Anxiety/Habit) explicitly applied to family segment. Pain points are specific and actionable. Investor segment uses Hormozi Value Equation for pain analysis. First-time buyers remain thin but acknowledged as secondary. This is professional-level segmentation.",
+    "S3_channel_logic": "Improved from 4 to 5. Every channel now has explicit funnel role, budget percentage, KPI targets, and KB-backed justification. ERRC framework applied to positioning. Google Ads correctly excluded with KB citation. Budget split rationale references specific KB sources (Прайс course, Voronin VK, primary-real-estate playbook). Context for downstream agents explicitly structured. Hard caps with daily derivations.",
+    "T1_audience_architecture": "Same as R1 (4). Cold/warm/hot clearly separated in audience matrix with 7 audiences. Retargeting windows for VK specified. CRM-based hot audience included. Missing: explicit frequency capping per stage, progression triggers (when does cold become warm beyond retargeting windows), LAL strategy timing. Solid but not exceptional.",
+    "T2_platform_expertise": "Major improvement from 2 to 4. Now heavily cites KB sources: Voronin VK course (audience types, keywords, creatives), eLama VK errors (lead form config, manual input, scaling rules, speed-to-lead), VK Lead Forms Setup (form types, fields, audience sizing). Platform-specific best practices: manual input fields to avoid fake data, 50K-400K audience sizing, 14-30 day keyword period for real estate, bid strategy rationale. Not 5 because some recommendations lack depth (e.g., no discussion of VK algorithm learning phases beyond generic '3-4 days').",
+    "T3_test_design": "Same as R1 (4). Four tests with hypothesis, variable, success metric, minimum run conditions. KB-cited for minimum durations. Still missing explicit stopping rules (when to kill early) and statistical significance requirements. Good structure but same gap as R1.",
+    "M1_budget_coherence": "Same as R1 (5). Perfect reconciliation: 165K + 105K + 30K = 300K exactly. Three-way check (strategy caps = specialist requests = approved budgets) with zero delta. All channels meet minimum thresholds. Daily caps derived correctly. Budget compliance tables in every specialist doc. Exemplary.",
+    "M2_cross_channel_logic": "Improved from 4 to 5. Media plan now has explicit conflict resolution table addressing: sequencing logic (МК Day 1, VK Day 3, Search Day 4), retargeting ownership split between channels, CPL expectation alignment (blended target), SMM ownership. Cross-channel optimization rules are specific and actionable. Launch calendar with daily budgets and phase triggers. Scale scenarios with activation conditions.",
+    "C1_hook_strength": "Same as R1 (3). Hooks remain category-standard: 'Переезжаете в Краснодар с семьёй?' (question template), 'Квартира в Краснодаре, которая зарабатывает' (generic benefit). VK Variant 5 has the best hook with comparison angle ('Разница между обычным ЖК и Горизонтом') but still lacks scroll-stopping specifics. No numbers, no provocative stats, no surprising angles. The R1 example of a 5 ('73% краснодарцев переплачивают за паркинг') is still not matched.",
+    "C2_brief_alignment": "Same as R1 (4). All 3 segments covered with dedicated creatives. All 3 USPs (закрытый двор, УК, паркинг) consistently present. Investor angle correctly uses УК as management convenience. Lead form variants match segments. Still missing: trade-in trigger from strategy segment 3 not reflected. Ипотечная ставка assumption flagged by validator - good self-check.",
+    "E1_information_flow": "Same as R1 (4). Strategy segments flow into targeting audiences, context-ads clusters, and creatives. Budget guardrails respected everywhere. KB citations from strategy propagated downstream via [Strategy] tags. Media plan correctly reconciles all specialist outputs. Same minor gap: some strategy insights (trade-in trigger, Schwartz staging) not fully reflected in creatives.",
+    "E2_consistency": "Improved from 4 to 5. All budget numbers perfectly consistent across 6 documents. Segment names identical everywhere. No contradictions detected. USP messaging consistent. CPL ranges align. Launch calendar timing consistent between specialist docs and media plan. The R1 issue (280K vs 300K in forecast table) is resolved - all numbers now show 300K total."
+  }
+}
