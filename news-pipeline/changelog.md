@@ -23,7 +23,7 @@ Append-only log of all knowledge base changes made by the automated news pipelin
 - `knowledge/yandex-direct-course/yandex-direct-landings-2026.md` - создан файл: Лендинги в Директе вышли из беты (апрель 2026) - резервная посадочная в ЕПК, адаптивная структура, AI-подбор изображений, уникальный URL, экспорт заявок в API
 - `agents/contextologist/skill.md` - добавлена ссылка на `yandex-direct-landings-2026.md` в раздел источников знаний; добавлено описание резервной посадочной в ЕПК в раздел Яндекс Директ
 **Agents updated:** contextologist
-**Commit:** TBD
+**Commit:** 80ac1f1
 
 ## 2026-04-06 | yandex deprecation
 **Source:** https://yandex.ru/adv/news/ustarevshie-modeli-atribycii
