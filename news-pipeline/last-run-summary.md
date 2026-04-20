@@ -1,19 +1,29 @@
-# KUBRIK News Pipeline Run | 2026-04-13
+# KUBRIK News Pipeline Run | 2026-04-20
 
-Articles: 2 | KB Updates: 1 | Notify Only: 1 | Skipped: 0
+Articles: 7 | KB Updates: 2 | Skipped: 3 | Notify Only: 2
 
 ## KB Updates
 
-- **Yandex (new_feature, important, 90%):** Лендинги в Яндекс Директе вышли из беты (апрель 2026). Создано 90 000+ лендингов с момента запуска. Ключевая новинка: в ЕПК можно указать лендинг как резервную посадочную страницу - отображается при нестабильном соединении вместо основного сайта. При использовании резервной посадочной обязательно добавить счётчик Метрики и цели в стратегии. Также: API-экспорт заявок в CRM (Leads, метод get), адаптивная структура под бизнес, AI-подбор изображений, уникальный URL, SEO-улучшения автоматически.
-  - `knowledge/yandex-direct-course/yandex-direct-landings-2026.md` (создан)
-  - `agents/contextologist/skill.md` (обновлен: ссылка на новый файл + описание резервной посадочной)
+- **Google (deprecation+new_feature, important, 88%):** DSA deprecated → AI Max GA (сентябрь 2026 - автоматический апгрейд). AI Max вышел из беты, +7% конверсий при полном suite (search term matching + text customization + final URL expansion). Добровольный апгрейд доступен сейчас, обязательный - сентябрь 2026.
+  - `knowledge/google-ads/campaigns/ai-max-for-search-campaigns.md` (обновлен: таблица DSA vs AI Max, таймлайн миграции, реализация)
+  - `agents/contextologist/skill.md` (обновлена строка AI Max: GA статус, дедлайн DSA, +7% метрика, text guidelines)
+
+- **Yandex (new_feature, informational, 87%):** AI-генератор статей в ПромоСтраницах (Alice AI, Ya.Cloud). Черновик за 10-20 мин по URL продукта. 5 целей продвижения. Актуально для TOFU/MOFU контента по недвижимости.
+  - `knowledge/yandex-direct-course/promostranicy-ai-article-generator.md` (создан)
 
 ## Notify Only
 
-- **Google:** "AI is changing retail. Here's how businesses can keep up." (2026-04-08) - Эпизод подкаста Ads Decoded с общими советами по AI-рекламе в ритейле. Нет специфических продуктовых изменений или обновлений specs. Источник официальный (Google Ads blog), но контент - общие best practices без конкретных product launches.
+- **Google:** Gemini Ads Safety Report 2025 - статистика безопасности, нет изменений для рекламодателей
+- **Yandex:** Яндекс Тег Менеджер - новые возможности панели отладки (no matching KB path in whitelist)
+
+## Skipped
+
+- Adfox ЕРИР reporting - инструмент для издателей, не для ad campaigns
+- Яндекс Товары (сравнение цен) - e-commerce, не релевантно для недвижимости
+- Яндекс Товары (отзывы) - e-commerce, не релевантно
 
 ## Breaking
 
-_Нет критических изменений._
+Нет критических изменений. Дедлайн для Google Ads (международные рынки): **сентябрь 2026** - автоматический апгрейд DSA → AI Max.
 
-Commit: 80ac1f1
+Commit: 3030f1c

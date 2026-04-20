@@ -23,7 +23,7 @@ Append-only log of all knowledge base changes made by the automated news pipelin
 - `knowledge/google-ads/campaigns/ai-max-for-search-campaigns.md` - полностью обновлен: AI Max вышел из беты (GA апрель 2026), +7% конверсий при полном suite; таблица DSA vs AI Max; план миграции (добровольный сейчас, автоматический сентябрь 2026)
 - `agents/contextologist/skill.md` - обновлена строка AI Max: добавлен статус GA, дата замены DSA (сентябрь 2026), метрика +7%, рекомендация text guidelines для premium
 **Agents updated:** contextologist
-**Commit:** TBD
+**Commit:** 3030f1c
 
 ## 2026-04-20 | yandex new_feature
 **Source:** https://yandex.ru/adv/news/sozdanie-statej-s-ii-generatorom-v-promostranicah
@@ -32,7 +32,7 @@ Append-only log of all knowledge base changes made by the automated news pipelin
 **Changes:**
 - `knowledge/yandex-direct-course/promostranicy-ai-article-generator.md` - создан файл: AI-генератор статей в ПромоСтраницах (Alice AI, Ya.Cloud), черновик за 10-20 мин, 5 целей продвижения, применение для недвижимости (TOFU/MOFU, вывод ЖК, конкурентное переключение)
 **Agents updated:** none
-**Commit:** TBD
+**Commit:** 3030f1c
 
 ## 2026-04-13 | yandex new_feature
 **Source:** https://yandex.ru/adv/news/lendingi-v-direct-vyhod-iz-bety
