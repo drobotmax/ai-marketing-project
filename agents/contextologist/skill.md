@@ -34,7 +34,7 @@
 - Smart Bidding требует минимум 30 конверсий за 30 дней для стабильной работы
 - Performance Max = автоматизация по всем каналам Google (Search, Display, YouTube, Gmail, Maps, Discover)
 - Для недвижимости Performance Max работает хорошо при наличии фида с объектами и хорошего offline conversion tracking
-- AI Max for Search = расширенное автоматическое соответствие + генерация объявлений (осторожно для premium сегмента)
+- AI Max for Search = расширенное автоматическое соответствие + генерация объявлений, теперь в GA (апрель 2026); с сентября 2026 автоматически заменяет DSA, ACA и broad match; в среднем +7% конверсий при полном suite; для premium сегмента - включать text guidelines
 - Google Ads policies: нельзя superlatives без proof, нельзя excessive caps, нельзя misleading claims, нельзя телефон в заголовках
 - Keyword match types: Broad (максимальный охват, нужен Smart Bidding), Phrase (баланс), Exact (контроль)
 - Конверсионное отслеживание: Google Tag -> GA4 -> import в Google Ads / или Google Ads conversion tracking напрямую
