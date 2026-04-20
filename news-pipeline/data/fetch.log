@@ -118,3 +118,35 @@
 [2026-04-13 05:00:11]   Fetching: Лендинги в Директе: персонализация с помощью нейротехнологий и работа в условиях нестабильного интернета
 [2026-04-13 05:00:14]   -> saved (12324 bytes)
 [2026-04-13 05:00:14] Full texts fetched: 2
+[2026-04-13 05:00:14] WARNING: skipping large file (8220843 bytes): news-pipeline/cache/rss_824179e4a3f1.xml.split
+[2026-04-13 05:00:14] WARNING: skipping large file (8201873 bytes): news-pipeline/cache/rss_824179e4a3f1.xml
+[2026-04-13 05:00:14] WARNING: skipping large file (8222888 bytes): news-pipeline/cache/rss_443dc0a905bd.xml.split
+[2026-04-13 05:00:14] WARNING: skipping large file (8203914 bytes): news-pipeline/cache/rss_443dc0a905bd.xml
+[2026-04-13 05:00:14] Skipped 4 files over 1MB
+[2026-04-13 05:00:16] Pushed to news-data
+[2026-04-13 05:00:16] === KUBRIK News Fetch Complete ===
+[2026-04-20 05:00:01] === KUBRIK News Fetch Starting ===
+[2026-04-20 05:00:01] WARNING: git pull failed, continuing with local copy
+[2026-04-20 05:00:01] Period: 7 days (since 2026-04-13)
+[2026-04-20 05:00:01] Fetching: Google Ads Blog (google)...
+[2026-04-20 05:00:03]   -> 2 articles total so far
+[2026-04-20 05:00:03] Fetching: Yandex Ads News (yandex)...
+[2026-04-20 05:00:06]   -> 7 articles total so far
+[2026-04-20 05:00:06] Total articles fetched: 7
+[2026-04-20 05:00:06] Digest written: /home/maxos/kubrik/news-pipeline/data/digests/digest_2026-04-20.md
+[2026-04-20 05:00:06] Fetching full article texts...
+[2026-04-20 05:00:06]   Fetching: Gemini is stopping harmful ads before people ever see them
+[2026-04-20 05:00:08]   -> saved (5655 bytes)
+[2026-04-20 05:00:08]   Fetching: Новое в Adfox для подачи отчётов в ЕРИР
+[2026-04-20 05:00:11]   -> saved (6339 bytes)
+[2026-04-20 05:00:11]   Fetching: Теперь интернет-магазины могут сравнивать уровень цен на свои товары со средними по рынку в Яндекс Товарах
+[2026-04-20 05:00:14]   -> saved (8025 bytes)
+[2026-04-20 05:00:15]   Fetching: We’re upgrading Dynamic Search Ads to AI Max
+[2026-04-20 05:00:17]   -> saved (7404 bytes)
+[2026-04-20 05:00:17]   Fetching: В Яндекс Товарах теперь можно реагировать на отзывы, нарушающие правила
+[2026-04-20 05:00:20]   -> saved (8967 bytes)
+[2026-04-20 05:00:20]   Fetching: Новые возможности панели отладки в Яндекс Тег Менеджере
+[2026-04-20 05:00:23]   -> saved (7324 bytes)
+[2026-04-20 05:00:23]   Fetching: AI-генератор статей заработал в ПромоСтраницах
+[2026-04-20 05:00:26]   -> saved (6509 bytes)
+[2026-04-20 05:00:26] Full texts fetched: 7
