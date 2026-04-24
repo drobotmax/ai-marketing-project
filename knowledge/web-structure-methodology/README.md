@@ -23,7 +23,8 @@ web-structure-methodology/
 ├── client-questions.md          - чеклист вопросов к клиенту на каждом этапе
 └── transcripts/                 - сырые транскрипты кейса UPH
     ├── 01-structure-internal-walkthrough.txt  - Артём объясняет структуру коллеге (Настя, 6 мин)
-    └── 02-structure-client-demo.txt           - демо структуры клиенту UPH (Лена, 48 мин)
+    ├── 02-structure-client-demo.txt           - демо структуры клиенту UPH (Лена, 48 мин)
+    └── 03-passport-call.txt                   - созвон по паспорту (ЦА, особенности разработки, каталог, 42 мин)
 ```
 
 ## Ключевые инсайты кейса UPH
