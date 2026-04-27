@@ -169,6 +169,19 @@ Bali real estate market: developers, locations, listings, insights.
 
 ---
 
+## T2: Methodology
+
+### web-structure-methodology/
+Reference process for designing websites: passport -> structure -> prototype -> TS. Based on UPH case (B2B industrial equipment catalog with B2G, dealers, scientific partners).
+- `README.md` - when to apply + navigation
+- `process.md` - stage-by-stage flow with artifacts, checkpoints, anti-patterns
+- `structure-patterns.md` - blocks checklist for every page type of a B2B catalog site
+- `client-questions.md` - questions to ask the client at each stage
+- `transcripts/` - raw Whisper transcripts of the UPH case (structure walkthrough + client demo)
+- **When to read:** Any request to design a website, landing, B2B catalog, or produce a site structure/prototype/TS. Especially for B2B / gov sector / manufacturing.
+
+---
+
 ## T3: Platform Reference
 
 ### agents/references/platform-specs.md
