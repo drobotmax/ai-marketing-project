@@ -150,3 +150,35 @@
 [2026-04-20 05:00:23]   Fetching: AI-генератор статей заработал в ПромоСтраницах
 [2026-04-20 05:00:26]   -> saved (6509 bytes)
 [2026-04-20 05:00:26] Full texts fetched: 7
+[2026-04-20 05:00:26] WARNING: skipping large file (8220843 bytes): news-pipeline/cache/rss_824179e4a3f1.xml.split
+[2026-04-20 05:00:26] WARNING: skipping large file (8201873 bytes): news-pipeline/cache/rss_824179e4a3f1.xml
+[2026-04-20 05:00:26] WARNING: skipping large file (8223728 bytes): news-pipeline/cache/rss_443dc0a905bd.xml.split
+[2026-04-20 05:00:26] WARNING: skipping large file (8204773 bytes): news-pipeline/cache/rss_443dc0a905bd.xml
+[2026-04-20 05:00:26] Skipped 4 files over 1MB
+[2026-04-20 05:00:28] Pushed to news-data
+[2026-04-20 05:00:28] === KUBRIK News Fetch Complete ===
+[2026-04-27 05:00:01] === KUBRIK News Fetch Starting ===
+[2026-04-27 05:00:02] WARNING: git pull failed, continuing with local copy
+[2026-04-27 05:00:02] Period: 7 days (since 2026-04-20)
+[2026-04-27 05:00:02] Fetching: Google Ads Blog (google)...
+[2026-04-27 05:00:04]   -> 4 articles total so far
+[2026-04-27 05:00:04] Fetching: Yandex Ads News (yandex)...
+[2026-04-27 05:00:06]   -> 7 articles total so far
+[2026-04-27 05:00:06] Total articles fetched: 7
+[2026-04-27 05:00:06] Digest written: /home/maxos/kubrik/news-pipeline/data/digests/digest_2026-04-27.md
+[2026-04-27 05:00:06] Fetching full article texts...
+[2026-04-27 05:00:06]   Fetching: Реклама в телеграм-каналах через Директ по-прежнему доступна: статистика и мнения экспертов
+[2026-04-27 05:00:11]   -> saved (13295 bytes)
+[2026-04-27 05:00:11]   Fetching: 3 easy ways to shop for spring with Google
+[2026-04-27 05:00:13]   -> saved (4499 bytes)
+[2026-04-27 05:00:13]   Fetching: Convert faster on YouTube with April’s Demand Gen Drop.
+[2026-04-27 05:00:16]   -> saved (1536 bytes)
+[2026-04-27 05:00:16]   Fetching: There's a new playbook for partnering with creators on marketing campaigns.
+[2026-04-27 05:00:18]   -> saved (1018 bytes)
+[2026-04-27 05:00:18]   Fetching: В редакторе ПромоСтраниц появились инструменты для совместной работы
+[2026-04-27 05:00:23]   -> saved (8770 bytes)
+[2026-04-27 05:00:23]   Fetching: 3 new ways Ads Advisor is making Google Ads safer and faster
+[2026-04-27 05:00:25]   -> saved (6382 bytes)
+[2026-04-27 05:00:25]   Fetching: Упрощённое оформление заказа прямо на главной Яндекса: кнопка «Купить в 1 клик» теперь в ленте Ритма
+[2026-04-27 05:00:29]   -> saved (10605 bytes)
+[2026-04-27 05:00:29] Full texts fetched: 7
