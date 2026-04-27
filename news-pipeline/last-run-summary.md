@@ -1,29 +1,29 @@
-# KUBRIK News Pipeline Run | 2026-04-20
+# KUBRIK News Pipeline Run | 2026-04-27
 
-Articles: 7 | KB Updates: 2 | Skipped: 3 | Notify Only: 2
+Articles: 7 | KB Updates: 4 | Skipped: 3 (2 notify_only, 1 skip)
 
 ## KB Updates
 
-- **Google (deprecation+new_feature, important, 88%):** DSA deprecated → AI Max GA (сентябрь 2026 - автоматический апгрейд). AI Max вышел из беты, +7% конверсий при полном suite (search term matching + text customization + final URL expansion). Добровольный апгрейд доступен сейчас, обязательный - сентябрь 2026.
-  - `knowledge/google-ads/campaigns/ai-max-for-search-campaigns.md` (обновлен: таблица DSA vs AI Max, таймлайн миграции, реализация)
-  - `agents/contextologist/skill.md` (обновлена строка AI Max: GA статус, дедлайн DSA, +7% метрика, text guidelines)
+- **Google (Demand Gen, 85%):** Commerce Media Suite integration + VTC optimization для YouTube -> `knowledge/google-ads/campaigns/demand-gen-campaigns.md` (обновлен раздел апрель 2026)
+- **Google (Ads Advisor, 88%):** 3 новые функции безопасности - Proactive Troubleshooting, 24/7 Security Monitoring, Instant Certifications -> `knowledge/google-ads/explore-features/ads-advisor-safety-features.md` (создан)
+- **Yandex (ПромоСтраницы, 90%):** инструменты совместной работы - шеринг черновика, ветки комментариев, сравнение версий, AI-переписывание -> `knowledge/yandex-direct-course/promostranicy-collaboration-tools.md` (создан)
+- **Yandex (YCP/Ритм, 90%):** кнопка «Купить в 1 клик» теперь доступна в ленте Яндекс Ритма (тест, апрель 2026), конверсия x7 vs обычных постов -> `knowledge/yandex-direct-course/yandex-commerce-protocol-ycp.md` (обновлен)
 
-- **Yandex (new_feature, informational, 87%):** AI-генератор статей в ПромоСтраницах (Alice AI, Ya.Cloud). Черновик за 10-20 мин по URL продукта. 5 целей продвижения. Актуально для TOFU/MOFU контента по недвижимости.
-  - `knowledge/yandex-direct-course/promostranicy-ai-article-generator.md` (создан)
+## Agent Updates
+
+- `agents/contextologist/skill.md` - добавлена ссылка на ads-advisor-safety-features.md
 
 ## Notify Only
 
-- **Google:** Gemini Ads Safety Report 2025 - статистика безопасности, нет изменений для рекламодателей
-- **Yandex:** Яндекс Тег Менеджер - новые возможности панели отладки (no matching KB path in whitelist)
+- **Google:** "There's a new playbook for partnering with creators" - подкаст-эпизод без новых деталей функций (YouTube Creator Partnerships уже задокументированы в demand-gen-campaigns.md)
+- **Yandex:** "Реклама в телеграм-каналах через Директ по-прежнему доступна" - рыночный апдейт: ФАС подтвердил - без ответственности до конца 2026, CTR 0.22% (+10%), CPC 95 руб (-5%), 72.2M DAU в марте. Spec changes отсутствуют.
 
 ## Skipped
 
-- Adfox ЕРИР reporting - инструмент для издателей, не для ad campaigns
-- Яндекс Товары (сравнение цен) - e-commerce, не релевантно для недвижимости
-- Яндекс Товары (отзывы) - e-commerce, не релевантно
+- **Google:** "3 easy ways to shop for spring" - потребительский контент (Circle to Search, AI Mode, virtual try-on), не относится к рекламным платформам
 
 ## Breaking
 
-Нет критических изменений. Дедлайн для Google Ads (международные рынки): **сентябрь 2026** - автоматический апгрейд DSA → AI Max.
+Нет критических изменений. Все обновления - informational.
 
-Commit: 3030f1c
+Commit: 5e08818

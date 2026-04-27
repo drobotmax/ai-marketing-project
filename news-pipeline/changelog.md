@@ -22,7 +22,7 @@ Append-only log of all knowledge base changes made by the automated news pipelin
 **Changes:**
 - `knowledge/yandex-direct-course/yandex-commerce-protocol-ycp.md` - добавлена поверхность Яндекс Ритм: кнопка «Купить в 1 клик» теперь доступна в постах ленты на ya.ru (тестовый режим, апрель 2026), конверсия x7 vs обычных постов
 **Agents updated:** none
-**Commit:** TBD
+**Commit:** 5e08818
 
 ## 2026-04-27 | yandex new_feature
 **Source:** https://yandex.ru/adv/news/novye-instrumenty-dlya-sovmestnoy-raboty-nad-tekstom-v-redaktore-promostranits
@@ -31,7 +31,7 @@ Append-only log of all knowledge base changes made by the automated news pipelin
 **Changes:**
 - `knowledge/yandex-direct-course/promostranicy-collaboration-tools.md` - создан файл: инструменты совместной работы в редакторе ПромоСтраниц - шеринг черновика по ссылке, ветки комментариев, сравнение версий, AI-переписывание фрагментов
 **Agents updated:** none
-**Commit:** TBD
+**Commit:** 5e08818
 
 ## 2026-04-27 | google new_feature
 **Source:** https://blog.google/products/ads-commerce/ads-advisor-google-ads/
@@ -41,7 +41,7 @@ Append-only log of all knowledge base changes made by the automated news pipelin
 - `knowledge/google-ads/explore-features/ads-advisor-safety-features.md` - создан файл: 3 новые функции Ads Advisor - Proactive Troubleshooting (Real-Time Policy Reviews), 24/7 Security Monitoring (passkeys, security dashboard), Instant Certifications (Gemini, автосертификация)
 - `agents/contextologist/skill.md` - добавлена ссылка на ads-advisor-safety-features.md в раздел источников Google Ads
 **Agents updated:** contextologist
-**Commit:** TBD
+**Commit:** 5e08818
 
 ## 2026-04-27 | google new_feature
 **Source:** https://blog.google/products/ads-commerce/demand-gen-drop-april-2026/
@@ -50,7 +50,7 @@ Append-only log of all knowledge base changes made by the automated news pipelin
 **Changes:**
 - `knowledge/google-ads/campaigns/demand-gen-campaigns.md` - добавлен раздел «Новые возможности (апрель 2026)»: Demand Gen в Commerce Media Suite (first-party данные ритейлеров в Google Ads), VTC optimization для YouTube
 **Agents updated:** none (contextologist уже имеет ссылку на этот файл)
-**Commit:** TBD
+**Commit:** 5e08818
 
 ## 2026-04-20 | google deprecation+new_feature
 **Source:** https://blog.google/products/ads-commerce/dsa-upgrade-to-ai-max-2026/
