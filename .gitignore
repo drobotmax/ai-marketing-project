@@ -4,3 +4,8 @@
 __pycache__/
 node_modules/
 *.log
+
+# web-structure-methodology: heavy raw media stays local
+knowledge/web-structure-methodology/case-allex-villas/raw/videos/
+knowledge/web-structure-methodology/case-allex-villas/raw/audio/
+knowledge/web-structure-methodology/case-allex-villas/logs/
