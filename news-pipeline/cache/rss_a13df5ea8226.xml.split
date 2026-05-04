@@ -6,12 +6,113 @@
 <description>Google Ads &amp; Commerce</description>
 <atom:link href="https://blog.google/products/ads-commerce/rss/" rel="self"/>
 <language>en-us</language>
-<lastBuildDate>Thu, 23 Apr 2026 19:00:00 +0000</lastBuildDate>
+<lastBuildDate>Thu, 30 Apr 2026 13:00:00 +0000</lastBuildDate>
 <image>
 <url>https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Logo.max-80x80.format-webp.webp</url>
 <title>Google Ads &amp; Commerce</title>
 <link>https://blog.google/products/ads-commerce/</link>
 </image>
+<item>
+<title>Adapt your Shopping campaigns to modern Search with AI Max.</title>
+<link>https://blog.google/products/ads-commerce/ai-max-for-shopping/</link>
+<media:content height="540" medium="image" url="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Shopping_x_AI_Max_Road_to_GML_M.max-600x600.format-webp.webp" width="540"/>
+<description>&lt;img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Shopping_x_AI_Max_Road_to_GML_M.max-600x600.format-webp.webp"&gt;Built for the next generation of Search, AI Max for Shopping campaigns helps retailers reach shoppers the moment discovery begins.</description>
+<pubDate>Thu, 30 Apr 2026 13:00:00 +0000</pubDate>
+<guid>https://blog.google/products/ads-commerce/ai-max-for-shopping/</guid>
+<category>Google Ads</category>
+<og xmlns:og="http://ogp.me/ns#">
+<type>article</type>
+<title>Adapt your Shopping campaigns to modern Search with AI Max.</title>
+<description/>
+<site_name>Google</site_name>
+<url>https://blog.google/products/ads-commerce/ai-max-for-shopping/</url>
+</og>
+</item>
+<item>
+<title>Meet travelers in the moments that matter with Search Campaigns for Travel.</title>
+<link>https://blog.google/products/ads-commerce/ai-max-for-travel/</link>
+<media:content height="540" medium="image" url="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AI_Max_Travel_Hero_-_Bidding_2x.max-600x600.format-webp.webp" width="540"/>
+<description>&lt;img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AI_Max_Travel_Hero_-_Bidding_2x.max-600x600.format-webp.webp"&gt;Upgrade to AI Max to simplify your workflow and access our most advanced tools.</description>
+<pubDate>Thu, 30 Apr 2026 13:00:00 +0000</pubDate>
+<guid>https://blog.google/products/ads-commerce/ai-max-for-travel/</guid>
+<category>Google Ads</category>
+<og xmlns:og="http://ogp.me/ns#">
+<type>article</type>
+<title>Meet travelers in the moments that matter with Search Campaigns for Travel.</title>
+<description/>
+<site_name>Google</site_name>
+<url>https://blog.google/products/ads-commerce/ai-max-for-travel/</url>
+</og>
+</item>
+<item>
+<title>AI Max Turns 1 with new ways to steer performance and expansion to more advertisers</title>
+<link>https://blog.google/products/ads-commerce/ai-max-new-features/</link>
+<media:content height="540" medium="image" url="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AI_Max_Road_to_GML_Master-Heade.max-600x600.format-webp.webp" width="540"/>
+<media:description>"The Road to Google Marketing Live" surrounded by various shopping items</media:description>
+<description>&lt;img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AI_Max_Road_to_GML_Master-Heade.max-600x600.format-webp.webp"&gt;As AI Max turns 1, we’re helping you capture even more opportunities in the expanding Search universe.</description>
+<pubDate>Thu, 30 Apr 2026 13:00:00 +0000</pubDate>
+<guid>https://blog.google/products/ads-commerce/ai-max-new-features/</guid>
+<category>Google Ads</category>
+<og xmlns:og="http://ogp.me/ns#">
+<type>article</type>
+<title>AI Max Turns 1 with new ways to steer performance and expansion to more advertisers</title>
+<description>As AI Max turns 1, we’re helping you capture even more opportunities in the expanding Search universe.</description>
+<site_name>Google</site_name>
+<url>https://blog.google/products/ads-commerce/ai-max-new-features/</url>
+</og>
+<author xmlns:author="http://www.w3.org/2005/Atom">
+<name>Brandon Ervin</name>
+<title>Director of Product Management, Google Ads</title>
+<department/>
+<company/>
+</author>
+</item>
+<item>
+<title>We’re donating Agent Payments Protocol to the FIDO Alliance to support the future of secure, agentic payments.</title>
+<link>https://blog.google/products-and-platforms/platforms/google-pay/agent-payments-protocol-fido-alliance/</link>
+<media:content height="540" medium="image" url="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/26009_Google_Agentic_Thumbnail0.max-600x600.format-webp.webp" width="540"/>
+<description>&lt;img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/26009_Google_Agentic_Thumbnail0.max-600x600.format-webp.webp"&gt;Google donates the Agent Payments Protocol (AP2) to the FIDO Alliance to help secure the evolution of AI-driven commerce.</description>
+<pubDate>Tue, 28 Apr 2026 13:00:00 +0000</pubDate>
+<guid>https://blog.google/products-and-platforms/platforms/google-pay/agent-payments-protocol-fido-alliance/</guid>
+<category>Google Ads</category>
+<category>Google Pay</category>
+<og xmlns:og="http://ogp.me/ns#">
+<type>article</type>
+<title>We’re donating Agent Payments Protocol to the FIDO Alliance to support the future of secure, agentic payments.</title>
+<description/>
+<site_name>Google</site_name>
+<url>https://blog.google/products-and-platforms/platforms/google-pay/agent-payments-protocol-fido-alliance/</url>
+</og>
+<author xmlns:author="http://www.w3.org/2005/Atom">
+<name>Stavan Parikh</name>
+<title>VP/GM</title>
+<department>Payments</department>
+<company/>
+</author>
+</item>
+<item>
+<title>Albertsons Media Collective brings retail signals to YouTube with Google’s Commerce Media Suite.</title>
+<link>https://blog.google/products/marketingplatform/360/albertsons-google-commerce-media-suite/</link>
+<media:content height="540" medium="image" url="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Blog_social_share.max-600x600.format-webp.webp" width="540"/>
+<description>&lt;img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Blog_social_share.max-600x600.format-webp.webp"&gt;Supercharge performance across the shopper journey by connecting Albertsons data with Google’s AI and scale.</description>
+<pubDate>Mon, 27 Apr 2026 12:00:00 +0000</pubDate>
+<guid>https://blog.google/products/marketingplatform/360/albertsons-google-commerce-media-suite/</guid>
+<category>Google Marketing Platform</category>
+<category>Google Ads</category>
+<og xmlns:og="http://ogp.me/ns#">
+<type>article</type>
+<title>Albertsons Media Collective brings retail signals to YouTube with Google’s Commerce Media Suite.</title>
+<description/>
+<site_name>Google</site_name>
+<url>https://blog.google/products/marketingplatform/360/albertsons-google-commerce-media-suite/</url>
+</og>
+<author xmlns:author="http://www.w3.org/2005/Atom">
+<name>Marta Martinez</name>
+<title>Managing Director</title>
+<department>Google Marketing Platform</department>
+<company/>
+</author>
+</item>
 <item>
 <title>There's a new playbook for partnering with creators on marketing campaigns.</title>
 <link>https://blog.google/products/ads-commerce/ads-decoded-podcast-creator-marketing/</link>
@@ -335,112 +436,6 @@
 <name>Dr. Susan Thomas</name>
 <title>Director</title>
 <department>Google for Health</department>
-<company/>
-</author>
-</item>
-<item>
-<title>Ads Decoded episode 4 explores how to fuel your bidding and budgeting for better campaign performance.</title>
-<link>https://blog.google/products/ads-commerce/bidding-and-budgeting-with-ai/</link>
-<media:content height="540" medium="image" url="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/S1E4.max-600x600.format-webp.webp" width="540"/>
-<description>&lt;img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/S1E4.max-600x600.format-webp.webp"&gt;Ads Decoded features a conversation on bidding and budgeting with product managers Kristina Park and Carlo Buchmann.</description>
-<pubDate>Wed, 11 Mar 2026 13:00:00 +0000</pubDate>
-<guid>https://blog.google/products/ads-commerce/bidding-and-budgeting-with-ai/</guid>
-<category>Google Ads</category>
-<og xmlns:og="http://ogp.me/ns#">
-<type>article</type>
-<title>Ads Decoded episode 4 explores how to fuel your bidding and budgeting for better campaign performance.</title>
-<description/>
-<site_name>Google</site_name>
-<url>https://blog.google/products/ads-commerce/bidding-and-budgeting-with-ai/</url>
-</og>
-</item>
-<item>
-<title>Ask a Techspert: How does AI understand my visual searches?</title>
-<link>https://blog.google/company-news/inside-google/googlers/how-google-ai-visual-search-works/</link>
-<media:content height="540" medium="image" url="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Fan_out_query_hero.max-600x600.format-webp.webp" width="540"/>
-<media:description>Mobile phone with a search bar that says "Ask anything"</media:description>
-<description>&lt;img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Fan_out_query_hero.max-600x600.format-webp.webp"&gt;Learn more about AI Mode in Search’s query fan-out method for visual search.</description>
-<pubDate>Thu, 05 Mar 2026 18:00:00 +0000</pubDate>
-<guid>https://blog.google/company-news/inside-google/googlers/how-google-ai-visual-search-works/</guid>
-<category>Search</category>
-<category>Shopping</category>
-<category>Ask a Techspert</category>
-<category>AI</category>
-<og xmlns:og="http://ogp.me/ns#">
-<type>article</type>
-<title>Ask a Techspert: How does AI understand my visual searches?</title>
-<description>Learn more about AI Mode in Search’s query fan-out method for visual search.</description>
-<site_name>Google</site_name>
-<url>https://blog.google/company-news/inside-google/googlers/how-google-ai-visual-search-works/</url>
-</og>
-<author xmlns:author="http://www.w3.org/2005/Atom">
-<name>Molly McHugh-Johnson</name>
-<title>Contributor</title>
-<department>The Keyword</department>
-<company/>
-</author>
-</item>
-<item>
-<title>VRC Non-Skip ads are now generally available, allowing brands to reach TV audiences with Google AI.</title>
-<link>https://blog.google/products/ads-commerce/vrc-non-skip-ads-generally-available/</link>
-<media:content height="540" medium="image" url="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Brand-NS_1920x1080.max-600x600.format-webp.webp" width="540"/>
-<description>&lt;img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Brand-NS_1920x1080.max-600x600.format-webp.webp"&gt;VRC Non-Skip ads are now generally available globally in Google Ads and Display &amp; Video 360.</description>
-<pubDate>Mon, 02 Mar 2026 20:00:00 +0000</pubDate>
-<guid>https://blog.google/products/ads-commerce/vrc-non-skip-ads-generally-available/</guid>
-<category>Google Ads</category>
-<category>YouTube</category>
-<og xmlns:og="http://ogp.me/ns#">
-<type>article</type>
-<title>VRC Non-Skip ads are now generally available, allowing brands to reach TV audiences with Google AI.</title>
-<description/>
-<site_name>Google</site_name>
-<url>https://blog.google/products/ads-commerce/vrc-non-skip-ads-generally-available/</url>
-</og>
-</item>
-<item>
-<title>We’re expanding beta access to text guidelines for all advertisers globally in AI Max.</title>
-<link>https://blog.google/products/ads-commerce/text-guidelines-beta-global-expansion/</link>
-<media:content height="540" medium="image" url="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Hero_Static_Option3.max-600x600.format-webp.webp" width="540"/>
-<description>&lt;img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Hero_Static_Option3.max-600x600.format-webp.webp"&gt;AI-powered creatives are essential for staying relevant in today’s complex search landscape, but above all they must meet your brand standards. That’s why we’re expandin…</description>
-<pubDate>Thu, 26 Feb 2026 14:00:00 +0000</pubDate>
-<guid>https://blog.google/products/ads-commerce/text-guidelines-beta-global-expansion/</guid>
-<category>Google Ads</category>
-<og xmlns:og="http://ogp.me/ns#">
-<type>article</type>
-<title>We’re expanding beta access to text guidelines for all advertisers globally in AI Max.</title>
-<description/>
-<site_name>Google</site_name>
-<url>https://blog.google/products/ads-commerce/text-guidelines-beta-global-expansion/</url>
-</og>
-<author xmlns:author="http://www.w3.org/2005/Atom">
-<name>Rushil Grover</name>
-<title>Group Product Manager</title>
-<department>Google Ads</department>
-<company/>
-</author>
-</item>
-<item>
-<title>See the whole picture and find the look with Circle to Search</title>
-<link>https://blog.google/products-and-platforms/products/search/circle-to-search-february-2026/</link>
-<media:content height="540" medium="image" url="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/FTL__Try_On_Blog_header.max-600x600.format-webp.webp" width="540"/>
-<media:description>Google Search interface featuring AI-powered tools including an "AI Overview" that breaks down an outfit's components and a virtual "Try it on" button that visualizes apparel on diverse body types.</media:description>
-<description>&lt;img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/FTL__Try_On_Blog_header.max-600x600.format-webp.webp"&gt;We’ve updated Circle to Search so you can now explore multiple items in a single image.</description>
-<pubDate>Wed, 25 Feb 2026 18:00:00 +0000</pubDate>
-<guid>https://blog.google/products-and-platforms/products/search/circle-to-search-february-2026/</guid>
-<category>Search</category>
-<category>Shopping</category>
-<category>AI</category>
-<og xmlns:og="http://ogp.me/ns#">
-<type>article</type>
-<title>See the whole picture and find the look with Circle to Search</title>
-<description>We’ve updated Circle to Search so you can now explore multiple items in a single image.</description>
-<site_name>Google</site_name>
-<url>https://blog.google/products-and-platforms/products/search/circle-to-search-february-2026/</url>
-</og>
-<author xmlns:author="http://www.w3.org/2005/Atom">
-<name>Harsh Kharbanda</name>
-<title>Director, Product Management, Search</title>
-<department/>
 <company/>
 </author>
 </item>
