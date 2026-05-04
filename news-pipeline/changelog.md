@@ -15,6 +15,33 @@ Append-only log of all knowledge base changes made by the automated news pipelin
 **Commit:** [hash]
 -->
 
+## 2026-05-04 | google new_feature
+**Source:** https://blog.google/products/ads-commerce/ai-max-new-features/
+**Classification:** new_feature (confidence: 85%)
+**Urgency:** informational
+**Changes:**
+- `knowledge/google-ads/campaigns/ai-max-2026-updates.md` - создан файл: AI Max расширен на Shopping и Travel (апрель 2026); новый инструмент AI Brief (Messaging/Matching/Audience Guidelines); text disclaimers для Final URL Expansion в regulated industries
+**Agents updated:** none
+**Commit:** pending
+
+## 2026-05-04 | yandex new_feature
+**Source:** https://yandex.ru/adv/news/ot-optimizacii-teksta-pod-zapros-k-polnocennoj-personalizacii
+**Classification:** new_feature (confidence: 90%)
+**Urgency:** important
+**Changes:**
+- `knowledge/yandex-direct-course/personalizatsiya-obyavleniy-2026.md` - создан файл: «Оптимизация текста под запрос» переименована в «Персонализацию» и существенно обновлена - реальное время vs офлайн, поддержка товарных объявлений и каталогов, прирост конверсий +12% vs +5% ранее; фразы-исключения для защиты бренда; доступна в ЕПК и Мастере кампаний
+**Agents updated:** none
+**Commit:** pending
+
+## 2026-05-04 | yandex new_feature
+**Source:** https://yandex.ru/adv/news/dannye-ob-in-app-konversiyah-teper-v-issledovanii-target-lift
+**Classification:** new_feature (confidence: 90%)
+**Urgency:** informational
+**Changes:**
+- `knowledge/yandex-direct-course/target-lift-inapp-konversii-2026.md` - создан файл: Target Lift теперь учитывает in-app конверсии (AppMetrica, Adjust, AppsFlyer); +60% исследований со значимыми приростами для app-бизнесов; требование передачи статистики по всем источникам в Adjust/AppsFlyer
+**Agents updated:** none
+**Commit:** pending
+
 ## 2026-04-27 | yandex new_feature
 **Source:** https://yandex.ru/adv/news/knopka-kupit-v-1-klik-teper-v-lente-ritma
 **Classification:** new_feature (confidence: 90%)
